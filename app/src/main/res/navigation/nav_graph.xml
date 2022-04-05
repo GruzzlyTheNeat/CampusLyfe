@@ -10,4 +10,14 @@
         android:name="com.example.campuslyfe.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/ayarlarFragment"
+        android:name="com.example.campuslyfe.AyarlarFragment"
+        android:label="fragment_ayarlar"
+        tools:layout="@layout/fragment_ayarlar" />
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.campuslyfe.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
 </navigation>
