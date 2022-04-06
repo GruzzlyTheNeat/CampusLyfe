@@ -1,4 +1,4 @@
-package com.example.campuslyfe
+package com.example.campuslyfe.fragment.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.cardview.widget.CardView
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
+import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentMainBinding
 
 
@@ -18,10 +21,11 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentMainBinding.inflate(inflater,container,false)
-        val buttonEtkinlik : CardView = binding.cardView1
+        val buttonHarita : CardView = binding.cardViewHarita
 
-        buttonEtkinlik.setOnClickListener {
-            println("basıldı")
+        buttonHarita.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_signInActivity)
+
         }
         return binding.root
     }

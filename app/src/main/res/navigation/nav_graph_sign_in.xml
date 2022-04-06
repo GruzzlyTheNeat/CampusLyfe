@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_sign_in"
+    app:startDestination="@id/emailFragment">
+
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.example.campuslyfe.fragment.signIn.EmailFragment"
+        android:label="fragment_email"
+        tools:layout="@layout/fragment_email" >
+        <action
+            android:id="@+id/action_emailFragment_to_signInPasswordFragment"
+            app:destination="@id/signInPasswordFragment" />
+        <action
+            android:id="@+id/action_emailFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/signInPasswordFragment"
+        android:name="com.example.campuslyfe.fragment.signIn.SignInPasswordFragment"
+        android:label="fragment_sign_in_password"
+        tools:layout="@layout/fragment_sign_in_password" >
+        <argument
+            android:name="eMail"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.campuslyfe.fragment.signIn.SignUpPasswordFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+
+    </fragment>
+</navigation>

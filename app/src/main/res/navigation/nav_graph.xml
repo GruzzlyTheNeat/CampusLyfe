@@ -7,17 +7,26 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.campuslyfe.MainFragment"
+        android:name="com.example.campuslyfe.fragment.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_signInActivity"
+            app:destination="@id/signInActivity" />
+    </fragment>
     <fragment
         android:id="@+id/ayarlarFragment"
-        android:name="com.example.campuslyfe.AyarlarFragment"
+        android:name="com.example.campuslyfe.fragment.main.AyarlarFragment"
         android:label="fragment_ayarlar"
         tools:layout="@layout/fragment_ayarlar" />
     <fragment
         android:id="@+id/profilFragment"
-        android:name="com.example.campuslyfe.ProfilFragment"
+        android:name="com.example.campuslyfe.fragment.main.ProfilFragment"
         android:label="fragment_profil"
         tools:layout="@layout/fragment_profil" />
+    <activity
+        android:id="@+id/signInActivity"
+        android:name="com.example.campuslyfe.activity.SignInActivity"
+        android:label="activity_sign_in"
+        tools:layout="@layout/activity_sign_in" />
 </navigation>
