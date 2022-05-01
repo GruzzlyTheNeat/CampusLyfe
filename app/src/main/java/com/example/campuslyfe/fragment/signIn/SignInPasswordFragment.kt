@@ -6,26 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentSignInPasswordBinding
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
 class SignInPasswordFragment : Fragment() {
-    private lateinit var binding : FragmentSignInPasswordBinding
     private val args by navArgs<SignInPasswordFragmentArgs>()
     private lateinit var mAuth: FirebaseAuth
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentSignInPasswordBinding.inflate(inflater,container,false)
 
         mAuth = Firebase.auth
@@ -35,7 +29,7 @@ class SignInPasswordFragment : Fragment() {
             println(args.eMail)
             val eMail : String = args.eMail.trim()
             val password : String = binding.eTextSighInPassword.text.toString().trim()
-            SignIn(eMail,password)
+            signIn(eMail,password)
         }
         return binding.root
 
@@ -43,20 +37,18 @@ class SignInPasswordFragment : Fragment() {
 
     }
 
-    private fun SignIn(eMail: String, password : String){
+    private fun signIn(eMail: String, password : String){
         println("mfgdlşfgşldfg")
-            mAuth.signInWithEmailAndPassword(eMail,password).addOnCompleteListener(this.requireActivity(),
-                OnCompleteListener { task ->
-                    if (task.isSuccessful){
-                        println("succeed")
-                        val user = mAuth.currentUser
+            mAuth.signInWithEmailAndPassword(eMail,password).addOnCompleteListener(this.requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    println("succeed")
+                    val user = mAuth.currentUser
 
-                    }
-                    else{
-                        println(task.exception)
-                    }
+                } else {
+                    println(task.exception)
+                }
 
-                })
+            }
 
     }
 }

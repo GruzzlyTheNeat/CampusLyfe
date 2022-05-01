@@ -11,30 +11,24 @@ import com.example.campuslyfe.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    val navController: NavController by lazy { findNavController(R.id.fragmentContainerView2) }
+    private val navController: NavController by lazy { findNavController(R.id.fragmentContainerView2) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        binding.bottomNavigation.setupWithNavController(navController)
-        binding.bottomNavigation.setOnItemReselectedListener {
-            when(it.itemId){
-                R.id.mainFragment ->{
-                    navController.navigate(R.id.mainFragment)
-                }
-                R.id.profilFragment -> {
-                    navController.navigate(R.id.profilFragment)
-                }
-                R.id.ayarlarFragment ->{
-                    navController.navigate(R.id.ayarlarFragment)
-                }
+        binding.bottomNavigation.apply {
+            setupWithNavController(navController)
+            setOnItemReselectedListener { menuItem ->
+                navController.navigate(
+                    when (menuItem.itemId) {
+                        R.id.mainFragment -> R.id.mainFragment
+                        R.id.profilFragment -> R.id.profilFragment
+                        else -> R.id.ayarlarFragment
+                    }
+                )
             }
         }
-
-
-
-
 
     }
 

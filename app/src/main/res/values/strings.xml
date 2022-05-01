@@ -13,4 +13,16 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="giris_yap">Giriş Yap</string>
+    <string name="sifrenizi_giriniz">Şifrenizi Giriniz</string>
+    <string name="devam_et">Devam Et</string>
+    <string name="sifremi_unuttum">Şifremi Unuttum</string>
+    <string name="harita">HARİTA</string>
+    <string name="yemekhane">YEMEKHANE</string>
+    <string name="topluluklar">TOPLULUKLAR</string>
+    <string name="etkinlikler">ETKİNLİKLER</string>
+    <string name="anasayfa">Anasayfa</string>
+    <string name="e_mail_adresinizi_giriniz">E-Mail Adresinizi Giriniz</string>
+    <string name="bir_sifre_belirleyiniz">Bir Şifre Belirleyiniz</string>
+    <string name="kayit_ol">Kayıt Ol</string>
 </resources>

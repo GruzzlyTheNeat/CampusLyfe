@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.signIn.SignUpPasswordFragment"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kayıt Ol"
-        android:textSize="46dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginTop="120dp"
-        android:layout_gravity="center"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".fragment.signIn.SignUpPasswordFragment">
 
-        ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="120dp"
+                android:text="@string/kayit_ol"
+                android:textColor="@color/black"
+                android:textSize="46sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/eTextEMail"
-        android:layout_marginTop="30dp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/edit_text_e_mail"
-        android:layout_gravity="center"
-        android:hint="Bir Şifre Belirleyiniz"
-        android:gravity="center"
+            <EditText
+                android:id="@+id/eTextEMail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:gravity="center"
+                android:hint="@string/bir_sifre_belirleyiniz" />
 
-        />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="180dp"
+                android:backgroundTint="@color/lightblue"
+                android:text="@string/devam_et"
+                android:textColor="@color/black" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="180dp"
-        android:text="Devam Et"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/lightblue"
-        ></Button>
-
-</LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

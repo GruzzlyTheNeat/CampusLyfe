@@ -6,19 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentEmailBinding
-import com.example.campuslyfe.databinding.FragmentMainBinding
 
 class EmailFragment : Fragment() {
 
-    private lateinit var binding : FragmentEmailBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val binding = FragmentEmailBinding.inflate(inflater,container,false)
         val buttonGirisEmail : Button = binding.ButtondevamEtGiris
@@ -26,8 +22,7 @@ class EmailFragment : Fragment() {
 
         buttonGirisEmail.setOnClickListener {
             val action = EmailFragmentDirections.actionEmailFragmentToSignInPasswordFragment(binding.eTextEMail.text.toString())
-
-            Navigation.findNavController(binding.root).navigate(action)
+            findNavController().navigate(action)
         }
 
 //        buttonHarita.setOnClickListener {
