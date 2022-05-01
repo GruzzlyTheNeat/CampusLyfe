@@ -27,6 +27,9 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.action_mainFragment_to_signInActivity)
 
         }
+        binding.cardViewEtkinlik.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToEtkinliklerFragment())
+        }
         return binding.root
     }
 

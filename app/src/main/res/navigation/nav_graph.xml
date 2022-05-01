@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_signInActivity"
             app:destination="@id/signInActivity" />
+        <action
+            android:id="@+id/action_mainFragment_to_etkinliklerFragment"
+            app:destination="@id/etkinliklerFragment" />
     </fragment>
     <fragment
         android:id="@+id/ayarlarFragment"
@@ -29,4 +32,22 @@
         android:name="com.example.campuslyfe.activity.SignInActivity"
         android:label="activity_sign_in"
         tools:layout="@layout/activity_sign_in" />
+    <fragment
+        android:id="@+id/etkinliklerFragment"
+        android:name="com.example.campuslyfe.fragment.etkinlikler.EtkinliklerFragment"
+        android:label="EtkinliklerFragment"
+        tools:layout="@layout/fragment_etkinlikler">
+        <action
+            android:id="@+id/action_etkinliklerFragment_to_etkinlikDetayFragment"
+            app:destination="@id/etkinlikDetayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/etkinlikDetayFragment"
+        android:name="com.example.campuslyfe.fragment.etkinlikler.EtkinlikDetayFragment"
+        android:label="EtkinlikDetayFragment"
+        tools:layout="@layout/fragment_etkinlik_detay">
+        <argument
+            android:name="etkinlik"
+            app:argType="com.example.campuslyfe.model.Etkinlik" />
+    </fragment>
 </navigation>

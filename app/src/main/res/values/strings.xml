@@ -25,4 +25,11 @@
     <string name="e_mail_adresinizi_giriniz">E-Mail Adresinizi Giriniz</string>
     <string name="bir_sifre_belirleyiniz">Bir Şifre Belirleyiniz</string>
     <string name="kayit_ol">Kayıt Ol</string>
+    <string name="harita_kucuk">Harita</string>
+    <string name="yemekhane_kucuk">Yemekhane</string>
+    <string name="topluluklar_kucuk">Topluluklar</string>
+    <string name="etkinlikler_kucuk">Etkinlikler</string>
+    <string name="haritada_goster">Haritada Göster</string>
+    <string name="gelenler">Gelenler</string>
+
 </resources>

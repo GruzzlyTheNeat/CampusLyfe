@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="etkinlik"
+            type="com.example.campuslyfe.model.Etkinlik" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/eeeee"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="24dp"
+            android:paddingBottom="80dp">
+
+            <TextView
+                android:id="@+id/tvEtkinlikler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:gravity="center"
+                android:text="@{etkinlik.etkinlikAd}"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/etkinlikler_kucuk" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/darkblue"
+                app:layout_constraintTop_toBottomOf="@id/tvEtkinlikler" />
+
+            <ImageView
+                android:id="@+id/etkinlikPoster"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                android:src="@{etkinlik.etkinlikPoster}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                tools:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/etkinlikAciklama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{etkinlik.etkinlilkAciklama}"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikPoster"
+                tools:text="@string/etkinlikler_kucuk" />
+
+            <TextView
+                android:id="@+id/etkinlikAdres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{etkinlik.etkinlikAdres}"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikAciklama"
+                tools:text="@string/etkinlikler_kucuk" />
+
+            <TextView
+                android:id="@+id/etkinlikIletisim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@{etkinlik.etkinlikIletisimBilgisi}"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikAdres"
+                tools:text="@string/etkinlikler_kucuk" />
+
+            <TextView
+                android:id="@+id/etkinlikHaritadaGoster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/haritada_goster"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikIletisim" />
+
+            <TextView
+                android:id="@+id/etkinlikGelenler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/gelenler"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikHaritadaGoster" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
