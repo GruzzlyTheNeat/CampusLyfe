@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_etkinliklerFragment"
             app:destination="@id/etkinliklerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_clubFragment"
+            app:destination="@id/clubFragment" />
     </fragment>
     <fragment
         android:id="@+id/ayarlarFragment"
@@ -42,6 +45,14 @@
             app:destination="@id/etkinlikDetayFragment" />
     </fragment>
     <fragment
+        android:id="@+id/clubFragment"
+        android:name="com.example.campuslyfe.fragment.club.ClubFragment"
+        android:label="ClubFragment" >
+        <action
+            android:id="@+id/action_clubFragment_to_clubDetayFragment2"
+            app:destination="@id/clubDetayFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/etkinlikDetayFragment"
         android:name="com.example.campuslyfe.fragment.etkinlikler.EtkinlikDetayFragment"
         android:label="EtkinlikDetayFragment"
@@ -49,5 +60,15 @@
         <argument
             android:name="etkinlik"
             app:argType="com.example.campuslyfe.model.Etkinlik" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/clubDetayFragment"
+        android:name="com.example.campuslyfe.fragment.club.ClubDetayFragment"
+        android:label="fragment_club_detay"
+        tools:layout="@layout/fragment_club_detay" >
+        <argument
+            android:name="club"
+            app:argType="com.example.campuslyfe.model.Club" />
     </fragment>
 </navigation>

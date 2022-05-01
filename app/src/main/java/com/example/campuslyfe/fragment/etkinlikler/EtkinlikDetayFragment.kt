@@ -37,15 +37,5 @@ class EtkinlikDetayFragment : Fragment() {
         }.root
     }
 
-    fun createCountryPopupMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
-        menu.run {
-            add("data")
-            add("data")
-            setOnMenuItemClickListener {
-                it.isChecked = true
-                true
-            }
-            setGroupCheckable(0, true, true)
-        }
-    }
+
 }

@@ -21,10 +21,34 @@ class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListen
             lifecycleOwner = viewLifecycleOwner
 
             val etkinliklerDummyData = listOf(
-                Etkinlik("konser monser", "emre aydın konseri", "şelalenin arkası", "054635352523", R.drawable.ic_launcher_background),
-                Etkinlik("rektörle maç", "türkiye izlanda maçı", "şelalenin önü", "05055555555", R.drawable.ic_launcher_background),
-                Etkinlik("rektörle iftar", "açık büfe", "şelale", "0302402532", R.drawable.ic_launcher_background),
-                Etkinlik("rektörle sahur", "ücretsizdir", "şelale", "8042895223890", R.drawable.ic_launcher_background),
+                Etkinlik(
+                    "konser monser",
+                    "emre aydın konseri",
+                    "şelalenin arkası",
+                    "054635352523",
+                    R.drawable.ic_launcher_background
+                ),
+                Etkinlik(
+                    "rektörle maç",
+                    "türkiye izlanda maçı",
+                    "şelalenin önü",
+                    "05055555555",
+                    R.drawable.ic_launcher_background
+                ),
+                Etkinlik(
+                    "rektörle iftar",
+                    "açık büfe",
+                    "şelale",
+                    "0302402532",
+                    R.drawable.ic_launcher_background
+                ),
+                Etkinlik(
+                    "rektörle sahur",
+                    "ücretsizdir",
+                    "şelale",
+                    "8042895223890",
+                    R.drawable.ic_launcher_background
+                ),
                 Etkinlik(
                     "bahar şenliği",
                     "aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama aşırı uzun açıklama ",
@@ -32,7 +56,13 @@ class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListen
                     "telno",
                     R.drawable.ic_launcher_background
                 ),
-                Etkinlik("etkinlik adı", "etkinlkik", "şelale", "telefon", R.drawable.ic_launcher_background),
+                Etkinlik(
+                    "etkinlik adı",
+                    "etkinlkik",
+                    "şelale",
+                    "telefon",
+                    R.drawable.ic_launcher_background
+                ),
             )
             rvEtkinlikler.adapter =
                 EtkinliklerAdapter(etkinliklerDummyData, requireContext(), this@EtkinliklerFragment)
@@ -45,5 +75,5 @@ class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListen
                 etkinlik
             )
         )
-    }
+   }
 }

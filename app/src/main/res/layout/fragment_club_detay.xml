@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragment.club.ClubDetayFragment"
+            android:orientation="vertical"
+            android:background="@color/eeeee"
+            >
+            <TextView
+                android:id="@+id/clubName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="Kulüp 90"
+                android:textColor="@color/black"
+                android:textSize="46sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider_overview"
+                android:layout_width="350dp"
+                android:layout_height="6dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/incehat" />
+
+            <ImageView
+                android:id="@+id/ClubPoster"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"
+                tools:src="@mipmap/ic_launcher"/>
+
+
+            <TextView
+                android:id="@+id/ClubAciklama"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+
+                android:layout_gravity="center"
+                android:padding="25dp"
+                android:textColor="@color/black"
+                android:text="yaz"
+                android:textSize="12sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/ClubAdress"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:layout_gravity="center"
+                android:padding="25dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+
+                />
+
+
+            <TextView
+                android:id="@+id/ClubIletisimBilgileri"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="25dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/ClubHarita"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="25dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="Haritada Göster"
+
+                />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
