@@ -25,4 +25,18 @@
     <string name="e_mail_adresinizi_giriniz">E-Mail Adresinizi Giriniz</string>
     <string name="bir_sifre_belirleyiniz">Bir Şifre Belirleyiniz</string>
     <string name="kayit_ol">Kayıt Ol</string>
+    <string-array name="yemekhane">
+        <item>Yemekhane 1</item>
+        <item>Yemekhane 2</item>
+        <item>Yemekhane 3</item>
+    </string-array>
+    <string-array name="haftalık_günler">
+        <item>Pazartesi</item>
+        <item>Salı</item>
+        <item>Çarşamba</item>
+        <item>Perşembe</item>
+        <item>Cuma</item>
+        <item>Cumartesi</item>
+        <item>Pazar</item>
+    </string-array>
 </resources>

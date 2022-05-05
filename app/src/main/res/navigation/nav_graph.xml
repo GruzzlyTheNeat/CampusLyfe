@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_signInActivity"
             app:destination="@id/signInActivity" />
+        <action
+            android:id="@+id/action_mainFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
     </fragment>
     <fragment
         android:id="@+id/ayarlarFragment"
@@ -29,4 +32,9 @@
         android:name="com.example.campuslyfe.activity.SignInActivity"
         android:label="activity_sign_in"
         tools:layout="@layout/activity_sign_in" />
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.example.campuslyfe.fragment.main.FoodFragment"
+        android:label="fragment_food"
+        tools:layout="@layout/fragment_food" />
 </navigation>
