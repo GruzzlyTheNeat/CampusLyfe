@@ -23,9 +23,9 @@ class ClubFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentClubBinding.inflate(inflater,container,false)
         val clubList = listOf(
-            Club(R.drawable.ic_baseline_apps_24, "Kulüp1","Açıklama1" , "Adres1","Contact1"),
-            Club(R.drawable.ic_baseline_apps_24, "Kulüp2","Açıklama2" , "Adres2","Contact2"),
-            Club(R.drawable.ic_baseline_apps_24, "Kulüp3","Açıklama3" , "Adres3","Contact3")
+            Club(R.drawable.ic_baseline_apps_24, "Kulüp1","Açıklama1" , "Adres1","Contact1","Müze"),
+            Club(R.drawable.ic_baseline_apps_24, "Kulüp2","Açıklama2" , "Adres2","Contact2","Müze"),
+            Club(R.drawable.ic_baseline_apps_24, "Kulüp3","Açıklama3" , "Adres3","Contact3","Müze")
 
 
 

@@ -22,13 +22,10 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentMainBinding.inflate(inflater,container,false)
         val buttonHarita : CardView = binding.cardViewHarita
+        val buttonClub : CardView = binding.cardViewTopluluk
 
         buttonHarita.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_signInActivity)
-
-        }
-        buttonFood.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToFoodFragment())
+            findNavController().navigate(R.id.action_mainFragment_to_haritaFragment)
 
         }
         binding.cardViewEtkinlik.setOnClickListener {

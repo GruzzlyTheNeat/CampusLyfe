@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_to_clubFragment"
             app:destination="@id/clubFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_haritaFragment"
+            app:destination="@id/haritaFragment" />
     </fragment>
     <fragment
         android:id="@+id/ayarlarFragment"
@@ -35,4 +38,52 @@
         android:name="com.example.campuslyfe.activity.SignInActivity"
         android:label="activity_sign_in"
         tools:layout="@layout/activity_sign_in" />
+    <fragment
+        android:id="@+id/etkinliklerFragment"
+        android:name="com.example.campuslyfe.fragment.etkinlikler.EtkinliklerFragment"
+        android:label="EtkinliklerFragment"
+        tools:layout="@layout/fragment_etkinlikler">
+        <action
+            android:id="@+id/action_etkinliklerFragment_to_etkinlikDetayFragment"
+            app:destination="@id/etkinlikDetayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubFragment"
+        android:name="com.example.campuslyfe.fragment.club.ClubFragment"
+        android:label="ClubFragment" >
+        <action
+            android:id="@+id/action_clubFragment_to_clubDetayFragment2"
+            app:destination="@id/clubDetayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/etkinlikDetayFragment"
+        android:name="com.example.campuslyfe.fragment.etkinlikler.EtkinlikDetayFragment"
+        android:label="EtkinlikDetayFragment"
+        tools:layout="@layout/fragment_etkinlik_detay">
+        <argument
+            android:name="etkinlik"
+            app:argType="com.example.campuslyfe.model.Etkinlik" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/clubDetayFragment"
+        android:name="com.example.campuslyfe.fragment.club.ClubDetayFragment"
+        android:label="fragment_club_detay"
+        tools:layout="@layout/fragment_club_detay" >
+        <argument
+            android:name="club"
+            app:argType="com.example.campuslyfe.model.Club" />
+    </fragment>
+    <fragment
+        android:id="@+id/haritaFragment"
+        android:name="com.example.campuslyfe.fragment.harita.HaritaFragment"
+        android:label="fragment_harita"
+        tools:layout="@layout/fragment_harita" >
+        <action
+            android:id="@+id/action_haritaFragment_to_etkinlikDetayFragment"
+            app:destination="@id/etkinlikDetayFragment" />
+        <action
+            android:id="@+id/action_haritaFragment_to_clubDetayFragment"
+            app:destination="@id/clubDetayFragment" />
+    </fragment>
 </navigation>

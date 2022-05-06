@@ -12,6 +12,7 @@
             android:layout_height="match_parent"
             tools:context=".fragment.club.ClubDetayFragment"
             android:orientation="vertical"
+            android:paddingBottom="80dp"
             android:background="@color/eeeee"
             >
             <TextView
