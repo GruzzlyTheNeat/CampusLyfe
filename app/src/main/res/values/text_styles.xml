@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Typography">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Typography.Caption" parent="Typography">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="Typography.Bold" parent="Typography">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Typography.Bold.Title" parent="Typography.Bold">
+        <item name="android:textSize">44sp</item>
+    </style>
+
+    <style name="Typography.Bold.SubTitle" parent="Typography.Bold">
+        <item name="android:textSize">35sp</item>
+    </style>
+
+</resources>

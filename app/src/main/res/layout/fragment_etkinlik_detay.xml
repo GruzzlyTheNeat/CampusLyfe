@@ -24,38 +24,37 @@
 
             <TextView
                 android:id="@+id/tvEtkinlikler"
+                style="@style/Typography.Bold.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="50dp"
                 android:gravity="center"
                 android:text="@{etkinlik.etkinlikAd}"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
-                 />
+                tools:text="Etkinlik adı" />
 
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/darkblue"
+                android:layout_height="6dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/incehat"
                 app:layout_constraintTop_toBottomOf="@id/tvEtkinlikler" />
 
             <ImageView
                 android:id="@+id/etkinlikPoster"
                 android:layout_width="120dp"
                 android:layout_height="180dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:src="@{etkinlik.etkinlikPoster}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider"
-                tools:src="@mipmap/ic_launcher"/>
+                tools:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/etkinlikAciklama"
+                style="@style/Typography.Bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -63,14 +62,12 @@
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="@{etkinlik.etkinlilkAciklama}"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/etkinlikPoster"
-                 />
+                tools:text="Etkinlik açıklama" />
 
             <TextView
                 android:id="@+id/etkinlikAdres"
+                style="@style/Typography.Bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -78,14 +75,11 @@
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="@{etkinlik.etkinlikAdres}"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/etkinlikAciklama"
-                />
+                app:layout_constraintTop_toBottomOf="@id/etkinlikAciklama" />
 
             <TextView
                 android:id="@+id/etkinlikIletisim"
+                style="@style/Typography.Bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -93,40 +87,32 @@
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="@{etkinlik.etkinlikIletisimBilgisi}"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/etkinlikAdres"
-                 />
+                app:layout_constraintTop_toBottomOf="@id/etkinlikAdres" />
 
             <TextView
                 android:id="@+id/etkinlikHaritadaGoster"
+                style="@style/Typography.Bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/button"
                 android:gravity="center"
                 android:padding="12dp"
-
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/etkinlikIletisim" />
 
             <TextView
                 android:id="@+id/etkinlikGelenler"
+                style="@style/Typography.Bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/button"
                 android:gravity="center"
                 android:padding="12dp"
-
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/etkinlikHaritadaGoster" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
+
 </layout>

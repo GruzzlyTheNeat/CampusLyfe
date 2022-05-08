@@ -3,87 +3,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/eeeee"
     tools:context=".fragment.main.FoodFragment">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/eeeee"
+        android:layout_marginHorizontal="24dp"
         android:orientation="vertical"
         tools:context=".fragment.main.MainFragment">
+
         <TextView
+            style="@style/Typography.Bold.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:text="Yemekhane"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="50dp"
+            android:text="Yemekhane" />
 
         <View
             android:id="@+id/divider_overview"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="6dp"
-            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/incehat" />
 
         <TextView
             android:id="@+id/textView2"
+            style="@style/Typography.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Yemekhane Seçiniz"
-            android:layout_marginHorizontal="60dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:text="Yemekhane Seçiniz" />
+
         <TextView
             android:id="@+id/textView3"
+            style="@style/Typography.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Gün Seçiniz"
-            android:layout_marginHorizontal="60dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:text="Gün Seçiniz" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="match_parent"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button"
+            android:padding="10dp"
             android:text="Yemek Gelsin!"
             android:textAlignment="center"
-            android:layout_marginHorizontal="120dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView5"
+            style="@style/Typography.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:textAlignment="center"
             android:text="Sabah: \n"
-            />
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textView6"
+            style="@style/Typography.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textAlignment="center"
             android:text="Öğlen: \n"
-            android:visibility="gone"/>
+            android:textAlignment="center"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView7"
+            style="@style/Typography.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textAlignment="center"
             android:text="Akşam: \n"
-            android:visibility="gone"/>
+            android:textAlignment="center"
+            android:visibility="gone" />
 
 
     </LinearLayout>

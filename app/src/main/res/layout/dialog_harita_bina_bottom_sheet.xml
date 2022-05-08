@@ -32,19 +32,19 @@
 
             <TextView
                 android:id="@+id/binaAdi"
+                style="@style/Typography.Bold.SubTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@{bina.binaAd}"
-                android:textSize="35sp"
                 tools:text="Bina Adı" />
 
             <TextView
+                style="@style/Typography.Bold.SubTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/etkinlikler_kucuk"
-                android:textSize="35sp" />
+                android:text="@string/etkinlikler_kucuk" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewEtkinlikPopUp"
@@ -56,11 +56,11 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
+                style="@style/Typography.Bold.SubTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/topluluklar_kucuk"
-                android:textSize="35sp" />
+                android:text="@string/topluluklar_kucuk" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewClubPopUp"
