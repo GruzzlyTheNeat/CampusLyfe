@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentSignInPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -26,10 +29,22 @@ class SignInPasswordFragment : Fragment() {
 
 
         binding.buttonDevamEtPassword.setOnClickListener {
-            println(args.eMail)
             val eMail : String = args.eMail.trim()
             val password : String = binding.eTextSighInPassword.text.toString().trim()
-            signIn(eMail,password)
+            mAuth.signInWithEmailAndPassword(eMail,password).addOnCompleteListener(this.requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    println("succeed")
+                    val user = mAuth.currentUser
+                    findNavController().navigate(R.id.action_signInPasswordFragment_to_mainActivity)
+
+                } else {
+                    Toast.makeText(requireContext(),"Bu bilgilere sahip kullanıcı bulunmamaktadır", Toast.LENGTH_LONG).show()
+                    println(task.exception)
+                }
+
+            }
+
+
         }
         return binding.root
 
@@ -39,16 +54,7 @@ class SignInPasswordFragment : Fragment() {
 
     private fun signIn(eMail: String, password : String){
         println("mfgdlşfgşldfg")
-            mAuth.signInWithEmailAndPassword(eMail,password).addOnCompleteListener(this.requireActivity()) { task ->
-                if (task.isSuccessful) {
-                    println("succeed")
-                    val user = mAuth.currentUser
 
-                } else {
-                    println(task.exception)
-                }
-
-            }
 
     }
 }

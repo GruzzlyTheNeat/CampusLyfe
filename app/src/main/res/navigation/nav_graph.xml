@@ -11,9 +11,6 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_signInActivity"
-            app:destination="@id/signInActivity" />
-        <action
             android:id="@+id/action_mainFragment_to_etkinliklerFragment"
             app:destination="@id/etkinliklerFragment" />
         <action
@@ -22,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_to_haritaFragment"
             app:destination="@id/haritaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
     </fragment>
     <fragment
         android:id="@+id/ayarlarFragment"
@@ -32,12 +32,17 @@
         android:id="@+id/profilFragment"
         android:name="com.example.campuslyfe.fragment.main.ProfilFragment"
         android:label="fragment_profil"
-        tools:layout="@layout/fragment_profil" />
-    <activity
-        android:id="@+id/signInActivity"
-        android:name="com.example.campuslyfe.activity.SignInActivity"
-        android:label="activity_sign_in"
-        tools:layout="@layout/activity_sign_in" />
+        tools:layout="@layout/fragment_profil" >
+        <action
+            android:id="@+id/action_profilFragment_to_profilUpdateFragment"
+            app:destination="@id/profilUpdateFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.campuslyfe.model.User"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+    </fragment>
     <fragment
         android:id="@+id/etkinliklerFragment"
         android:name="com.example.campuslyfe.fragment.etkinlikler.EtkinliklerFragment"
@@ -85,5 +90,19 @@
         <action
             android:id="@+id/action_haritaFragment_to_clubDetayFragment"
             app:destination="@id/clubDetayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.example.campuslyfe.fragment.main.FoodFragment"
+        android:label="fragment_food"
+        tools:layout="@layout/fragment_food" />
+    <fragment
+        android:id="@+id/profilUpdateFragment"
+        android:name="com.example.campuslyfe.fragment.ProfilUpdateFragment"
+        android:label="fragment_profil_update"
+        tools:layout="@layout/fragment_profil_update" >
+        <action
+            android:id="@+id/action_profilUpdateFragment_to_profilFragment"
+            app:destination="@id/profilFragment" />
     </fragment>
 </navigation>

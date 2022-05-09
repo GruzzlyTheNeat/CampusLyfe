@@ -5,18 +5,54 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.campuslyfe.R
+import com.example.campuslyfe.databinding.FragmentClubBinding
+import com.example.campuslyfe.databinding.FragmentClubDetayBinding
+import com.example.campuslyfe.databinding.FragmentSignUpBinding
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class SignUpPasswordFragment : Fragment() {
+    private lateinit var binding : FragmentSignUpBinding
+    private lateinit var mAuth : FirebaseAuth
+    private val args by navArgs<SignUpPasswordFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        val binding = FragmentSignUpBinding.inflate(inflater,container,false)
+        mAuth = Firebase.auth
+        binding.buttonKayitOl.setOnClickListener {
+            val password : String=  binding.eTextSignUpPassword.text.toString().trim()
+            val email : String = args.emailKayitOl.trim()
+            mAuth.createUserWithEmailAndPassword(
+                email,password
+            ).addOnCompleteListener(requireActivity(), OnCompleteListener {
+                if(it.isSuccessful){
+                    val user = mAuth.currentUser
+                    val userEmail = user!!.email.toString()
+                    findNavController().navigate(R.id.action_signUpFragment_to_mainActivity)
+                }
+                else{
+                    Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
+                }
+            })
+
+
+        }
+
+
+
+        return binding.root
     }
+
 
 
 }

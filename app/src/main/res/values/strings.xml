@@ -31,5 +31,9 @@
     <string name="etkinlikler_kucuk">Etkinlikler</string>
     <string name="haritada_goster">Haritada Göster</string>
     <string name="gelenler">Gelenler</string>
+    <string name="kaydet">Kaydet</string>
+
+    <string name="profil">Profil</string>
+    <string name="profi_update">Profili Güncelle</string>
 
 </resources>

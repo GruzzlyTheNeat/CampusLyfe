@@ -1,5 +1,6 @@
 package com.example.campuslyfe.data
 
+import com.example.campuslyfe.model.User
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.FirebaseDatabase
 import com.example.campuslyfe.model.Etkinlik as Etkinlik
@@ -32,6 +33,15 @@ class sendToDB {
     fun sendBina(binaSend: Bina){
         val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Binalar")
         database.child(binaSend.binaAd).setValue(binaSend).addOnSuccessListener {
+            print("Done")
+        }.addOnFailureListener{
+            print("Failed")
+        }
+    }
+
+    fun sendUser(userSend: User,uid : String){
+        val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
+        database.child(uid).setValue(userSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{
             print("Failed")

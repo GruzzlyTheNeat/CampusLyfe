@@ -3,12 +3,14 @@ package com.example.campuslyfe.data
 import com.example.campuslyfe.model.Etkinlik
 import com.example.campuslyfe.model.Club
 import com.example.campuslyfe.model.Bina
+import com.example.campuslyfe.model.User
 import com.google.firebase.database.FirebaseDatabase
 import com.google.android.gms.maps.model.LatLng
 
 
 class grabEtkinlik(){
     val databaseEtkinlik = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Etkinlikler")
+    val databaseProfil = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
     fun asList(){
 
     }
@@ -32,6 +34,7 @@ class grabEtkinlik(){
 
 
     }
+
 /*
 class grabBina(){
     val databaseBina = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Binalar")

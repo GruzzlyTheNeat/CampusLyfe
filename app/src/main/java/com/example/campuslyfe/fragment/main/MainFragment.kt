@@ -23,6 +23,7 @@ class MainFragment : Fragment() {
         val binding = FragmentMainBinding.inflate(inflater,container,false)
         val buttonHarita : CardView = binding.cardViewHarita
         val buttonClub : CardView = binding.cardViewTopluluk
+        val buttonYemek : CardView = binding.cardViewYemekhane
 
         buttonHarita.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_haritaFragment)
@@ -34,6 +35,10 @@ class MainFragment : Fragment() {
 
         buttonClub.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_clubFragment)
+        }
+
+        buttonYemek.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_foodFragment)
         }
 
 

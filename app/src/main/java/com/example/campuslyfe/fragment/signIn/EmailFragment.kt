@@ -18,17 +18,19 @@ class EmailFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentEmailBinding.inflate(inflater,container,false)
         val buttonGirisEmail : Button = binding.ButtondevamEtGiris
-//        val eMail : String = binding.eTextEMail.text.toString()
+        val buttonKayiyOl : Button = binding.ButtonKayTOl
 
         buttonGirisEmail.setOnClickListener {
             val action = EmailFragmentDirections.actionEmailFragmentToSignInPasswordFragment(binding.eTextEMail.text.toString())
             findNavController().navigate(action)
         }
+        buttonKayiyOl.setOnClickListener {
+            val action = EmailFragmentDirections.actionEmailFragmentToSignUpFragment(binding.eTextEMail.text.toString())
+            findNavController().navigate(action)
+        }
 
-//        buttonHarita.setOnClickListener {
-//            findNavController().navigate(R.id.action_mainFragment_to_signInActivity)
-//
-//        }
+
+
         return binding.root
     }
 

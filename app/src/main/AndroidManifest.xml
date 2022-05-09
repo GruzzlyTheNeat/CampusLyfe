@@ -28,14 +28,13 @@
             android:value="AIzaSyBPWTp_XbvKzKwLyH076BfZWvyaNe9PzvA" />
 
         <activity
-            android:name=".activity.SignInActivity"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

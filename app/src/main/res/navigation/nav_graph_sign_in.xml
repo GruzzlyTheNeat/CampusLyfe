@@ -26,6 +26,9 @@
         <argument
             android:name="eMail"
             app:argType="string" />
+        <action
+            android:id="@+id/action_signInPasswordFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
 
     <fragment
@@ -34,5 +37,16 @@
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
 
+        <action
+            android:id="@+id/action_signUpFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <argument
+            android:name="email_kayit_ol"
+            app:argType="string" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.campuslyfe.activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>
