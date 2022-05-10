@@ -10,7 +10,6 @@ import com.google.android.gms.maps.model.LatLng
 
 class grabEtkinlik(){
     val databaseEtkinlik = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Etkinlikler")
-    val databaseProfil = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
     fun asList(){
 
     }
@@ -34,6 +33,27 @@ class grabEtkinlik(){
 
 
     }
+
+//class grapProfil(){
+//    val databaseUser = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
+//    lateinit var user : User
+//    fun asOne(userId: String) : User{
+//        databaseUser.child(userId).get().addOnSuccessListener {
+//            if(it.exists()){
+//                val userAdSoyad = it.child("adSoyad").value.toString()
+//                val userBolum = it.child("bolum").value.toString()
+//                val userBilgi = it.child("bilgi").value.toString()
+//                val user = User(userAdSoyad,userBolum,userBilgi)
+//
+//            }else{
+//
+//
+//            }
+//        }
+//        return user
+//    }
+//
+//}
 
 /*
 class grabBina(){

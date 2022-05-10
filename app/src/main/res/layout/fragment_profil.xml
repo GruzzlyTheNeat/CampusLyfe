@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        >
+        android:background="@color/eeeee"
+        android:fillViewport="true">
+
         <LinearLayout
-            tools:context=".fragment.main.ProfilFragment"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/eeeee">
+            android:orientation="vertical"
+           tools:context=".fragment.profil.ProfilFragment">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -37,48 +36,60 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/eeeee"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:padding="5dp"
-                >
+                android:background="@color/eeeee"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfil"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="120dp"
+                    android:layout_height="125dp"
                     android:src="@drawable/ic_baseline_person_24"
-                    app:civ_border_color="@color/eeeee"
-                    />
+                    app:civ_border_color="@color/eeeee" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/eeeee"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Typography"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Ad Soyad"
+
+                        ></TextView>
+
                     <TextView
                         android:id="@+id/tvAdProfil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="Ad Soyad"
-                        android:textSize="24dp"
-                        android:textColor="@color/black"
-                        />
+                        android:layout_marginTop="5dp"
+                        style="@style/Typography" />
+                    <TextView
+                        style="@style/Typography"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Bölüm"
+
+                        ></TextView>
+
                     <TextView
                         android:id="@+id/tvBolumProfil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="20dp"
-                        android:text="Bölüm"
-                        android:textSize="24dp"
-                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        style="@style/Typography"
 
                         />
-
-
 
 
                 </LinearLayout>
@@ -89,30 +100,28 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/eeeee"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:padding="5dp"
-                >
+                android:background="@color/eeeee"
+                android:orientation="vertical"
+                android:padding="5dp">
+
                 <TextView
                     android:id="@+id/tvBilgiProfil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bilgi"
-                    android:textSize="24dp"
-                    android:textColor="@color/black"
+                    style="@style/Typography"
 
                     />
+
                 <TextView
                     android:id="@+id/tvBilgiGiris"
-                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="180dp"
-                    android:text="Bilgilerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
-                    android:textSize="24dp"
-                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    style="@style/Typography"
 
                     />
 

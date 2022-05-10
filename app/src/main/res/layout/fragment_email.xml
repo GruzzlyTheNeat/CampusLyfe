@@ -33,7 +33,8 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:gravity="center"
-                android:hint="@string/e_mail_adresinizi_giriniz" />
+                android:hint="@string/e_mail_adresinizi_giriniz"
+                android:textCursorDrawable="@drawable/cursor"/>
 
             <Button
                 android:id="@+id/ButtondevamEtGiris"

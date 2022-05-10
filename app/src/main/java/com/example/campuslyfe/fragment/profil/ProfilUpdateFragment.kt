@@ -1,4 +1,4 @@
-package com.example.campuslyfe.fragment
+package com.example.campuslyfe.fragment.profil
 
 import android.net.Uri
 import android.os.Bundle
@@ -6,20 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.R
 import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentProfilUpdateBinding
-import com.example.campuslyfe.databinding.FragmentSignUpBinding
-import com.example.campuslyfe.fragment.club.ClubFragmentDirections
-import com.example.campuslyfe.fragment.signIn.EmailFragmentDirections
 import com.example.campuslyfe.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 
 class ProfilUpdateFragment : Fragment() {
@@ -38,7 +32,7 @@ class ProfilUpdateFragment : Fragment() {
         val binding = FragmentProfilUpdateBinding.inflate(inflater, container, false)
         mAuth = FirebaseAuth.getInstance()
         val uid = mAuth.currentUser?.uid
-        //var database = FirebaseDatabase.getInstance().reference
+
 
         binding.ButtonKaydet.setOnClickListener {
             val adSoyad = binding.etAdSoyad.text.toString().trim()
@@ -49,29 +43,9 @@ class ProfilUpdateFragment : Fragment() {
             println("uid ${uid}")
 
             if (uid != null) {
-//                  databaseReference.child(uid).setValue(user)
-                val action =
-                    ProfilUpdateFragmentDirections.actionProfilUpdateFragmentToProfilFragment(
-                        user
-                    )
-                findNavController().navigate(action)
+                findNavController().navigate(R.id.action_profilUpdateFragment_to_profilFragment)
 
                 sendToDB().sendUser(user,uid.toString())
-//                databaseReference.child(uid).setValue(user).addOnSuccessListener {
-//                    println("user.adSoyad ${user.adSoyad}")
-//                    val action =
-//                        ProfilUpdateFragmentDirections.actionProfilUpdateFragmentToProfilFragment(
-//                            user
-//                        )
-//                    findNavController().navigate(action)
-//
-//
-//                    //findNavController().navigate(R.id.action_profilUpdateFragment_to_profilFragment)
-//
-//                }.addOnFailureListener {
-//
-//                    println(it)
-//                }
 
 
             }
@@ -82,9 +56,6 @@ class ProfilUpdateFragment : Fragment() {
         return binding.root
     }
 
-//    private fun uploadProfilePicture() {
-//        imageUri = Uri.parse()
-//    }
 
 
 }

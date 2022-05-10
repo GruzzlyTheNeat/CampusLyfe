@@ -30,17 +30,12 @@
         tools:layout="@layout/fragment_ayarlar" />
     <fragment
         android:id="@+id/profilFragment"
-        android:name="com.example.campuslyfe.fragment.main.ProfilFragment"
+        android:name="com.example.campuslyfe.fragment.profil.ProfilFragment"
         android:label="fragment_profil"
         tools:layout="@layout/fragment_profil" >
         <action
             android:id="@+id/action_profilFragment_to_profilUpdateFragment"
             app:destination="@id/profilUpdateFragment" />
-        <argument
-            android:name="user"
-            app:argType="com.example.campuslyfe.model.User"
-            app:nullable="true"
-            android:defaultValue="@null" />
 
     </fragment>
     <fragment
@@ -98,7 +93,7 @@
         tools:layout="@layout/fragment_food" />
     <fragment
         android:id="@+id/profilUpdateFragment"
-        android:name="com.example.campuslyfe.fragment.ProfilUpdateFragment"
+        android:name="com.example.campuslyfe.fragment.profil.ProfilUpdateFragment"
         android:label="fragment_profil_update"
         tools:layout="@layout/fragment_profil_update" >
         <action

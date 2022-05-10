@@ -31,7 +31,9 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:gravity="center"
-                android:hint="@string/bir_sifre_belirleyiniz" />
+                android:inputType="textPassword"
+                android:hint="@string/bir_sifre_belirleyiniz"
+                android:textCursorDrawable="@drawable/cursor"/>
 
             <Button
                 style="@style/Typography.Caption"
