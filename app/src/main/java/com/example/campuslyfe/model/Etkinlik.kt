@@ -5,10 +5,10 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Etkinlik(
-    val etkinlikAd: String,
-    val etkinlilkAciklama: String,
-    val etkinlikAdres: String,
-    val etkinlikIletisimBilgisi: String,
+    val etkinlikAd: String? = null,
+    val etkinlilkAciklama: String? = null,
+    val etkinlikAdres: String? = null,
+    val etkinlikIletisimBilgisi: String? = null,
     val etkinlikPoster: Int? = null
 
 ) : Parcelable

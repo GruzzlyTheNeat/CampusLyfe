@@ -8,11 +8,11 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Club (
 
-    val vektor : Int,
-    val name : String,
-    val discription : String,
-    val address : String,
-    val contactInformation : String,
-    val ClubAdres : String
+    val vektor : Int? = null,
+    val name : String? = null,
+    val discription : String? = null,
+    val address : String? = null,
+    val contactInformation : String? = null,
+    val ClubAdres : String? = null
 
 ) : Parcelable

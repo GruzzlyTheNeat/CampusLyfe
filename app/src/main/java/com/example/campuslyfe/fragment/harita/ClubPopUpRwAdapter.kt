@@ -22,7 +22,7 @@ class ClubPopUpRwAdapter(
 
     override fun onBindViewHolder(holder: ClubPopUpViewHolder, position: Int) {
         val currentItem = clubPopUpList[position]
-        holder.itemView.imageViewClubRow.setImageResource(currentItem.vektor)
+        holder.itemView.imageViewClubRow.setImageResource(currentItem.vektor.toString().toInt())
         holder.itemView.textViewClubRow.text = currentItem.name
         holder.itemView.rootView.setOnClickListener {
             listenerClubPopUp.onClubPopUpClick(currentItem)
