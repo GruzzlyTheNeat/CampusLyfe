@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/eeeee"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragment.admin.EtkinlikEkleFragment"
+            android:orientation="vertical"
+            android:paddingBottom="60dp"
+            >
+
+            <ImageView
+                android:id="@+id/imageViewAdminEtkinlikEkle"
+                android:layout_width="200dp"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_baseline_control_point_24"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center"
+                ></ImageView>
+
+            <TextView
+                android:id="@+id/tvEtkinlikAd"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Etkinliğin Adı"
+
+                />
+
+            <EditText
+                android:id="@+id/etEtkinlikAd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvIletisimBilgileriEtkinlik"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="İletişim Bilgileri"
+
+                />
+
+            <EditText
+                android:id="@+id/etIletisimBilgileriEtkinlik"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvEtkinlikBinaAd"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Etkinlik Yerinin Adı"
+
+                />
+
+            <EditText
+                android:id="@+id/etEtkinlikBinaAd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvEtkinlikLat"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Etkinlik Bina Latitude"
+
+                />
+
+            <EditText
+                android:id="@+id/etEtkinlikLat"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvEtkinlikLng"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Etkinlik Bina Longitute"
+
+                />
+
+            <EditText
+                android:id="@+id/etEtkinlikLng"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvEtkinlikAçiklama"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Etkinlik Açıklaması"
+
+                />
+
+            <EditText
+                android:id="@+id/etEtkinlikAciklama"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <Button
+                android:id="@+id/ButtonEtkinlikKaydet"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/lightblue"
+                android:text="@string/kaydet"
+                android:textColor="@color/black" />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

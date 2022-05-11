@@ -86,24 +86,24 @@ class grabClub(){
     fun asList(){
 
     }
-    fun asOne(clubAdTemp: String): Club{
-        lateinit var club: Club
-        databaseClub.child(clubAdTemp).get().addOnSuccessListener {
-            if(it.exists()){
-                val vektor = it.child("vektor").value.toString().toInt()
-                val name = it.child("name").value.toString()
-                val discription = it.child("discription").value.toString()
-                val address = it.child("address").value.toString()
-                val contactInformation = it.child("contactInformation").value.toString()
-                val ClubAdres = it.child("ClubAdres").value.toString()
-                club = Club(vektor, name, discription,address, contactInformation, ClubAdres)
-            }
-            else{
-
-            }
-        }
-        return club
-    }
+//    fun asOne(clubAdTemp: String): Club{
+//        lateinit var club: Club
+//        databaseClub.child(clubAdTemp).get().addOnSuccessListener {
+//            if(it.exists()){
+//                val vektor = it.child("vektor").value.toString().toInt()
+//                val name = it.child("name").value.toString()
+//                val discription = it.child("discription").value.toString()
+//                val address = it.child("address").value.toString()
+//                val contactInformation = it.child("contactInformation").value.toString()
+//                val ClubAdres = it.child("ClubAdres").value.toString()
+//                club = Club(vektor, name, discription,address, contactInformation, ClubAdres)
+//            }
+//            else{
+//
+//            }
+//        }
+//        return club
+//    }
 
 }
 

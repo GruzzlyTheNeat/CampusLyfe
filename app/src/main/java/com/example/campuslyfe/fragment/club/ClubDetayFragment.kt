@@ -22,9 +22,9 @@ class ClubDetayFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentClubDetayBinding.inflate(inflater,container,false)
         binding.clubName.text = navArgs.club.name
-        binding.ClubPoster.setImageResource(navArgs.club.vektor.toString().toInt())
+        //binding.ClubPoster.setImageResource(navArgs.club.vektor.toString().toInt())
         binding.ClubAciklama.text = navArgs.club.discription
-        binding.ClubAdress.text = navArgs.club.address
+        binding.ClubAdress.text = navArgs.club.binaAd
         binding.ClubIletisimBilgileri.text = navArgs.club.contactInformation
 
         return binding.root

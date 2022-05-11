@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/eeeee"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            tools:context=".fragment.admin.AdminKontrolFragment"
+            android:orientation="vertical"
+            >
+            <TextView
+                style="@style/Typography.Bold.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="@string/admin_islem" />
+
+            <View
+                android:id="@+id/divider_overview"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ince_hat_beyaz" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewToplulukEkle"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius = "10dp"
+                android:clickable="true"
+
+                android:backgroundTint="@color/white"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    ></LinearLayout>
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="20dp"
+android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_baseline_admin_panel_settings_24"
+                    ></ImageView>
+
+                <TextView
+                    style="@style/Typography.Bold.Admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="30dp"
+
+                    android:text="@string/topluluk_ekle"
+                     />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewEtkinlikEkle"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius = "10dp"
+                android:clickable="true"
+
+                android:backgroundTint="@color/white"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    ></LinearLayout>
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_baseline_admin_panel_settings_24"
+                    ></ImageView>
+
+                <TextView
+                    style="@style/Typography.Bold.Admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="30dp"
+
+                    android:text="@string/etkinlik_ekle"
+                    />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

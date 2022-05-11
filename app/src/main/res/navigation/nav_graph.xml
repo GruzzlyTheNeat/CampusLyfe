@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_mainFragment_to_foodFragment"
             app:destination="@id/foodFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_adminKontrolFragment"
+            app:destination="@id/adminKontrolFragment" />
     </fragment>
     <fragment
         android:id="@+id/ayarlarFragment"
@@ -99,5 +102,33 @@
         <action
             android:id="@+id/action_profilUpdateFragment_to_profilFragment"
             app:destination="@id/profilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminKontrolFragment"
+        android:name="com.example.campuslyfe.fragment.admin.AdminKontrolFragment"
+        android:label="AdminKontrolFragment" >
+        <action
+            android:id="@+id/action_adminKontrolFragment_to_toplulukEkleFragment"
+            app:destination="@id/toplulukEkleFragment" />
+        <action
+            android:id="@+id/action_adminKontrolFragment_to_etkinlikEkleFragment"
+            app:destination="@id/etkinlikEkleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toplulukEkleFragment"
+        android:name="com.example.campuslyfe.fragment.admin.ToplulukEkleFragment"
+        android:label="ToplulukEkleFragment" >
+        <action
+            android:id="@+id/action_toplulukEkleFragment_to_clubFragment"
+            app:destination="@id/clubFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/etkinlikEkleFragment"
+        android:name="com.example.campuslyfe.fragment.admin.EtkinlikEkleFragment"
+        android:label="fragment_etkinlik_ekle"
+        tools:layout="@layout/fragment_etkinlik_ekle" >
+        <action
+            android:id="@+id/action_etkinlikEkleFragment_to_etkinliklerFragment"
+            app:destination="@id/etkinliklerFragment" />
     </fragment>
 </navigation>

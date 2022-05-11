@@ -36,4 +36,10 @@
     <string name="profil">Profil</string>
     <string name="profi_update">Profili Güncelle</string>
 
+    <string name="admin_islem">ADMİN İŞLEMLERİ</string>
+    <string name="topluluk_ekle">TOPLULUK EKLE</string>
+    <string name="etkinlik_ekle">ETKİNLİK EKLE</string>
+    
+
+
 </resources>

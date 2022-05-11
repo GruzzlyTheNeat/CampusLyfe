@@ -11,9 +11,12 @@ import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 
 class MainFragment : Fragment() {
+    private lateinit var mAuth: FirebaseAuth
+
     private lateinit var binding : FragmentMainBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,9 +24,21 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentMainBinding.inflate(inflater,container,false)
+        mAuth = FirebaseAuth.getInstance()
+        val uid = mAuth.currentUser?.uid
         val buttonHarita : CardView = binding.cardViewHarita
         val buttonClub : CardView = binding.cardViewTopluluk
         val buttonYemek : CardView = binding.cardViewYemekhane
+        val buttonKontrol : CardView = binding.cardViewAyar
+
+        if(uid.equals("wMLfENqBlkaLnotsKx0vCDHPpPO2") || uid.equals("s8HhtmBCsuWq5yVyyWFkBydgg9F3")){
+            binding.linearLayoutKontrol.visibility = View.VISIBLE
+        }
+        if (uid.equals("FRGpzSl7TsZLJwK6F8fQzo4WPKz1")){
+            binding.linearLayoutKontrol.visibility = View.VISIBLE
+            binding.imageViewKontrol.setImageResource(R.drawable.ic_baseline_control_point_24)
+            binding.textViewKontrol.text = "Etkinlik İşlemleri"
+        }
 
         buttonHarita.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_haritaFragment)
@@ -39,6 +54,9 @@ class MainFragment : Fragment() {
 
         buttonYemek.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_foodFragment)
+        }
+        buttonKontrol.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_adminKontrolFragment)
         }
 
 

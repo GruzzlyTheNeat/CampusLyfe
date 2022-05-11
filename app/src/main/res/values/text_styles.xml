@@ -19,6 +19,10 @@
         <item name="android:textSize">44sp</item>
     </style>
 
+    <style name="Typography.Bold.Admin" parent="Typography.Bold">
+        <item name="android:textSize">24sp</item>
+    </style>
+
     <style name="Typography.Bold.SubTitle" parent="Typography.Bold">
         <item name="android:textSize">35sp</item>
     </style>

@@ -11,6 +11,7 @@ import com.example.campuslyfe.databinding.DialogHaritaBinaBottomSheetBinding
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Club
 import com.example.campuslyfe.model.Etkinlik
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -36,21 +37,24 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
                     "emre aydın konseri",
                     "şelalenin arkası",
                     "054635352523",
-                    R.drawable.ic_launcher_background
+                    R.drawable.ic_launcher_background,
+                    2.5,5.2
                 ),
                 Etkinlik(
                     "rektörle maç",
                     "türkiye izlanda maçı",
                     "şelalenin önü",
                     "05055555555",
-                    R.drawable.ic_launcher_background
+                    R.drawable.ic_launcher_background,
+                    2.5,5.2
                 ),
                 Etkinlik(
                     "rektörle iftar",
                     "açık büfe",
                     "şelale",
                     "0302402532",
-                    R.drawable.ic_launcher_background
+                    R.drawable.ic_launcher_background,
+                    2.5,5.2
                 )
             )
             val clubPopUpList = listOf(
@@ -60,15 +64,14 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
                     "Açıklama1",
                     "Adres1",
                     "Contact1",
-                    "Müze"
-                ),
+3.5,6.3                ),
                 Club(
                     R.drawable.ic_baseline_apps_24,
                     "Kulüp2",
                     "Açıklama2",
                     "Adres2",
                     "Contact2",
-                    "Müze"
+                    3.5,6.3
                 ),
                 Club(
                     R.drawable.ic_baseline_apps_24,
@@ -76,7 +79,7 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
                     "Açıklama3",
                     "Adres3",
                     "Contact3",
-                    "Müze"
+                    3.5,6.3
                 )
             )
 

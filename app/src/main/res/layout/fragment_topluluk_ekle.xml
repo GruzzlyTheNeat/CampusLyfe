@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/eeeee"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="24dp"
+            android:orientation="vertical"
+            android:paddingBottom="60dp"
+
+
+            >
+            <ImageView
+                android:id="@+id/imageViewAdminToplulukEkle"
+                android:layout_width="200dp"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_baseline_control_point_24"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center"
+                ></ImageView>
+
+            <TextView
+                android:id="@+id/tvToplulukAd"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Topluluğun Adı"
+
+                />
+
+            <EditText
+                android:id="@+id/etToplulukAd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvIletisimBilgileri"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="İletişim Bilgileri"
+
+                />
+
+            <EditText
+                android:id="@+id/etIletisimBilgileri"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvToplulukBinaAd"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Topluluk Binasının Adı"
+
+                />
+
+            <EditText
+                android:id="@+id/etToplulukBinaAd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvToplulukLat"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Topluluk Bina Latitude"
+
+                />
+
+            <EditText
+                android:id="@+id/etToplulukLat"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvToplulukLng"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Topluluk Bina Longitute"
+
+                />
+
+            <EditText
+                android:id="@+id/etToplulukLng"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <TextView
+                android:id="@+id/tvToplulukAçiklama"
+                style="@style/Typography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Topluluk Açıklaması"
+
+                />
+
+            <EditText
+                android:id="@+id/etToplulukAciklama"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_e_mail"
+                android:paddingStart="@dimen/cursor_padding_start"
+                android:textCursorDrawable="@drawable/cursor"/>
+
+            <Button
+                android:id="@+id/ButtonToplulukKaydet"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/lightblue"
+                android:text="@string/kaydet"
+                android:textColor="@color/black" />
+
+
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

@@ -8,6 +8,8 @@
     android:layout_marginBottom="5dp"
     app:cardCornerRadius="20dp">
 
+
+
     <LinearLayout
         android:id="@+id/rowLayout"
         android:layout_width="match_parent"

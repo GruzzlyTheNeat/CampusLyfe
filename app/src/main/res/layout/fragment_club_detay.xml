@@ -13,7 +13,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginHorizontal="24dp"
-            android:paddingBottom="80dp"
+            android:paddingBottom="100dp"
             tools:context=".fragment.club.ClubDetayFragment">
 
             <TextView
@@ -89,6 +89,8 @@
                 android:gravity="center"
                 android:padding="25dp"
                 android:text="Haritada Göster" />
+
+
 
         </LinearLayout>
 

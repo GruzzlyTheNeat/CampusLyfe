@@ -19,7 +19,7 @@ class ClubRwAdapter(private val clubList : List<Club>) : RecyclerView.Adapter<Cl
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = clubList[position]
-        holder.itemView.imageViewClubRow.setImageResource(currentItem.vektor.toString().toInt())
+        //holder.itemView.imageViewClubRow.setImageResource(currentItem.vektor!!)
         holder.itemView.textViewClubRow.text = currentItem.name
         holder.itemView.rootView.setOnClickListener {
             val action = ClubFragmentDirections.actionClubFragmentToClubDetayFragment2(currentItem)
