@@ -18,9 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class SignUpPasswordFragment : Fragment() {
-    private lateinit var binding: FragmentSignUpBinding
     private lateinit var mAuth: FirebaseAuth
-    private val args by navArgs<SignUpPasswordFragmentArgs>()
 
     private val signInSignUpViewModel by sharedViewModel<SignInSignUpViewModel>()
 
@@ -30,29 +28,27 @@ class SignUpPasswordFragment : Fragment() {
     ): View {
         val binding = FragmentSignUpBinding.inflate(inflater, container, false)
 
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = signInSignUpViewModel
-
         mAuth = Firebase.auth
-        binding.buttonKayitOl.setOnClickListener {
-            val password: String = binding.eTextSignUpPassword.text.toString().trim()
-            val email: String = args.emailKayitOl.trim()
-            mAuth.createUserWithEmailAndPassword(
-                email, password
-            ).addOnCompleteListener(requireActivity(), OnCompleteListener {
-                if (it.isSuccessful) {
-                    val user = mAuth.currentUser
-                    val userEmail = user!!.email.toString()
-                    findNavController().navigate(R.id.action_signUpFragment_to_mainActivity)
-                } else {
-                    Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
-                }
-            })
 
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = signInSignUpViewModel
+            buttonKayitOl.setOnClickListener {
+                val password: String = signInSignUpViewModel.password.value?.trim()!!
+                val email: String = signInSignUpViewModel.password.value?.trim()!!
 
+                mAuth.createUserWithEmailAndPassword(
+                    email, password
+                ).addOnCompleteListener(requireActivity(), OnCompleteListener {
+                    if (it.isSuccessful) {
+                        findNavController().navigate(R.id.action_signUpFragment_to_mainActivity)
+                    } else {
+                        Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
+                    }
+                })
+
+            }
         }
-
-
 
         return binding.root
     }

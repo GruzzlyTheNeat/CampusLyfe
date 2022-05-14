@@ -39,7 +39,7 @@
     <string name="admin_islem">ADMİN İŞLEMLERİ</string>
     <string name="topluluk_ekle">TOPLULUK EKLE</string>
     <string name="etkinlik_ekle">ETKİNLİK EKLE</string>
-    
+    <string name="l_tfen_ge_erli_bir_e_mail_adresi_giriniz">Lütfen geçerli bir e-mail adresi giriniz.</string>
 
 
 </resources>

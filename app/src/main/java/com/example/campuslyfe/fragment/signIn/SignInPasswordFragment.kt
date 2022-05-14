@@ -16,7 +16,6 @@ import com.google.firebase.ktx.Firebase
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SignInPasswordFragment : Fragment() {
-    private val args by navArgs<SignInPasswordFragmentArgs>()
     private lateinit var mAuth: FirebaseAuth
 
     private val signInSignUpViewModel by sharedViewModel<SignInSignUpViewModel>()
@@ -33,8 +32,8 @@ class SignInPasswordFragment : Fragment() {
         binding.viewModel = signInSignUpViewModel
 
         binding.buttonDevamEtPassword.setOnClickListener {
-            val eMail: String = args.eMail.trim()
-            val password: String = binding.eTextSighInPassword.text.toString().trim()
+            val eMail: String = signInSignUpViewModel.email.value?.trim()!!
+            val password: String = signInSignUpViewModel.password.value?.trim()!!
             mAuth.signInWithEmailAndPassword(eMail, password)
                 .addOnCompleteListener(this.requireActivity()) { task ->
                     if (task.isSuccessful) {

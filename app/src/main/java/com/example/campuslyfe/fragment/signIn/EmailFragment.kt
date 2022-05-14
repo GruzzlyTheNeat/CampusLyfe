@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.databinding.FragmentEmailBinding
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -18,29 +17,31 @@ class EmailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        val binding = FragmentEmailBinding.inflate(inflater, container, false)
-        val buttonGirisEmail: Button = binding.ButtondevamEtGiris
-        val buttonKayiyOl: Button = binding.ButtonKayTOl
 
-        binding.viewModel = signInSignUpViewModel
-        binding.lifecycleOwner = viewLifecycleOwner
+        return FragmentEmailBinding.inflate(inflater, container, false).apply {
+            viewModel = signInSignUpViewModel
+            lifecycleOwner = viewLifecycleOwner
 
-        buttonGirisEmail.setOnClickListener {
-            val action =
-                EmailFragmentDirections.actionEmailFragmentToSignInPasswordFragment(binding.eTextEMail.text.toString())
-            findNavController().navigate(action)
-        }
-        buttonKayiyOl.setOnClickListener {
-            val action =
-                EmailFragmentDirections.actionEmailFragmentToSignUpFragment(binding.eTextEMail.text.toString())
-            findNavController().navigate(action)
-        }
+            buttonDevamEtGiris.setOnClickListener {
+                if (signInSignUpViewModel.validateEmail.value != true) {
+                    signInSignUpViewModel.showEmailError.postValue(true)
+                    return@setOnClickListener
+                }
+                val action =
+                    EmailFragmentDirections.actionEmailFragmentToSignInPasswordFragment()
+                findNavController().navigate(action)
+            }
 
-
-
-        return binding.root
+            buttonKayitOl.setOnClickListener {
+                if (signInSignUpViewModel.validateEmail.value != true) {
+                    signInSignUpViewModel.showEmailError.postValue(true)
+                    return@setOnClickListener
+                }
+                val action =
+                    EmailFragmentDirections.actionEmailFragmentToSignUpFragment()
+                findNavController().navigate(action)
+            }
+        }.root
     }
-
 
 }

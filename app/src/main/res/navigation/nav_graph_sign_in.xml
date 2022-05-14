@@ -23,9 +23,6 @@
         android:name="com.example.campuslyfe.fragment.signIn.SignInPasswordFragment"
         android:label="fragment_sign_in_password"
         tools:layout="@layout/fragment_sign_in_password" >
-        <argument
-            android:name="eMail"
-            app:argType="string" />
         <action
             android:id="@+id/action_signInPasswordFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
@@ -40,9 +37,6 @@
         <action
             android:id="@+id/action_signUpFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
-        <argument
-            android:name="email_kayit_ol"
-            app:argType="string" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"
