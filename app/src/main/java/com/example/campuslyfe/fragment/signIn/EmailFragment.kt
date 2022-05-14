@@ -33,8 +33,8 @@ class EmailFragment : Fragment() {
             }
 
             buttonKayitOl.setOnClickListener {
+                signInSignUpViewModel.showEmailError.postValue(signInSignUpViewModel.validateEmail.value == false)
                 if (signInSignUpViewModel.validateEmail.value != true) {
-                    signInSignUpViewModel.showEmailError.postValue(true)
                     return@setOnClickListener
                 }
                 val action =
