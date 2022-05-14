@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.campuslyfe.fragment.admin.EtkinlikEkleViewModel" />
+    </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -11,6 +19,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="24dp"
             android:orientation="vertical"
             android:paddingBottom="60dp"
             tools:context=".fragment.admin.EtkinlikEkleFragment">
@@ -28,7 +37,6 @@
                 style="@style/Typography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="Etkinliğin Adı" />
 
@@ -37,10 +45,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:paddingStart="@dimen/cursor_padding_start"
+                android:text="@={viewModel.etkinlikAdi}"
                 android:textCursorDrawable="@drawable/cursor" />
 
             <TextView
@@ -48,7 +56,6 @@
                 style="@style/Typography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="İletişim Bilgileri" />
 
@@ -57,10 +64,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:paddingStart="@dimen/cursor_padding_start"
+                android:text="@={viewModel.iletisimBilgileri}"
                 android:textCursorDrawable="@drawable/cursor" />
 
             <TextView
@@ -68,7 +75,6 @@
                 style="@style/Typography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="Etkinlik Yerinin Adı" />
 
@@ -77,58 +83,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:paddingStart="@dimen/cursor_padding_start"
+                android:text="@={viewModel.binaAdi}"
                 android:textCursorDrawable="@drawable/cursor" />
 
             <TextView
-                android:id="@+id/tvEtkinlikLat"
+                android:id="@+id/tvEtkinlikYeri"
                 style="@style/Typography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="Etkinlik Bina Latitude" />
-
-            <EditText
-                android:id="@+id/etEtkinlikLat"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edit_text_e_mail"
-                android:paddingStart="@dimen/cursor_padding_start"
-                android:textCursorDrawable="@drawable/cursor" />
+                android:text="Etkinlik Yeri" />
 
             <TextView
-                android:id="@+id/tvEtkinlikLng"
+                android:id="@+id/buttonEtkinlikYeriSeciniz"
                 style="@style/Typography"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Etkinlik Bina Longitute" />
-
-            <EditText
-                android:id="@+id/etEtkinlikLng"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
-                android:paddingStart="@dimen/cursor_padding_start"
-                android:textCursorDrawable="@drawable/cursor" />
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@{viewModel.lat == null ? @string/etkinlik_yeri_se_iniz : @string/lat_lng_display(viewModel.lat, viewModel.lng)}"
+                android:textCursorDrawable="@drawable/cursor"
+                app:drawableEndCompat="@android:drawable/ic_menu_mapmode" />
 
             <TextView
                 android:id="@+id/tvEtkinlikAçiklama"
                 style="@style/Typography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="Etkinlik Açıklaması" />
 
@@ -137,14 +124,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:paddingStart="@dimen/cursor_padding_start"
+                android:text="@{viewModel.etkinlikAciklama}"
                 android:textCursorDrawable="@drawable/cursor" />
 
             <Button
-                android:id="@+id/ButtonEtkinlikKaydet"
+                android:id="@+id/buttonEtkinlikKaydet"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

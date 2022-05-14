@@ -9,42 +9,60 @@ import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.R
 import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentEtkinlikEkleBinding
-import com.example.campuslyfe.databinding.FragmentToplulukEkleBinding
-import com.example.campuslyfe.model.Club
 import com.example.campuslyfe.model.Etkinlik
+import com.google.android.gms.maps.model.LatLng
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class EtkinlikEkleFragment : Fragment() {
+class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLocationSelectedListener {
 
-
-    private lateinit var binding : FragmentEtkinlikEkleBinding
+    private val etkinlikEkleViewModel by viewModel<EtkinlikEkleViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val binding = FragmentEtkinlikEkleBinding.inflate(inflater,container,false)
+    ): View {
 
-        binding.ButtonEtkinlikKaydet.setOnClickListener {
-            val ad = binding.etEtkinlikAd.text.toString().trim()
-            val aciklama = binding.etEtkinlikAciklama.text.toString().trim()
-            val binaAd = binding.etEtkinlikBinaAd.text.toString().trim()
-            val iletisimBilgileri = binding.etIletisimBilgileriEtkinlik.text.toString().trim()
-            val lat = binding.etEtkinlikLat.text.toString().trim()
-            val lng = binding.etEtkinlikLng.text.toString().trim()
-            val etkinlik = Etkinlik(ad,aciklama,binaAd,iletisimBilgileri,1, lat.toDouble(),lng.toDouble())
-            sendToDB().sendEtkinlik(etkinlik)
+        val binding = FragmentEtkinlikEkleBinding.inflate(inflater, container, false)
 
-            findNavController().navigate(R.id.action_etkinlikEkleFragment_to_etkinliklerFragment)
+        binding.apply {
+            viewModel = etkinlikEkleViewModel
+            lifecycleOwner = viewLifecycleOwner
 
+            buttonEtkinlikYeriSeciniz.setOnClickListener {
+                MarkerLocationPickUpFragment(etkinlikListener = this@EtkinlikEkleFragment).show(
+                    childFragmentManager,
+                    MarkerLocationPickUpFragment::class.java.name
+                )
+            }
+
+            buttonEtkinlikKaydet.setOnClickListener {
+                val ad = etkinlikEkleViewModel.etkinlikAdi.value!!.trim()
+                val aciklama = etkinlikEkleViewModel.etkinlikAciklama.value!!.trim()
+                val binaAd = etkinlikEkleViewModel.binaAdi.value!!.trim()
+                val iletisimBilgileri = etkinlikEkleViewModel.iletisimBilgileri.value!!.trim()
+                val lat = etkinlikEkleViewModel.lat.value!!
+                val lng = etkinlikEkleViewModel.lng.value!!
+                val etkinlik =
+                    Etkinlik(
+                        ad,
+                        aciklama,
+                        binaAd,
+                        iletisimBilgileri,
+                        1,
+                        lat,
+                        lng
+                    )
+                sendToDB().sendEtkinlik(etkinlik)
+
+                findNavController().navigate(R.id.action_etkinlikEkleFragment_to_etkinliklerFragment)
+
+            }
         }
-
-
-
-
-
         return binding.root
     }
 
-
+    override fun onEtkinlikLocationSelected(latLng: LatLng) {
+        etkinlikEkleViewModel.lat.postValue(latLng.latitude)
+        etkinlikEkleViewModel.lng.postValue(latLng.longitude)
+    }
 }
