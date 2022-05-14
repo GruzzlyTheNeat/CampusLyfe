@@ -1,16 +1,14 @@
 package com.example.campuslyfe.fragment.signIn
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.example.campuslyfe.R
+import com.example.campuslyfe.activity.MainActivity
 import com.example.campuslyfe.databinding.FragmentSignUpBinding
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -39,13 +37,16 @@ class SignUpPasswordFragment : Fragment() {
 
                 mAuth.createUserWithEmailAndPassword(
                     email, password
-                ).addOnCompleteListener(requireActivity(), OnCompleteListener {
+                ).addOnCompleteListener(requireActivity()) {
                     if (it.isSuccessful) {
-                        findNavController().navigate(R.id.action_signUpFragment_to_mainActivity)
+                        startActivity(
+                            Intent(requireContext(), MainActivity::class.java)
+                        )
+                        activity?.finish()
                     } else {
                         Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
                     }
-                })
+                }
 
             }
         }

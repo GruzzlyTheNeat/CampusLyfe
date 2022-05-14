@@ -22,25 +22,11 @@
         android:id="@+id/signInPasswordFragment"
         android:name="com.example.campuslyfe.fragment.signIn.SignInPasswordFragment"
         android:label="fragment_sign_in_password"
-        tools:layout="@layout/fragment_sign_in_password" >
-        <action
-            android:id="@+id/action_signInPasswordFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
-    </fragment>
+        tools:layout="@layout/fragment_sign_in_password" />
 
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.campuslyfe.fragment.signIn.SignUpPasswordFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
-
-        <action
-            android:id="@+id/action_signUpFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
-    </fragment>
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.campuslyfe.activity.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+        tools:layout="@layout/fragment_sign_up" />
 </navigation>
