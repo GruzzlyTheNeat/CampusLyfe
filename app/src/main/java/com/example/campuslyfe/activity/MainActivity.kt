@@ -39,14 +39,22 @@ class MainActivity : AppCompatActivity() {
         val arrayListClubDeneme = arrayListOf<Club>()
         arrayListEtkinlikDeneme.add(etkinlikDeneme)
         arrayListClubDeneme.add(toplulukDeneme)
-//        sendToDB().sendBina(
-//        Bina(
-//            arrayListEtkinlikDeneme,
-//            arrayListClubDeneme,
-//            "Bilgisayar Muhendisligi",
-//            38.45787998795536, 27.213112255208536
-//        )
-//        )
+        sendToDB().sendBina(
+        Bina(
+            arrayListEtkinlikDeneme,
+            arrayListClubDeneme,
+            "Bilgisayar Mühendisliği",
+            38.45787998795536, 27.213112255208536
+        )
+        )
+        sendToDB().sendBina(
+            Bina(
+                arrayListEtkinlikDeneme,
+                arrayListClubDeneme,
+                "Diş Hekimliği Fakültesi",
+                38.45620039236553, 27.225188752329437)
+        )
+
 
     }
 

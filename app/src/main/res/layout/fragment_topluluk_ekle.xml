@@ -77,16 +77,28 @@
                 android:layout_marginTop="20dp"
                 android:text="Topluluk Binasının Adı" />
 
-            <EditText
-                android:id="@+id/etToplulukBinaAd"
+            <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
-                android:text="@={viewModel.binaAdi}"
-                android:paddingStart="@dimen/cursor_padding_start"
-                android:textCursorDrawable="@drawable/cursor" />
+                android:paddingStart="10dp"
+                android:entries="@array/binalar"
+                tools:setOnItemSelectedListener="@{viewModel.clickListener}">
+
+            </Spinner>
+
+<!--            <EditText-->
+<!--                android:id="@+id/etToplulukBinaAd"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:background="@drawable/edit_text_e_mail"-->
+<!--                android:text="@={viewModel.binaAdi}"-->
+<!--                android:paddingStart="@dimen/cursor_padding_start"-->
+<!--                android:textCursorDrawable="@drawable/cursor" />-->
 
             <TextView
                 android:id="@+id/tvEtkinlikYeri"

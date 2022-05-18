@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="binalar">
+        <item>Bilgisayar Mühendisliği</item>
+        <item>Diş Hekimliği Fakültesi</item>
+        <item>Kimya Mühendisliği</item>
+        <item>Elektrik Elektronik Mühendisliği</item>
+        <item>Yabancı Diller Yüksek Okulu</item>
+        <item>2 Nolu Öğrenci Yemekhanesi</item>
+        <item>1 Nolu Öğrenci Yemekhanesi</item>
+        <item>Kütüphane</item>
+        <item>Ege Yurt İzmir Özel Öğrenci Yurdu</item>
+        <item>Ege Üniversitesi Kapalı Spor Salonu</item>
+        <item>Ege Üniversitesi Sosyal Bilimler Enstitüsü</item>
+        <item>Nükleer Bilimler Enstitüsü</item>
+        <item>Ege Üniversitesi Ziraat Fakültesi</item>
+        <item>Ege Üniversitesi Hemşirelik Fakültesi</item>
+        <item>Ege Üniversitesi Temel Bilimler Bölümü</item>
+        <item>Ege Üniversitesi Fen Bilimleri Enstitüsü</item>
+        <item>Ege Üniversitesi 20 Mayıs Spor Tesisleri</item>
+        <item>Ege Üniversitesi Prof.Dr. Sermed Akgün Olimpik Kapalı Yüzme Havuzu</item>
+        <item>Ege Üniversitesi Biyomühendislik Bölümü</item>
+        <item>Ege Üniversitesi Biyoloji Bölümü</item>
+        <item>EÜ Prof. Dr. Yusuf Vardar -MÖTBE- Kültür Merkezi</item>
+        <item>55 Ege Kampüs Tören Şölen Alanı</item>
+        <item>Ege Üniversitesi Gıda Mühendisliği Bölümü</item>
+        <item>Ege Üniversitesi Tekstil Mühendisliği Bölümü</item>
+        <item>Ege Üniversitesi Eğitim Fakültesi</item>
+        <item>Ege Üniversitesi Tıp Fakültesi Hastanesi</item>
+        <item>Ege Üniversitesi Tıp Fakültesi Derslikleri ve Kütüphanesi</item>
+        <item>Poliklinikler</item>
+        <item>Ege Üniversitesi Hastanesi Acil Servis</item>
+        <item>Ege Üniversitesi İktisadi ve İdari Billimler Fakültesi</item>
+        <item>Ege Üniversitesi Basım ve Yayınevi Şube Müdürlüğü</item>
+
+
+
+
+    </string-array>
+
+</resources>

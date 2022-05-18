@@ -13,7 +13,7 @@ import com.example.campuslyfe.fragment.etkinlikler.EtkinliklerFragmentDirections
 import com.example.campuslyfe.model.Etkinlik
 
 class EtkinlikPopUpRwAdapter(
-    private val etkinlikList: List<Etkinlik>,private val context: Context, private val listener : OnPopUpEtkinlikClickListener
+    private val etkinlikList: ArrayList<Etkinlik>,private val context: Context, private val listener : OnPopUpEtkinlikClickListener
 ) : RecyclerView.Adapter<EtkinlikPopUpRwAdapter.ViewHolderPopUpEtkinlik>() {
     class ViewHolderPopUpEtkinlik(val binding: ItemRowEtkinlikBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -34,6 +34,7 @@ class EtkinlikPopUpRwAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolderPopUpEtkinlik, position: Int) {
+
         holder.bind(etkinlikList[position])
         holder.binding.root.setOnClickListener {
             listener.onEtkinlikPopUpClick(etkinlikList[position])

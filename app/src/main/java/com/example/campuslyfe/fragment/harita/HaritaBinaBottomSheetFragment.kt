@@ -23,9 +23,11 @@ import java.sql.Array
 class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
     EtkinlikPopUpRwAdapter.OnPopUpEtkinlikClickListener,
     ClubPopUpRwAdapter.OnClubPopUpListener {
-    private lateinit var etkinlikList : ArrayList<Etkinlik>
-    private lateinit var toplulukList : ArrayList<Club>
-    private lateinit var binaList : ArrayList<Bina>
+    private lateinit var etkinlikList: ArrayList<Etkinlik>
+    private lateinit var toplulukList: ArrayList<Club>
+    private lateinit var binaList: ArrayList<Bina>
+    private lateinit var etkinlikRealList: ArrayList<Etkinlik>
+    private lateinit var toplulukRealList: ArrayList<Club>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,50 +36,55 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
     ): View {
         return DialogHaritaBinaBottomSheetBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
-            etkinlikList = ArrayList<Etkinlik>()
+            etkinlikList = arrayListOf<Etkinlik>()
+            etkinlikRealList = ArrayList<Etkinlik>()
+            toplulukRealList = arrayListOf<Club>()
             binaList = arrayListOf<Bina>()
             toplulukList = ArrayList<Club>()
 
             val binaArgument = Gson().fromJson(arguments?.getString(PARAM_BINA), Bina::class.java)
             bina = binaArgument
-            val databaseBina = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Binalar")
-            databaseBina.addListenerForSingleValueEvent(object : ValueEventListener{
+            val databaseBina =
+                FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                    .getReference("Binalar")
+            databaseBina.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if(snapshot.exists()){
-                        for(dss in snapshot.children){
+                    if (snapshot.exists()) {
+                        for (dss in snapshot.children) {
                             val bina = dss.getValue(Bina::class.java)
                             binaList.add(bina!!)
                         }
-                        for (b in binaList){
-                            if(bina?.binaAd.equals(b.binaAd)){
-                                for(e in b.etkinliklerList!!){
+                        for (b in binaList) {
+                            if (bina?.binaAd.equals(b.binaAd)) {
+
+                                for (e in b.etkinliklerList!!) {
                                     etkinlikList.add(e)
                                 }
-                                for(t in b.topulukList!!){
+                                for (t in b.topulukList!!) {
                                     toplulukList.add(t)
                                 }
 
                             }
                         }
-//                        for(b in binaList){
-//                            if(bina?.binaAd.equals(b.binaAd)){
-//
-//                            }
-//                        }
 
-                        etkinlikList.removeAt(0)
+                        etkinlikRealList = ArrayList(etkinlikList).apply {
+                            removeAt(0)
+                        }
+
                         recyclerViewEtkinlikPopUp.adapter = EtkinlikPopUpRwAdapter(
-                        etkinlikList ,
-                        requireContext(),
-                        this@HaritaBinaBottomSheetFragment
-                    )
-                        toplulukList.removeAt(0)
-                        recyclerViewClubPopUp.adapter = ClubPopUpRwAdapter(
-                            toplulukList,
+                            etkinlikRealList,
                             requireContext(),
                             this@HaritaBinaBottomSheetFragment
                         )
-
+                        // toplulukList.removeAt(0)
+                        toplulukRealList = ArrayList(toplulukList).apply {
+                            removeAt(0)
+                        }
+                        recyclerViewClubPopUp.adapter = ClubPopUpRwAdapter(
+                            toplulukRealList,
+                            requireContext(),
+                            this@HaritaBinaBottomSheetFragment
+                        )
 
 
                     }
@@ -88,12 +95,6 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
                 }
 
             })
-
-
-
-
-
-
 
 
         }.root

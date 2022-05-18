@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.R
 import com.example.campuslyfe.data.sendToDB
@@ -43,7 +45,8 @@ class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLo
                     childFragmentManager,
                     MarkerLocationPickUpFragment::class.java.name
                 )
-            }
+           }
+
 
             buttonEtkinlikKaydet.setOnClickListener {
                 val ad = etkinlikEkleViewModel.etkinlikAdi.value!!.trim()

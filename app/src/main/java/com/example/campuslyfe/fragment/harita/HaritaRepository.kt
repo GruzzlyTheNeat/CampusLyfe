@@ -1,23 +1,29 @@
 package com.example.campuslyfe.fragment.harita
 
+import com.example.campuslyfe.fragment.etkinlikler.EtkinliklerAdapter
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Etkinlik
 import com.google.android.gms.maps.model.LatLng
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class HaritaRepository {
+
     val binalar = listOf(
         Bina(
             ArrayList(),
             ArrayList(),
-            "Bilgisayar Muhendisligi",
+            "Bilgisayar Mühendisliği",
             38.45787998795536, 27.213112255208536
-        )
-//        Bina(
-//            listOf(),
-//            listOf(),
-//            "Diş Hekimliği Fakültesi",
-//            LatLng(38.45620039236553, 27.225188752329437)
-//        ),
+        ),
+        Bina(
+            ArrayList(),
+            ArrayList(),
+            "Diş Hekimliği Fakültesi",
+            38.45620039236553, 27.225188752329437)
+
 //        Bina(
 //            listOf(),
 //            listOf(),
