@@ -37,12 +37,12 @@ class HaritaFragment : Fragment() {
         (childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment)?.getMapAsync { map ->
             haritaRepo.binalar.forEach { bina ->
                 map.addMarker(
-                    MarkerOptions().icon(createMarker()).anchor(0.5f, 0.5f).position(bina.latLng)
+                    MarkerOptions().icon(createMarker()).anchor(0.5f, 0.5f).position(LatLng(bina.binalat!!,bina.binalng!!))
                         .title(bina.binaAd)
                 )?.apply {
                     tag = bina
                 }
-                latLngBounds.include(bina.latLng)
+                latLngBounds.include(LatLng(bina.binalat!!,bina.binalng!!))
             }
             map.moveCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds.build(), 100))
             map.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.map_style))

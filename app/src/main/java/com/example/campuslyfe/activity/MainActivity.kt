@@ -7,6 +7,10 @@ import androidx.navigation.findNavController
 import com.example.campuslyfe.databinding.ActivityMainBinding
 import androidx.navigation.ui.setupWithNavController
 import com.example.campuslyfe.R
+import com.example.campuslyfe.data.sendToDB
+import com.example.campuslyfe.model.Bina
+import com.example.campuslyfe.model.Club
+import com.example.campuslyfe.model.Etkinlik
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +33,20 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
+        val etkinlikDeneme = Etkinlik("etkinlik Ad","etkinlik acıklama","etkinlik adres","iletişim bilgileri",2,4.6,6.5)
+        val arrayListEtkinlikDeneme = arrayListOf<Etkinlik>()
+        val toplulukDeneme = Club(1,"club ad","club discription","binaAd","contactInformation",5.2,6.4)
+        val arrayListClubDeneme = arrayListOf<Club>()
+        arrayListEtkinlikDeneme.add(etkinlikDeneme)
+        arrayListClubDeneme.add(toplulukDeneme)
+//        sendToDB().sendBina(
+//        Bina(
+//            arrayListEtkinlikDeneme,
+//            arrayListClubDeneme,
+//            "Bilgisayar Muhendisligi",
+//            38.45787998795536, 27.213112255208536
+//        )
+//        )
 
     }
 

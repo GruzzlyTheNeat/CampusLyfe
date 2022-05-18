@@ -66,6 +66,9 @@
         <argument
             android:name="etkinlik"
             app:argType="com.example.campuslyfe.model.Etkinlik" />
+        <action
+            android:id="@+id/action_etkinlikDetayFragment_to_haritaFragment"
+            app:destination="@id/haritaFragment" />
 
     </fragment>
     <fragment
@@ -88,6 +91,9 @@
         <action
             android:id="@+id/action_haritaFragment_to_clubDetayFragment"
             app:destination="@id/clubDetayFragment" />
+        <argument
+            android:name="latlng"
+            app:argType="com.example.campuslyfe.model.LatLng" />
     </fragment>
     <fragment
         android:id="@+id/foodFragment"

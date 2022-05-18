@@ -46,6 +46,8 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:paddingStart="@dimen/cursor_padding_start"
+                android:text="@={viewModel.toplulukAdi}"
+
                 android:textCursorDrawable="@drawable/cursor" />
 
             <TextView
@@ -64,6 +66,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:paddingStart="@dimen/cursor_padding_start"
+                android:text="@={viewModel.iletisimBilgileri}"
                 android:textCursorDrawable="@drawable/cursor" />
 
             <TextView
@@ -81,6 +84,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_e_mail"
+                android:text="@={viewModel.binaAdi}"
                 android:paddingStart="@dimen/cursor_padding_start"
                 android:textCursorDrawable="@drawable/cursor" />
 
@@ -120,6 +124,7 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
+                android:text="@={viewModel.toplulukAciklama}"
                 android:background="@drawable/edit_text_e_mail"
                 android:paddingStart="@dimen/cursor_padding_start"
                 android:textCursorDrawable="@drawable/cursor" />

@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 
 class ToplulukEkleViewModel : ViewModel() {
 
-    val etkinlikAdi = MutableLiveData<String>()
-    val etkinlikAciklama = MutableLiveData<String>()
+    val toplulukAdi = MutableLiveData<String>()
+    val toplulukAciklama = MutableLiveData<String>()
     val binaAdi = MutableLiveData<String>()
     val iletisimBilgileri = MutableLiveData<String>()
     val lat = MutableLiveData<Double>()

@@ -8,8 +8,9 @@ import java.io.Serializable
 
 @Parcelize
 data class Bina(
-    val etkinliklerList: List<Etkinlik>,
-    val topulukList: List<Club>,
-    val binaAd: String,
-    val latLng: LatLng
+    val etkinliklerList: ArrayList<Etkinlik> ?=null,
+    val topulukList: ArrayList<Club>?=null,
+    val binaAd: String?=null,
+    val binalat: Double?=null,
+    val binalng: Double?=null
 ) : Parcelable, Serializable

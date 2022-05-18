@@ -43,7 +43,7 @@ class sendToDB {
 
     fun sendBina(binaSend: Bina){
         val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Binalar")
-        database.child(binaSend.binaAd).setValue(binaSend).addOnSuccessListener {
+        database.child(binaSend.binaAd.toString()).setValue(binaSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{
             print("Failed")
