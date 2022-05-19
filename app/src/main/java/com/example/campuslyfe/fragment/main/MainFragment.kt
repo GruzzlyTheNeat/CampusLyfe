@@ -31,7 +31,7 @@ class MainFragment : Fragment() {
         val buttonYemek : CardView = binding.cardViewYemekhane
         val buttonKontrol : CardView = binding.cardViewAyar
 
-        if(uid.equals("wMLfENqBlkaLnotsKx0vCDHPpPO2") || uid.equals("s8HhtmBCsuWq5yVyyWFkBydgg9F3")){
+        if(uid.equals("wMLfENqBlkaLnotsKx0vCDHPpPO2") || uid.equals("s8HhtmBCsuWq5yVyyWFkBydgg9F3" ) || uid.equals("tqvhsEY7DZTFCJ7dXGVaz4NkJyV2" )){
             binding.linearLayoutKontrol.visibility = View.VISIBLE
         }
         if (uid.equals("FRGpzSl7TsZLJwK6F8fQzo4WPKz1")){

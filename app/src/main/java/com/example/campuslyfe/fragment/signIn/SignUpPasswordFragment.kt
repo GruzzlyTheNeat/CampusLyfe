@@ -33,7 +33,7 @@ class SignUpPasswordFragment : Fragment() {
             viewModel = signInSignUpViewModel
             buttonKayitOl.setOnClickListener {
                 val password: String = signInSignUpViewModel.password.value?.trim()!!
-                val email: String = signInSignUpViewModel.password.value?.trim()!!
+                val email: String = signInSignUpViewModel.email.value?.trim()!!
 
                 mAuth.createUserWithEmailAndPassword(
                     email, password
