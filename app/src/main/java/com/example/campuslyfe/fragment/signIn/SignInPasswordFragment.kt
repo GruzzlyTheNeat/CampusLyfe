@@ -32,25 +32,26 @@ class SignInPasswordFragment : Fragment() {
 
         binding.buttonDevamEtPassword.setOnClickListener {
             val eMail: String = signInSignUpViewModel.email.value?.trim()!!
-            val password: String = signInSignUpViewModel.password.value?.trim()!!
-            mAuth.signInWithEmailAndPassword(eMail, password)
-                .addOnCompleteListener(this.requireActivity()) { task ->
-                    if (task.isSuccessful) {
-                        startActivity(
-                            Intent(requireContext(), MainActivity::class.java)
-                        )
-                        activity?.finish()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "Bu bilgilere sahip kullanıcı bulunmamaktadır",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        println(task.exception)
+            val password: String? = signInSignUpViewModel.password.value?.trim()
+            password?.let { pass ->
+                mAuth.signInWithEmailAndPassword(eMail, pass)
+                    .addOnCompleteListener(this.requireActivity()) { task ->
+                        if (task.isSuccessful) {
+                            startActivity(
+                                Intent(requireContext(), MainActivity::class.java)
+                            )
+                            activity?.finish()
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                "Bu bilgilere sahip kullanıcı bulunmamaktadır",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            println(task.exception)
+                        }
+
                     }
-
-                }
-
+            }
         }
         return binding.root
     }
