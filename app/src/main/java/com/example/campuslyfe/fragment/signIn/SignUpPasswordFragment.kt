@@ -31,20 +31,25 @@ class SignUpPasswordFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = signInSignUpViewModel
+            eTextSignUpPassword.setOnEditorActionListener { _, _, _ ->
+                buttonKayitOl.performClick()
+            }
             buttonKayitOl.setOnClickListener {
-                val password: String = signInSignUpViewModel.password.value?.trim()!!
+                val password: String? = signInSignUpViewModel.password.value?.trim()
                 val email: String = signInSignUpViewModel.email.value?.trim()!!
 
-                mAuth.createUserWithEmailAndPassword(
-                    email, password
-                ).addOnCompleteListener(requireActivity()) {
-                    if (it.isSuccessful) {
-                        startActivity(
-                            Intent(requireContext(), MainActivity::class.java)
-                        )
-                        activity?.finish()
-                    } else {
-                        Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
+                password?.let {
+                    mAuth.createUserWithEmailAndPassword(
+                        email, password
+                    ).addOnCompleteListener(requireActivity()) {
+                        if (it.isSuccessful) {
+                            startActivity(
+                                Intent(requireContext(), MainActivity::class.java)
+                            )
+                            activity?.finish()
+                        } else {
+                            Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
+                        }
                     }
                 }
 
