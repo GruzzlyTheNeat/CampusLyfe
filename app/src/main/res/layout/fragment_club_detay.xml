@@ -50,7 +50,7 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/button"
                 android:gravity="center"
-                android:padding="25dp"
+                android:padding="12dp"
                 android:text="yaz" />
 
             <TextView
@@ -60,9 +60,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
+                android:padding="12dp"
                 android:background="@drawable/button"
                 android:gravity="center"
-                android:padding="25dp"
                 tools:text="iletişim" />
 
 
@@ -74,8 +74,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/button"
+                android:padding="12dp"
                 android:gravity="center"
-                android:padding="25dp"
                 tools:text="iletişim" />
 
 

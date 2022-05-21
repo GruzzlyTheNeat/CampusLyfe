@@ -36,9 +36,6 @@ class FoodFragment : Fragment() {
         val günler = createGünlerPopMenu(binding.textView3)
         var sayiGun = 7
         var sayiYemekhane = 3
-
-
-
         binding.textView2.setOnClickListener { yemekhane.show() }
         binding.textView3.setOnClickListener { günler.show() }
         binding.textView4.setOnClickListener {

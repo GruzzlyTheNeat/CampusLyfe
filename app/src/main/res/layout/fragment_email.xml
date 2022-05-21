@@ -31,7 +31,7 @@
                 android:layout_marginTop="120dp"
                 android:text="@string/giris_yap" />
 
-            <EditText
+                <EditText
                 android:id="@+id/eTextEMail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

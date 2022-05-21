@@ -12,7 +12,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:background="@color/eeeee">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +35,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/edit_text_e_mail"
                 android:gravity="center"
