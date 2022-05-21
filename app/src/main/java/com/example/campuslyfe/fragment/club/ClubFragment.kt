@@ -33,17 +33,7 @@ class ClubFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentClubBinding.inflate(inflater,container,false)
         layoutManagerClub = LinearLayoutManager(requireContext())
-//        val clubList = listOf(
-//            Club(R.drawable.ic_baseline_apps_24, "Kulüp1","Açıklama1" , "Adres1","Contact1",
-//                LatLng(3.5,6.0)
-//            ),
-//            Club(R.drawable.ic_baseline_apps_24, "Kulüp2","Açıklama2" , "Adres2","Contact2",LatLng(3.5,6.0)),
-//            Club(R.drawable.ic_baseline_apps_24, "Kulüp3","Açıklama3" , "Adres3","Contact3",LatLng(3.5,6.0))
-//
-//
-//
-//
-//        )
+
 
         val databaseTopluluk = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Topluluklar")
         clubList = arrayListOf<Club>()
@@ -63,7 +53,6 @@ class ClubFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
             }
 
         })
