@@ -33,29 +33,29 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
-        val etkinlikDeneme = Etkinlik("etkinlik Ad","etkinlik acıklama","etkinlik adres","iletişim bilgileri",2,4.6,6.5)
-        val arrayListEtkinlikDeneme = arrayListOf<Etkinlik>()
-        val toplulukDeneme = Club(1,"club ad","club discription","binaAd","contactInformation",5.2,6.4)
-        val arrayListClubDeneme = arrayListOf<Club>()
-        arrayListEtkinlikDeneme.add(etkinlikDeneme)
-        arrayListClubDeneme.add(toplulukDeneme)
-        sendToDB().sendBina(
-        Bina(
-            arrayListEtkinlikDeneme,
-            arrayListClubDeneme,
-            "Bilgisayar Mühendisliği",
-            38.45787998795536, 27.213112255208536
-        )
-        )
-        sendToDB().sendBina(
-            Bina(
-                arrayListEtkinlikDeneme,
-                arrayListClubDeneme,
-                "Diş Hekimliği Fakültesi",
-                38.45620039236553, 27.225188752329437)
-        )
-
-
+//        val etkinlikDeneme = Etkinlik("etkinlik Ad","etkinlik acıklama","etkinlik adres","iletişim bilgileri",2,4.6,6.5)
+//        val arrayListEtkinlikDeneme = arrayListOf<Etkinlik>()
+//        val toplulukDeneme = Club(1,"club ad","club discription","binaAd","contactInformation",5.2,6.4)
+//        val arrayListClubDeneme = arrayListOf<Club>()
+//        arrayListEtkinlikDeneme.add(etkinlikDeneme)
+//        arrayListClubDeneme.add(toplulukDeneme)
+//        sendToDB().sendBina(
+//        Bina(
+//            arrayListEtkinlikDeneme,
+//            arrayListClubDeneme,
+//            "Bilgisayar Mühendisliği",
+//            38.45787998795536, 27.213112255208536
+//        )
+//        )
+//        sendToDB().sendBina(
+//            Bina(
+//                arrayListEtkinlikDeneme,
+//                arrayListClubDeneme,
+//                "Diş Hekimliği Fakültesi",
+//                38.45620039236553, 27.225188752329437)
+//        )
+//
+//
     }
 
 }

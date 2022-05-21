@@ -2,7 +2,7 @@ package com.example.campuslyfe.model
 
 
 data class Yemekhane(
-    val name: String,
-    val haftalık: ArrayList<Yemek>,
+    val name: String ?= null,
+    val haftalık: ArrayList<Yemek> ?= null,
 )
 

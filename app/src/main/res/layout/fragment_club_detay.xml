@@ -78,17 +78,18 @@
                 android:padding="25dp"
                 tools:text="iletişim" />
 
-            <TextView
-                android:id="@+id/ClubHarita"
-                style="@style/Typography.Bold"
+
+            <fragment
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_height="220dp"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/clubMapDetails"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/button"
-                android:gravity="center"
-                android:padding="25dp"
-                android:text="Haritada Göster" />
+                tools:context = ".activity.MainActivity"
+                ></fragment>
 
 
 

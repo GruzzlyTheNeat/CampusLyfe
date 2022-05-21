@@ -76,7 +76,7 @@
             android:layout_marginTop="20dp"
             android:text="Öğlen: \n"
             android:textAlignment="center"
-            android:visibility="gone" />
+            />
 
         <TextView
             android:id="@+id/textView7"
@@ -86,7 +86,7 @@
             android:layout_marginTop="20dp"
             android:text="Akşam: \n"
             android:textAlignment="center"
-            android:visibility="gone" />
+            />
 
 
     </LinearLayout>

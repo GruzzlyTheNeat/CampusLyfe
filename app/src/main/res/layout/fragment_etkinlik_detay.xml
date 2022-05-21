@@ -90,28 +90,23 @@
                 android:text="@{etkinlik.etkinlikIletisimBilgisi}"
                 app:layout_constraintTop_toBottomOf="@id/etkinlikAdres" />
 
-            <TextView
-                android:id="@+id/etkinlikHaritadaGoster"
-                style="@style/Typography.Bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/haritada_goster"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/button"
-                android:gravity="center"
-                android:padding="12dp"
-                app:layout_constraintTop_toBottomOf="@id/etkinlikIletisim" />
 
-            <TextView
-                android:id="@+id/etkinlikGelenler"
-                style="@style/Typography.Bold"
+
+
+            <fragment
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="220dp"
+                android:id="@+id/etkinlikMapDetail"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikIletisim"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/button"
-                android:gravity="center"
                 android:padding="12dp"
-                app:layout_constraintTop_toBottomOf="@id/etkinlikHaritadaGoster" />
+                tools:context = ".activity.MainActivity"
+                ></fragment>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

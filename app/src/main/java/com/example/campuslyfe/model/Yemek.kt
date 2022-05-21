@@ -1,10 +1,10 @@
 package com.example.campuslyfe.model
 
 data class Yemek(
-    val gunname: String,
-    val sabah: String,
-    val ogle: String,
-    val aksam: String
+    val gunname: String ?= null,
+    val sabah: String ?= null,
+    val ogle: String ?= null,
+    val aksam: String ?= null
 ){
     fun toStringSabah(): String {
         return "Sabah Kahvaltısı:\n$sabah"

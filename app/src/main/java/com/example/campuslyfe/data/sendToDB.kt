@@ -62,7 +62,7 @@ class sendToDB {
 
     fun sendFood(foodSend: Yemekhane){
         val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Yemekhane")
-        database.child(foodSend.name).setValue(foodSend).addOnSuccessListener {
+        database.child(foodSend.name.toString()).setValue(foodSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{
             print("Failed")

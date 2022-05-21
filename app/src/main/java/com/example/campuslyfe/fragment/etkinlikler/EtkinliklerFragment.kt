@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListener {
-    private lateinit var etkinlikList : ArrayList<Etkinlik>
+        private lateinit var etkinlikList : ArrayList<Etkinlik>
     private lateinit var contextEtkinlik : Context
     override fun onCreateView(
         inflater: LayoutInflater,
