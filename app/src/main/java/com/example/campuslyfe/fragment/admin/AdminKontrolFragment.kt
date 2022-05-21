@@ -29,6 +29,9 @@ class AdminKontrolFragment : Fragment() {
         binding.cardViewEtkinlikEkle.setOnClickListener {
             findNavController().navigate(R.id.action_adminKontrolFragment_to_etkinlikEkleFragment)
         }
+        binding.cardViewEtkinlikEkle.setOnClickListener {
+            findNavController().navigate(R.id.action_adminKontrolFragment_to_etkinlikEkleFragment)
+        }
 
 
 
