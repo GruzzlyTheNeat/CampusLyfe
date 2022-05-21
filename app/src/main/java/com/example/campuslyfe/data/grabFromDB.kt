@@ -1,9 +1,6 @@
 package com.example.campuslyfe.data
 
-import com.example.campuslyfe.model.Etkinlik
-import com.example.campuslyfe.model.Club
-import com.example.campuslyfe.model.Bina
-import com.example.campuslyfe.model.User
+import com.example.campuslyfe.model.*
 import com.google.firebase.database.FirebaseDatabase
 import com.google.android.gms.maps.model.LatLng
 
@@ -105,5 +102,26 @@ class grabClub(){
 //        return club
 //    }
 
+}
+
+class grabFoodFromDB(){
+    val databaseFood = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Yemekhane")
+
+    fun asOne(haneIsmi: String): Yemekhane{
+        lateinit var yemekhane: Yemekhane
+        databaseFood.child(haneIsmi).get().addOnSuccessListener {
+            if(it.exists()){
+                val name= it.child("name").value.toString()
+                val haftalık = it.child("haftalık").value
+                println("Buraya girdi")
+                yemekhane = Yemekhane(name, haftalık as ArrayList<Yemek>)
+            }
+            else{
+
+            }
+
+        }
+        return yemekhane
+    }
 }
 

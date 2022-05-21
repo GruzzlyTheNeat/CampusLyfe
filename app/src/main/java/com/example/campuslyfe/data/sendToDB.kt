@@ -6,6 +6,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.example.campuslyfe.model.Etkinlik as Etkinlik
 import com.example.campuslyfe.model.Club as Club
 import com.example.campuslyfe.model.Bina as Bina
+import com.example.campuslyfe.model.Yemekhane as Yemekhane
 
 class sendToDB {
 
@@ -58,4 +59,14 @@ class sendToDB {
             print("Failed")
         }
     }
+
+    fun sendFood(foodSend: Yemekhane){
+        val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Yemekhane")
+        database.child(foodSend.name).setValue(foodSend).addOnSuccessListener {
+            print("Done")
+        }.addOnFailureListener{
+            print("Failed")
+        }
+    }
+
 }

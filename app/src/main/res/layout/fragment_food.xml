@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/eeeee"
-    tools:context=".fragment.main.FoodFragment">
+    tools:context=".fragment.food.FoodFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
