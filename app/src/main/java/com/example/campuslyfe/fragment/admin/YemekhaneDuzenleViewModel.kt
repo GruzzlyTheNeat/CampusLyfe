@@ -8,7 +8,8 @@ import com.example.campuslyfe.model.Yemek
 
 class YemekhaneDuzenleViewModel: ViewModel() {
     val name = MutableLiveData<String>()
-    val toplulukAciklama = MutableLiveData<ArrayList<Yemek>>()
+    val date = MutableLiveData<String>()
+    val yemekList = MutableLiveData<ArrayList<Yemek>>()
 
 
 

@@ -5,37 +5,60 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.example.campuslyfe.R
-import com.example.campuslyfe.data.sendToDB
-import com.example.campuslyfe.databinding.FragmentToplulukEkleBinding
+import android.widget.PopupMenu
 import com.example.campuslyfe.databinding.FragmentYemekhaneDuzenleBinding
-import com.example.campuslyfe.model.Bina
-import com.example.campuslyfe.model.Club
-import com.google.android.gms.maps.model.LatLng
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class YemekHaneDuzenleFragment: Fragment() {
     private val yemekhaneDuzenleViewModel by viewModel<YemekhaneDuzenleViewModel>()
+    private lateinit var binding: FragmentYemekhaneDuzenleBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentToplulukEkleBinding.inflate(inflater, container, false).apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = yemekhaneDuzenleViewModel
+        val binding = FragmentYemekhaneDuzenleBinding.inflate(inflater, container, false)
+        binding.viewModel = yemekhaneDuzenleViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        val yemekhane = createYemekhanePopMenu(binding.etYemekHaneSec)
+        val günler = createGünlerPopMenu(binding.etGunSecimi)
+        binding.etYemekHaneSec.setOnClickListener{yemekhane.show()}
+        binding.etGunSecimi.setOnClickListener{günler.show()}
 
-            buttonToplulukYeriSeciniz.setOnClickListener {
-                MarkerLocationPickUpFragment(toplulukkListener = this@ToplulukEkleFragment).show(
-                    childFragmentManager,
-                    MarkerLocationPickUpFragment::class.java.name
-                )
+        return binding.root
+    }
+
+
+    fun createYemekhanePopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
+        menu.run {
+            add("Yemekhane 1")
+            add("Yemekhane 2")
+            add("Yemekhane 3")
+            setOnMenuItemClickListener {
+                it.isChecked = true
+                yemekhaneDuzenleViewModel.name.value = it.title.toString()
+                true
             }
+            setGroupCheckable(0, true, true)
+        }
+    }
+
+    fun createGünlerPopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
+        menu.run {
+            add("Pazartesi")
+            add("Salı")
+            add("Çarşamba")
+            add("Perşembe")
+            add("Cuma")
+            add("Cumartesi")
+            add("Pazar")
+            setOnMenuItemClickListener {
+                it.isChecked = true
+                yemekhaneDuzenleViewModel.date.value = it.title.toString()
+                true
+            }
+            setGroupCheckable(0, true, true)
+        }
     }
 }
 

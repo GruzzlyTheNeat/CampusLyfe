@@ -119,6 +119,9 @@
         <action
             android:id="@+id/action_adminKontrolFragment_to_etkinlikEkleFragment"
             app:destination="@id/etkinlikEkleFragment" />
+        <action
+            android:id="@+id/action_adminKontrolFragment_to_yemekHaneDuzenleFragment"
+            app:destination="@id/yemekHaneDuzenleFragment" />
     </fragment>
     <fragment
         android:id="@+id/toplulukEkleFragment"
@@ -137,4 +140,8 @@
             android:id="@+id/action_etkinlikEkleFragment_to_etkinliklerFragment"
             app:destination="@id/etkinliklerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/yemekHaneDuzenleFragment"
+        android:name="com.example.campuslyfe.fragment.admin.YemekHaneDuzenleFragment"
+        android:label="YemekHaneDuzenleFragment" />
 </navigation>
