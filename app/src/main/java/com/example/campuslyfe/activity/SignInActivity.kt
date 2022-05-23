@@ -11,8 +11,8 @@ import com.google.firebase.ktx.Firebase
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         installSplashScreen()
+        super.onCreate(savedInstanceState)
         if (Firebase.auth.currentUser != null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
