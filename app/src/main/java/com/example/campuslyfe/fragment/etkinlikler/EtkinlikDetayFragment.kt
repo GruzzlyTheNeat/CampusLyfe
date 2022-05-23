@@ -20,11 +20,15 @@ import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentEtkinlikDetayBinding
 import com.example.campuslyfe.fragment.club.ClubFragmentDirections
 import com.example.campuslyfe.model.Bina
+import com.example.campuslyfe.utils.downloadFromURL
+import com.example.campuslyfe.utils.placeHolderProgressBar
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_etkinlik_ekle.*
 import java.io.IOException
 
@@ -48,6 +52,23 @@ class EtkinlikDetayFragment : Fragment() {
         return FragmentEtkinlikDetayBinding.inflate(inflater, container, false).apply {
             etkinlik = navArgs.etkinlik
             lifecycleOwner = viewLifecycleOwner
+            if(etkinlik?.etkinlikAd != null){
+                val name = etkinlik?.etkinlikAd
+
+                val imagePath = "etkinlikler/$name"
+                val storageRef = FirebaseStorage.getInstance().getReference()
+                val imageRef = storageRef.child(imagePath)
+                imageRef.downloadUrl.addOnSuccessListener(OnSuccessListener<Uri> {
+                    etkinlikPoster.downloadFromURL(it.toString(), placeHolderProgressBar(requireContext()))
+
+                })
+                imageRef.downloadUrl.addOnFailureListener {
+                    etkinlikPoster.setImageResource(R.drawable.ic_launcher_foreground)
+                }
+
+
+
+            }
 
 
         }.root

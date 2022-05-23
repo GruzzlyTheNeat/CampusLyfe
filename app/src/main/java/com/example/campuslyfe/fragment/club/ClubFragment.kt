@@ -35,13 +35,14 @@ class ClubFragment : Fragment() {
         layoutManagerClub = LinearLayoutManager(requireContext())
 
 
+
+
         val databaseTopluluk = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Topluluklar")
         clubList = arrayListOf<Club>()
         databaseTopluluk.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
                     for(clubSnapShot in snapshot.children){
-
                         val club = clubSnapShot.getValue(Club::class.java)
                         clubList.add(club!!)
                     }

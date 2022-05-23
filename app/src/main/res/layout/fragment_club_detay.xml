@@ -33,7 +33,7 @@
                 android:background="@drawable/incehat" />
 
             <ImageView
-                android:id="@+id/ClubPoster"
+                android:id="@+id/clubPoster"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"

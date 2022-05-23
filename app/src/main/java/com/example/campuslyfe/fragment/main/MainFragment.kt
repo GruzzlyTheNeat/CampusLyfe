@@ -34,11 +34,6 @@ class MainFragment : Fragment() {
         if(uid.equals("wMLfENqBlkaLnotsKx0vCDHPpPO2") || uid.equals("s8HhtmBCsuWq5yVyyWFkBydgg9F3" ) || uid.equals("tqvhsEY7DZTFCJ7dXGVaz4NkJyV2" )){
             binding.linearLayoutKontrol.visibility = View.VISIBLE
         }
-        if (uid.equals("FRGpzSl7TsZLJwK6F8fQzo4WPKz1")){
-            binding.linearLayoutKontrol.visibility = View.VISIBLE
-            binding.imageViewKontrol.setImageResource(R.drawable.ic_baseline_control_point_24)
-            binding.textViewKontrol.text = "Etkinlik İşlemleri"
-        }
 
         buttonHarita.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_haritaFragment)

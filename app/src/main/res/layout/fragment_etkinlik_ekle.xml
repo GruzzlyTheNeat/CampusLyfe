@@ -25,6 +25,7 @@
             tools:context=".fragment.admin.EtkinlikEkleFragment">
 
             <ImageView
+                android:clickable="true"
                 android:id="@+id/imageViewAdminEtkinlikEkle"
                 android:layout_width="200dp"
                 android:layout_height="250dp"
