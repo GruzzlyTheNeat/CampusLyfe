@@ -27,7 +27,6 @@ import java.io.File
 class ProfilFragment : Fragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: FragmentProfilBinding
-    private lateinit var bitmap : Bitmap
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,9 +66,7 @@ class ProfilFragment : Fragment() {
 
             }
         }
-        binding.btProfilGuncelle.setOnClickListener {
-            findNavController().navigate(R.id.action_profilFragment_to_profilUpdateFragment)
-        }
+
         return binding.root
     }
 

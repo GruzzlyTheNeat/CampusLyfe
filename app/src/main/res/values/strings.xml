@@ -44,5 +44,13 @@
     <string name="etkinlik_yeri_se_iniz">Etkinlik yeri seçiniz</string>
     <string name="lat_lng_display">(%1$.5f, %2$.5f)</string>
 
+    <string name="ayarlar">Ayarlar</string>
+    <string name="profili_guncelle">Profili Güncelle</string>
+    <string name="program_tanitim">Program Tanıtımı</string>
+    <string name="sifre_degisimi">Şifre Değiştir</string>
+    <string name="cikis_yap">Çıkış Yap</string>
+
+
+
 
 </resources>

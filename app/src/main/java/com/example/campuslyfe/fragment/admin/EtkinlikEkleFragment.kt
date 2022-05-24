@@ -11,8 +11,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.content.PermissionChecker
 import androidx.navigation.fragment.findNavController
@@ -20,11 +18,7 @@ import com.example.campuslyfe.R
 import com.example.campuslyfe.data.sendImgToDB
 import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentEtkinlikEkleBinding
-import com.example.campuslyfe.databinding.FragmentToplulukEkleBinding
-import com.example.campuslyfe.fragment.etkinlikler.EtkinliklerAdapter
-import com.example.campuslyfe.fragment.profil.ProfilUpdateFragment
 import com.example.campuslyfe.model.Bina
-import com.example.campuslyfe.model.Club
 import com.example.campuslyfe.model.Etkinlik
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -32,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.fragment_etkinlik_ekle.*
-import kotlinx.android.synthetic.main.fragment_profil_update.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

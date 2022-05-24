@@ -15,7 +15,25 @@
             android:orientation="vertical"
             android:paddingBottom="150dp"
             android:layout_marginHorizontal="24dp"
-            tools:context=".fragment.profil.ProfilUpdateFragment">
+            tools:context=".ayarlar.ProfilUpdateFragment">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="@string/profili_guncelle"
+                android:textColor="@color/black"
+                android:textSize="46sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider_overview"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/incehat" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgProfilUpdate"

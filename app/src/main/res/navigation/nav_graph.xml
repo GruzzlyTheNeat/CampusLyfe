@@ -28,19 +28,21 @@
     </fragment>
     <fragment
         android:id="@+id/ayarlarFragment"
-        android:name="com.example.campuslyfe.fragment.main.AyarlarFragment"
+        android:name="com.example.campuslyfe.ayarlar.AyarlarFragment"
         android:label="fragment_ayarlar"
-        tools:layout="@layout/fragment_ayarlar" />
+        tools:layout="@layout/fragment_ayarlar" >
+        <action
+            android:id="@+id/action_ayarlarFragment_to_profilUpdateFragment"
+            app:destination="@id/profilUpdateFragment" />
+        <action
+            android:id="@+id/action_ayarlarFragment_to_sifreDegistirFragment"
+            app:destination="@id/sifreDegistirFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profilFragment"
         android:name="com.example.campuslyfe.fragment.profil.ProfilFragment"
         android:label="fragment_profil"
-        tools:layout="@layout/fragment_profil" >
-        <action
-            android:id="@+id/action_profilFragment_to_profilUpdateFragment"
-            app:destination="@id/profilUpdateFragment" />
-
-    </fragment>
+        tools:layout="@layout/fragment_profil" />
     <fragment
         android:id="@+id/etkinliklerFragment"
         android:name="com.example.campuslyfe.fragment.etkinlikler.EtkinliklerFragment"
@@ -102,7 +104,7 @@
         tools:layout="@layout/fragment_food" />
     <fragment
         android:id="@+id/profilUpdateFragment"
-        android:name="com.example.campuslyfe.fragment.profil.ProfilUpdateFragment"
+        android:name="com.example.campuslyfe.ayarlar.ProfilUpdateFragment"
         android:label="fragment_profil_update"
         tools:layout="@layout/fragment_profil_update" >
         <action
@@ -144,4 +146,8 @@
         android:id="@+id/yemekHaneDuzenleFragment"
         android:name="com.example.campuslyfe.fragment.admin.YemekHaneDuzenleFragment"
         android:label="YemekHaneDuzenleFragment" />
+    <fragment
+        android:id="@+id/sifreDegistirFragment"
+        android:name="com.example.campuslyfe.ayarlar.SifreDegistirFragment"
+        android:label="SifreDegistirFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.campuslyfe.fragment.profil
+package com.example.campuslyfe.ayarlar
 
 import android.Manifest
 import android.app.Activity
@@ -23,10 +23,8 @@ import com.example.campuslyfe.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_profil_update.*
-import java.net.URI
 
 class ProfilUpdateFragment : Fragment() {
     private lateinit var binding: FragmentProfilUpdateBinding
@@ -35,7 +33,6 @@ class ProfilUpdateFragment : Fragment() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var storageReference: StorageReference
     private lateinit var imageUri: Uri
-//    private lateinit var sendToDB: sendToDB
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

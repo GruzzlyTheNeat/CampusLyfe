@@ -18,7 +18,6 @@ import com.example.campuslyfe.R
 import com.example.campuslyfe.data.sendImgToDB
 import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentToplulukEkleBinding
-import com.example.campuslyfe.fragment.profil.ProfilUpdateFragment
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Club
 import com.google.android.gms.maps.model.LatLng
@@ -26,7 +25,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.fragment_etkinlik_ekle.*
 import kotlinx.android.synthetic.main.fragment_topluluk_ekle.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

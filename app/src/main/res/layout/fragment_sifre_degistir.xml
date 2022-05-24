@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="@color/eeeee"
+       android:fillViewport="true"
+       >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           tools:context=".ayarlar.SifreDegistirFragment"
+           android:orientation="vertical"
+           android:background="@color/eeeee"
+           android:paddingBottom="120dp"
+           android:paddingHorizontal="24dp"
+           >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:layout_marginTop="50dp"
+               android:text="@string/sifre_degisimi"
+               android:textColor="@color/black"
+               android:textSize="46sp"
+               android:textStyle="bold" />
+
+           <View
+               android:id="@+id/divider_overview"
+               android:layout_width="match_parent"
+               android:layout_height="6dp"
+               android:layout_gravity="center"
+               android:layout_marginTop="10dp"
+               android:background="@drawable/incehat" />
+
+
+           <EditText
+               android:id="@+id/etSifreDegistirCurrentPassword"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginTop="80dp"
+               android:hint="Mevcut Şifrenizi Giriniz"
+               android:background="@color/crema"
+               android:textCursorDrawable="@drawable/cursor"
+               android:inputType="textPassword"
+                android:paddingLeft="10dp"
+
+
+               ></EditText>
+
+           <EditText
+               android:id="@+id/etSifreDegistirNewPassword"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginTop="20dp"
+               android:hint="Yeni Şifrenizi Giriniz"
+               android:background="@color/crema"
+               android:textCursorDrawable="@drawable/cursor"
+               android:inputType="textPassword"
+               android:paddingLeft="10dp"
+
+
+               ></EditText>
+
+           <Button
+               android:id="@+id/btKayderYeniPassword"
+               style="@style/Typography.Caption"
+               android:layout_width="120dp"
+               android:layout_height="50dp"
+               android:layout_gravity="center"
+               android:layout_marginTop="180dp"
+               android:backgroundTint="@color/lightblue"
+               android:text="@string/kaydet"
+               android:textAllCaps="false"
+               android:textColor="@color/black" />
+
+
+
+       </LinearLayout>
+
+
+   </androidx.core.widget.NestedScrollView>
+
+</layout>
