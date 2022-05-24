@@ -39,7 +39,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:text="@{viewModel.name}"
             android:paddingStart="@dimen/cursor_padding_start"
 
-
             android:textCursorDrawable="@drawable/cursor" />
 
         <TextView
@@ -62,6 +61,75 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
             android:textCursorDrawable="@drawable/cursor" />
 
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Örnek yemek girişi: \nPilav, Kuru Fasulye, Ayran, Muz" />
+
+        <TextView
+            android:id="@+id/kahvaltı"
+            style="@style/Typography"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sabah Kahvaltısı" />
+
+        <EditText
+            android:id="@+id/kahvaltıgiris"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_e_mail"
+            android:paddingStart="@dimen/cursor_padding_start"
+            android:textCursorDrawable="@drawable/cursor" />
+        <TextView
+            android:id="@+id/ogle"
+            style="@style/Typography"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Öğle Yemeği" />
+
+        <EditText
+            android:id="@+id/oglegiris"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_e_mail"
+            android:paddingStart="@dimen/cursor_padding_start"
+            android:textCursorDrawable="@drawable/cursor" />
+        <TextView
+            android:id="@+id/aksamymg"
+            style="@style/Typography"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Akşam Yemeği" />
+
+
+        <EditText
+            android:id="@+id/aksamgiris"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_e_mail"
+            android:paddingStart="@dimen/cursor_padding_start"
+            android:textCursorDrawable="@drawable/cursor" />
+
+        <Button
+            android:id="@+id/yemekKaydet"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/lightblue"
+            android:text="@string/kaydet"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

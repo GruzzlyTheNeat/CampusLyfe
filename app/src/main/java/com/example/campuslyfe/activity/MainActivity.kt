@@ -8,9 +8,7 @@ import com.example.campuslyfe.databinding.ActivityMainBinding
 import androidx.navigation.ui.setupWithNavController
 import com.example.campuslyfe.R
 import com.example.campuslyfe.data.sendToDB
-import com.example.campuslyfe.model.Bina
-import com.example.campuslyfe.model.Club
-import com.example.campuslyfe.model.Etkinlik
+import com.example.campuslyfe.model.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +31,25 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
+        /*
+        sendToDB().sendFood(
+            Yemekhane(
+                "Yemekhane 1",
+                arrayListOf(
+                    Yemek("Pazartesi", "sabah 1.1", "ogle 1.1","aksam 1.1"),
+                    Yemek("Salı", "sabah 1.2", "ogle 1.2","aksam 1.2"),
+                    Yemek("Çarşamba", "sabah 1.3", "ogle 1.3","aksam 1.3"),
+                    Yemek("Perşembe", "sabah 1.4", "ogle 1.4","aksam 1.4"),
+                    Yemek("Cuma", "sabah 1.5", "ogle 1.5","aksam 1.5"),
+                    Yemek("Cumartesi", "sabah 1.6", "ogle 1.6","aksam 1.6"),
+                    Yemek("Pazar", "sabah 1.7", "ogle 1.7","aksam 1.7")
+                )
+            )
+        )
+
+         */
+
+
 //        val etkinlikDeneme = Etkinlik("etkinlik Ad","etkinlik acıklama","etkinlik adres","iletişim bilgileri",2,4.6,6.5)
 //        val arrayListEtkinlikDeneme = arrayListOf<Etkinlik>()
 //        val toplulukDeneme = Club(1,"club ad","club discription","binaAd","contactInformation",5.2,6.4)
