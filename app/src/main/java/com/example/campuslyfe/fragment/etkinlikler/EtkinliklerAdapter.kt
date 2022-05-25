@@ -8,14 +8,14 @@ import com.example.campuslyfe.databinding.ItemRowEtkinlikBinding
 import com.example.campuslyfe.model.Etkinlik
 
 class EtkinliklerAdapter(
-    private val dataset: List<Etkinlik>,
+    private val dataset: List<Etkinlik?>,
     private val context: Context,
     private val listener: OnEtkinlikClickListener
 ) : RecyclerView.Adapter<EtkinliklerAdapter.EtkinliklerViewHolder>() {
 
     inner class EtkinliklerViewHolder(val binding: ItemRowEtkinlikBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(etkinlik: Etkinlik) {
+        fun bind(etkinlik: Etkinlik?) {
             binding.item = etkinlik
             binding.executePendingBindings()
         }
@@ -41,6 +41,6 @@ class EtkinliklerAdapter(
     override fun getItemCount() = dataset.size
 
     interface OnEtkinlikClickListener {
-        fun onEtkinlikClick(etkinlik: Etkinlik)
+        fun onEtkinlikClick(etkinlik: Etkinlik?)
     }
 }

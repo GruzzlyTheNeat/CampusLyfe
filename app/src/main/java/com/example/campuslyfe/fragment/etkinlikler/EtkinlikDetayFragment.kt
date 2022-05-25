@@ -58,9 +58,7 @@ class EtkinlikDetayFragment : Fragment() {
                     etkinlikPoster.setImageResource(R.drawable.ic_launcher_foreground)
                 }
 
-
             }
-
 
         }.root
     }
@@ -70,8 +68,6 @@ class EtkinlikDetayFragment : Fragment() {
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.etkinlikMapDetail) as SupportMapFragment
         mapFragment.getMapAsync(callback)
-
-
     }
 
     private fun createMarker(): BitmapDescriptor {

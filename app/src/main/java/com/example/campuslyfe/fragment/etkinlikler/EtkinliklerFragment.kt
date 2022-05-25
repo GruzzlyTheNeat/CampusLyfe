@@ -1,6 +1,5 @@
 package com.example.campuslyfe.fragment.etkinlikler
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.databinding.FragmentEtkinliklerBinding
 import com.example.campuslyfe.model.Etkinlik
-import com.example.campuslyfe.utils.getDatabaseInstance
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListener {
+
+    private val etkinliklerViewModel by viewModel<EtkinliklerViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,41 +23,25 @@ class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListen
 
             lifecycleOwner = viewLifecycleOwner
 
-            val databaseEtkinlik = getDatabaseInstance()
-                .getReference("Etkinlikler")
-            val etkinlikList = arrayListOf<Etkinlik>()
-            databaseEtkinlik.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-                        for (etkinlikSnapShot in snapshot.children) {
-                            val etkinlik = etkinlikSnapShot.getValue(Etkinlik::class.java)
-                            etkinlikList.add(etkinlik!!)
-                        }
-                        rvEtkinlikler.adapter =
-                            EtkinliklerAdapter(
-                                etkinlikList,
-                                requireContext(),
-                                this@EtkinliklerFragment
-                            )
-
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    println("hataaa $error")
-                }
-
-            })
+            etkinliklerViewModel.etkinlikler.observe(viewLifecycleOwner) {
+                rvEtkinlikler.adapter =
+                    EtkinliklerAdapter(
+                        it,
+                        requireContext(),
+                        this@EtkinliklerFragment
+                    )
+            }
 
 
         }.root
     }
 
-    override fun onEtkinlikClick(etkinlik: Etkinlik) {
-        findNavController().navigate(
-            EtkinliklerFragmentDirections.actionEtkinliklerFragmentToEtkinlikDetayFragment(
-                etkinlik
+    override fun onEtkinlikClick(etkinlik: Etkinlik?) {
+        etkinlik?.let {
+            findNavController().navigate(
+                EtkinliklerFragmentDirections
+                    .actionEtkinliklerFragmentToEtkinlikDetayFragment(it)
             )
-        )
+        }
     }
 }
