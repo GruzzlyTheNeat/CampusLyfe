@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.PermissionChecker
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.R
@@ -20,6 +19,7 @@ import com.example.campuslyfe.databinding.FragmentToplulukEkleBinding
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Club
 import com.example.campuslyfe.utils.getDatabaseInstance
+import com.example.campuslyfe.utils.showToast
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -89,8 +89,7 @@ class ToplulukEkleFragment : Fragment(),
                     findNavController().navigate(R.id.action_toplulukEkleFragment_to_clubFragment)
 
                 } else {
-                    Toast.makeText(requireContext(), "Lütfen Resim Seçiniz", Toast.LENGTH_SHORT)
-                        .show()
+                    showToast("Lütfen Resim Seçiniz")
                 }
 
 
@@ -154,7 +153,7 @@ class ToplulukEkleFragment : Fragment(),
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImageFromGaleryToplulukEkle()
                 } else {
-                    Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
+                    showToast("Permission denied")
                 }
             }
         }

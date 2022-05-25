@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.PermissionChecker
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.R
@@ -20,6 +19,7 @@ import com.example.campuslyfe.databinding.FragmentEtkinlikEkleBinding
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Etkinlik
 import com.example.campuslyfe.utils.getDatabaseInstance
+import com.example.campuslyfe.utils.showToast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -87,8 +87,7 @@ class EtkinlikEkleFragment : Fragment(),
                     sendImgToDB().uploadImgEtkinlik(imageUriEtkinlik, ad)
                     findNavController().navigate(R.id.action_etkinlikEkleFragment_to_etkinliklerFragment)
                 } else {
-                    Toast.makeText(requireContext(), "Lütfen Resim Seçiniz", Toast.LENGTH_SHORT)
-                        .show()
+                    showToast("Lütfen Resim Seçiniz")
                 }
 
                 val databaseBinalar =
@@ -155,7 +154,7 @@ class EtkinlikEkleFragment : Fragment(),
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImageFromGaleryEtkinlikEkle()
                 } else {
-                    Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
+                    showToast("Permission denied")
                 }
             }
         }

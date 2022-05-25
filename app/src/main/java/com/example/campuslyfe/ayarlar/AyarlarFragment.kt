@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.campuslyfe.R
 import com.example.campuslyfe.activity.SignInActivity
 import com.example.campuslyfe.databinding.FragmentAyarlarBinding
 import com.google.firebase.auth.ktx.auth
@@ -23,7 +22,9 @@ class AyarlarFragment : Fragment() {
         return FragmentAyarlarBinding.inflate(inflater, container, false).apply {
 
             cardViewProfilGuncelle.setOnClickListener {
-                findNavController().navigate(R.id.action_ayarlarFragment_to_profilUpdateFragment)
+                findNavController().navigate(
+                    AyarlarFragmentDirections.actionAyarlarFragmentToProfilUpdateFragment()
+                )
             }
             cardViewCikisYap.setOnClickListener {
                 Firebase.auth.signOut()
@@ -34,7 +35,9 @@ class AyarlarFragment : Fragment() {
 
             }
             cardViewSifreDegistir.setOnClickListener {
-                findNavController().navigate(R.id.action_ayarlarFragment_to_sifreDegistirFragment)
+                findNavController().navigate(
+                    AyarlarFragmentDirections.actionAyarlarFragmentToSifreDegistirFragment()
+                )
             }
         }.root
     }

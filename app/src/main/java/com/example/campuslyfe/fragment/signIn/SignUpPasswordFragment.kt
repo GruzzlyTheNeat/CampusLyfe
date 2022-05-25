@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.campuslyfe.activity.MainActivity
 import com.example.campuslyfe.databinding.FragmentSignUpBinding
 import com.example.campuslyfe.utils.StateResource
+import com.example.campuslyfe.utils.showToast
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SignUpPasswordFragment : Fragment() {
@@ -39,7 +39,7 @@ class SignUpPasswordFragment : Fragment() {
                         activity?.finish()
                     }
                     is StateResource.Error -> {
-                        Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
+                        showToast("Failed")
                     }
                 }
             }

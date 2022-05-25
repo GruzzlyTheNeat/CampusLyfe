@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.navigation.fragment.findNavController
@@ -19,6 +18,7 @@ import com.example.campuslyfe.data.sendImgToDB
 import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentProfilUpdateBinding
 import com.example.campuslyfe.model.User
+import com.example.campuslyfe.utils.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -92,7 +92,7 @@ class ProfilUpdateFragment : Fragment() {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImageFromGalery()
                 } else {
-                    Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
+                    showToast("Permission denied")
                 }
             }
         }
@@ -102,9 +102,7 @@ class ProfilUpdateFragment : Fragment() {
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             imageUri = data?.data!!
             imgProfilUpdate.setImageURI(imageUri)
-
         }
     }
-
 
 }

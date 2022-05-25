@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import com.example.campuslyfe.databinding.FragmentYemekhaneDuzenleBinding
 import com.example.campuslyfe.model.Yemek
 import com.example.campuslyfe.model.Yemekhane
 import com.example.campuslyfe.utils.getDatabaseInstance
+import com.example.campuslyfe.utils.showToast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -74,13 +74,9 @@ class YemekHaneDuzenleFragment: Fragment() {
                         when (sayiYemekhane) {
                             0 -> {
                                 val key = databaseYemek.child("Yemekhane 1").child("haftalık").child(sayiGun.toString()).push().key
-                                if (key == null) {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Giriş Yapılamadı",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
+                                if (key == null)
+                                    showToast("Giriş Yapılamadı")
+
                                 haftalikList.clear()
                                 haftalikList = haftalik1!!.haftalık!!
                                 val postValues = yemekTemp.toMap()
@@ -95,13 +91,9 @@ class YemekHaneDuzenleFragment: Fragment() {
                             }
                             1 -> {
                                 val key = databaseYemek.child("Yemekhane 2").child("haftalık").child(sayiGun.toString()).push().key
-                                if (key == null) {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Giriş Yapılamadı",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
+                                if (key == null)
+                                    showToast("Giriş Yapılamadı")
+
                                 haftalikList.clear()
                                 haftalikList = haftalik2!!.haftalık!!
                                 val postValues = yemekTemp.toMap()
@@ -117,13 +109,9 @@ class YemekHaneDuzenleFragment: Fragment() {
                             }
                             2 -> {
                                 val key = databaseYemek.child("Yemekhane 3").child("haftalık").child(sayiGun.toString()).push().key
-                                if (key == null) {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Giriş Yapılamadı",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
+                                if (key == null)
+                                    showToast("Giriş Yapılamadı")
+
                                 haftalikList.clear()
                                 haftalikList = haftalik3!!.haftalık!!
                                 val postValues = yemekTemp.toMap()
@@ -134,10 +122,8 @@ class YemekHaneDuzenleFragment: Fragment() {
 
                                 databaseYemek.updateChildren(childUpdates)
 
-
                             }
                         }
-
 
                     }
                 }
