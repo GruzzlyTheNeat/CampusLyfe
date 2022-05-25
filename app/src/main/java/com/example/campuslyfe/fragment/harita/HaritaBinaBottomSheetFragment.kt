@@ -21,11 +21,6 @@ import com.google.gson.Gson
 class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
     EtkinlikPopUpRwAdapter.OnPopUpEtkinlikClickListener,
     ClubPopUpRwAdapter.OnClubPopUpListener {
-    private lateinit var etkinlikList: ArrayList<Etkinlik>
-    private lateinit var toplulukList: ArrayList<Club>
-    private lateinit var binaList: ArrayList<Bina>
-    private lateinit var etkinlikRealList: ArrayList<Etkinlik>
-    private lateinit var toplulukRealList: ArrayList<Club>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,11 +29,11 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
     ): View {
         return DialogHaritaBinaBottomSheetBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
-            etkinlikList = arrayListOf()
-            etkinlikRealList = ArrayList()
-            toplulukRealList = arrayListOf()
-            binaList = arrayListOf()
-            toplulukList = ArrayList()
+            val etkinlikList = arrayListOf<Etkinlik>()
+            var etkinlikRealList: ArrayList<Etkinlik>
+            var toplulukRealList: ArrayList<Club>
+            val binaList = arrayListOf<Bina>()
+            val toplulukList = ArrayList<Club>()
 
             val binaArgument = Gson().fromJson(arguments?.getString(PARAM_BINA), Bina::class.java)
             bina = binaArgument

@@ -15,20 +15,19 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
 class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListener {
-    private lateinit var etkinlikList: ArrayList<Etkinlik>
-    private lateinit var contextEtkinlik: Context
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         return FragmentEtkinliklerBinding.inflate(inflater, container, false).apply {
-            contextEtkinlik = requireContext()
+
             lifecycleOwner = viewLifecycleOwner
 
             val databaseEtkinlik = getDatabaseInstance()
-                    .getReference("Etkinlikler")
-            etkinlikList = arrayListOf()
+                .getReference("Etkinlikler")
+            val etkinlikList = arrayListOf<Etkinlik>()
             databaseEtkinlik.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -39,7 +38,7 @@ class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListen
                         rvEtkinlikler.adapter =
                             EtkinliklerAdapter(
                                 etkinlikList,
-                                contextEtkinlik,
+                                requireContext(),
                                 this@EtkinliklerFragment
                             )
 
