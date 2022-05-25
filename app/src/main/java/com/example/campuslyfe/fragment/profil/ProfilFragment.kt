@@ -8,52 +8,32 @@ import android.view.ViewGroup
 import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentProfilBinding
 import com.example.campuslyfe.utils.downloadFromURL
-import com.example.campuslyfe.utils.getDatabaseInstance
 import com.example.campuslyfe.utils.placeHolderProgressBar
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.storage.FirebaseStorage
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfilFragment : Fragment() {
 
-    private lateinit var mAuth: FirebaseAuth
+    private val profilViewModel by viewModel<ProfilViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = FragmentProfilBinding.inflate(inflater, container, false)
-        mAuth = FirebaseAuth.getInstance()
-        val uid = mAuth.currentUser?.uid
-        val databaseUser =
-            getDatabaseInstance()
-                .getReference("Users")
+        return FragmentProfilBinding.inflate(inflater, container, false).apply {
 
-        if (uid != null) {
-            val imagePath = "users/$uid"
-            val storageRef = FirebaseStorage.getInstance().reference
-            val imageRef = storageRef.child(imagePath)
-            imageRef.downloadUrl.addOnSuccessListener {
-                binding.imgProfil.downloadFromURL(
-                    it.toString(),
-                    placeHolderProgressBar(requireContext())
-                )
-
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = profilViewModel
+            profilViewModel.imageUrl.observe(viewLifecycleOwner) {
+                if (it != null)
+                    imgProfil.downloadFromURL(
+                        it.toString(),
+                        placeHolderProgressBar(requireContext())
+                    )
+                else
+                    imgProfil.setImageResource(R.drawable.ic_baseline_person_24)
             }
-            imageRef.downloadUrl.addOnFailureListener {
-                binding.imgProfil.setImageResource(R.drawable.ic_baseline_person_24)
-            }
-        }
-
-        databaseUser.child(uid.toString()).get().addOnSuccessListener {
-            if (it.exists()) {
-                binding.tvAdProfil.text = it.child("adSoyad").value.toString()
-                binding.tvBolumProfil.text = it.child("bolum").value.toString()
-                binding.tvBilgiGiris.text = it.child("bilgi").value.toString()
-            }
-        }
-
-        return binding.root
+        }.root
     }
 
 

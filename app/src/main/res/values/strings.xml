@@ -55,6 +55,9 @@
     <string name="sabah">Sabah:</string>
     <string name="oglen">Öğlen:</string>
     <string name="aksam">Akşam:</string>
+    <string name="bilgi">Bilgi</string>
+    <string name="bolum">Bölüm</string>
+    <string name="ad_soyad">Ad Soyad</string>
 
 
 </resources>
