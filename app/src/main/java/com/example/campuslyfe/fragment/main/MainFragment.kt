@@ -5,54 +5,46 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
-import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
-
 class MainFragment : Fragment() {
-    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = FragmentMainBinding.inflate(inflater,container,false)
-        mAuth = FirebaseAuth.getInstance()
-        val uid = mAuth.currentUser?.uid
-        val buttonHarita : CardView = binding.cardViewHarita
-        val buttonClub : CardView = binding.cardViewTopluluk
-        val buttonYemek : CardView = binding.cardViewYemekhane
-        val buttonKontrol : CardView = binding.cardViewAyar
+        return FragmentMainBinding.inflate(inflater, container, false).apply {
 
-        if(uid.equals("wMLfENqBlkaLnotsKx0vCDHPpPO2") || uid.equals("s8HhtmBCsuWq5yVyyWFkBydgg9F3" ) || uid.equals("tqvhsEY7DZTFCJ7dXGVaz4NkJyV2" )){
-            binding.linearLayoutKontrol.visibility = View.VISIBLE
-        }
+            val uid = FirebaseAuth.getInstance().currentUser?.uid
 
-        buttonHarita.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_haritaFragment)
+            if (
+                uid.equals("wMLfENqBlkaLnotsKx0vCDHPpPO2") ||
+                uid.equals("s8HhtmBCsuWq5yVyyWFkBydgg9F3") ||
+                uid.equals("tqvhsEY7DZTFCJ7dXGVaz4NkJyV2")
+            ) {
+                linearLayoutKontrol.visibility = View.VISIBLE
+            }
 
-        }
-        binding.cardViewEtkinlik.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToEtkinliklerFragment())
-        }
-
-        buttonClub.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_clubFragment)
-        }
-
-        buttonYemek.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_foodFragment)
-        }
-        buttonKontrol.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_adminKontrolFragment)
-        }
-
-
-        return binding.root
+            cardViewHarita.setOnClickListener {
+                findNavController().navigate(MainFragmentDirections.actionMainFragmentToHaritaFragment())
+            }
+            cardViewEtkinlik.setOnClickListener {
+                findNavController().navigate(MainFragmentDirections.actionMainFragmentToEtkinliklerFragment())
+            }
+            cardViewTopluluk.setOnClickListener {
+                findNavController().navigate(MainFragmentDirections.actionMainFragmentToClubFragment())
+            }
+            cardViewYemekhane.setOnClickListener {
+                findNavController().navigate(MainFragmentDirections.actionMainFragmentToFoodFragment())
+            }
+            cardViewAyar.setOnClickListener {
+                findNavController().navigate(MainFragmentDirections.actionMainFragmentToAdminKontrolFragment())
+            }
+        }.root
     }
 
 
