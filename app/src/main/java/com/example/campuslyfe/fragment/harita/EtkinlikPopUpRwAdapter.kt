@@ -2,18 +2,15 @@ package com.example.campuslyfe.fragment.harita
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.ItemRowEtkinlikBinding
-import com.example.campuslyfe.fragment.etkinlikler.EtkinliklerAdapter
-import com.example.campuslyfe.fragment.etkinlikler.EtkinliklerFragmentDirections
 import com.example.campuslyfe.model.Etkinlik
 
 class EtkinlikPopUpRwAdapter(
-    private val etkinlikList: ArrayList<Etkinlik>,private val context: Context, private val listener : OnPopUpEtkinlikClickListener
+    private val etkinlikList: ArrayList<Etkinlik>,
+    private val context: Context,
+    private val listener: OnPopUpEtkinlikClickListener
 ) : RecyclerView.Adapter<EtkinlikPopUpRwAdapter.ViewHolderPopUpEtkinlik>() {
     class ViewHolderPopUpEtkinlik(val binding: ItemRowEtkinlikBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -49,6 +46,5 @@ class EtkinlikPopUpRwAdapter(
     interface OnPopUpEtkinlikClickListener {
         fun onEtkinlikPopUpClick(etkinlik: Etkinlik)
     }
-
 
 }

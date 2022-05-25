@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import com.example.campuslyfe.data.grabFoodFromDB
 import com.example.campuslyfe.model.Yemek
 import com.example.campuslyfe.databinding.FragmentFoodBinding
-import com.example.campuslyfe.model.Etkinlik
 import com.example.campuslyfe.model.Yemekhane
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -23,27 +21,25 @@ class FoodFragment : Fragment() {
     private var haftalik1: Yemekhane? = null
     private var haftalik2: Yemekhane? = null
     private var haftalik3: Yemekhane? = null
-    private lateinit var haftalıkList: ArrayList<Yemek>
-
-
+    private lateinit var haftalikList: ArrayList<Yemek>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFoodBinding.inflate(inflater, container, false)
         val yemekhane = createYemekhanePopMenu(binding.textView2)
-        val günler = createGünlerPopMenu(binding.textView3)
+        val gunler = createGunlerPopMenu(binding.textView3)
         var sayiGun = 7
         var sayiYemekhane = 3
         binding.textView2.setOnClickListener { yemekhane.show() }
-        binding.textView3.setOnClickListener { günler.show() }
+        binding.textView3.setOnClickListener { gunler.show() }
         binding.textView4.setOnClickListener {
             val databaseYemek =
                 FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
                     .getReference("Yemekhane")
-            yemekhaneList = arrayListOf<Yemekhane>()
-            haftalıkList = arrayListOf<Yemek>()
+            yemekhaneList = arrayListOf()
+            haftalikList = arrayListOf()
 
             databaseYemek.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -53,9 +49,9 @@ class FoodFragment : Fragment() {
                             yemekhaneList.add(yemekhane!!)
 
                         }
-                        haftalik1 = yemekhaneList.get(0)
-                        haftalik2 = yemekhaneList.get(1)
-                        haftalik3 = yemekhaneList.get(2)
+                        haftalik1 = yemekhaneList[0]
+                        haftalik2 = yemekhaneList[1]
+                        haftalik3 = yemekhaneList[2]
                         when (binding.textView3.text) {
                             "Pazartesi" -> sayiGun = 0
                             "Salı" -> sayiGun = 1
@@ -73,27 +69,21 @@ class FoodFragment : Fragment() {
                         }
                         when (sayiYemekhane) {
                             0 -> {
-                                haftalıkList.clear()
-                                haftalıkList = haftalik1!!.haftalık!!
-                                GunYerlestir(sayiGun)
-
-
+                                haftalikList.clear()
+                                haftalikList = haftalik1!!.haftalık!!
+                                gunYerlestir(sayiGun)
                             }
                             1 -> {
-                                haftalıkList.clear()
-                                haftalıkList = haftalik2!!.haftalık!!
-                                GunYerlestir(sayiGun)
-
-
+                                haftalikList.clear()
+                                haftalikList = haftalik2!!.haftalık!!
+                                gunYerlestir(sayiGun)
                             }
                             2 -> {
-                                haftalıkList.clear()
-                                haftalıkList = haftalik3!!.haftalık!!
-                                GunYerlestir(sayiGun)
-
+                                haftalikList.clear()
+                                haftalikList = haftalik3!!.haftalık!!
+                                gunYerlestir(sayiGun)
                             }
                         }
-
 
                     }
                 }
@@ -103,52 +93,51 @@ class FoodFragment : Fragment() {
 
             })
 
-
         }
         return binding.root
     }
 
-    private fun GunYerlestir(sayiGun: Int) {
+    private fun gunYerlestir(sayiGun: Int) {
         when (sayiGun) {
             0 -> {
-                binding.textView5.text = haftalıkList.get(0).toStringSabah()
-                binding.textView6.text = haftalıkList.get(0).toStringOgle()
-                binding.textView7.text = haftalıkList.get(0).toStringAksam()
+                binding.textView5.text = haftalikList[0].toStringSabah()
+                binding.textView6.text = haftalikList[0].toStringOgle()
+                binding.textView7.text = haftalikList[0].toStringAksam()
             }
             1 -> {
-                binding.textView5.text = haftalıkList.get(1).toStringSabah()
-                binding.textView6.text = haftalıkList.get(1).toStringOgle()
-                binding.textView7.text = haftalıkList.get(1).toStringAksam()
+                binding.textView5.text = haftalikList[1].toStringSabah()
+                binding.textView6.text = haftalikList[1].toStringOgle()
+                binding.textView7.text = haftalikList[1].toStringAksam()
             }
             2 -> {
-                binding.textView5.text = haftalıkList.get(2).toStringSabah()
-                binding.textView6.text = haftalıkList.get(2).toStringOgle()
-                binding.textView7.text = haftalıkList.get(2).toStringAksam()
+                binding.textView5.text = haftalikList[2].toStringSabah()
+                binding.textView6.text = haftalikList[2].toStringOgle()
+                binding.textView7.text = haftalikList[2].toStringAksam()
             }
             3 -> {
-                binding.textView5.text = haftalıkList.get(3).toStringSabah()
-                binding.textView6.text = haftalıkList.get(3).toStringOgle()
-                binding.textView7.text = haftalıkList.get(3).toStringAksam()
+                binding.textView5.text = haftalikList[3].toStringSabah()
+                binding.textView6.text = haftalikList[3].toStringOgle()
+                binding.textView7.text = haftalikList[3].toStringAksam()
             }
             4 -> {
-                binding.textView5.text = haftalıkList.get(4).toStringSabah()
-                binding.textView6.text = haftalıkList.get(4).toStringOgle()
-                binding.textView7.text = haftalıkList.get(4).toStringAksam()
+                binding.textView5.text = haftalikList[4].toStringSabah()
+                binding.textView6.text = haftalikList[4].toStringOgle()
+                binding.textView7.text = haftalikList[4].toStringAksam()
             }
             5 -> {
-                binding.textView5.text = haftalıkList.get(5).toStringSabah()
-                binding.textView6.text = haftalıkList.get(5).toStringOgle()
-                binding.textView7.text = haftalıkList.get(5).toStringAksam()
+                binding.textView5.text = haftalikList[5].toStringSabah()
+                binding.textView6.text = haftalikList[5].toStringOgle()
+                binding.textView7.text = haftalikList[5].toStringAksam()
             }
             6 -> {
-                binding.textView5.text = haftalıkList.get(6).toStringSabah()
-                binding.textView6.text = haftalıkList.get(6).toStringOgle()
-                binding.textView7.text = haftalıkList.get(6).toStringAksam()
+                binding.textView5.text = haftalikList[6].toStringSabah()
+                binding.textView6.text = haftalikList[6].toStringOgle()
+                binding.textView7.text = haftalikList[6].toStringAksam()
             }
         }
     }
 
-    fun createYemekhanePopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
+    private fun createYemekhanePopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
         menu.run {
             add("Yemekhane 1")
             add("Yemekhane 2")
@@ -162,7 +151,7 @@ class FoodFragment : Fragment() {
         }
     }
 
-    fun createGünlerPopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
+    fun createGunlerPopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
         menu.run {
             add("Pazartesi")
             add("Salı")

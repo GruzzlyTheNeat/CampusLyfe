@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -46,19 +45,15 @@ class ToplulukEkleFragment : Fragment(),
             viewModel = toplulukEkleViewModel
 
             imageViewAdminToplulukEkle.setOnClickListener {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if(PermissionChecker.checkSelfPermission(
-                            requireContext(),
-                            Manifest.permission.READ_EXTERNAL_STORAGE
-                        ) == PermissionChecker.PERMISSION_DENIED){
-                        val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                        requestPermissions(permissions, ToplulukEkleFragment.PERMISION_CODE)
+                if (PermissionChecker.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    ) == PermissionChecker.PERMISSION_DENIED
+                ) {
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    requestPermissions(permissions, PERMISION_CODE)
 
-                    }else{
-                        pickImageFromGaleryToplulukEkle()
-                    }
-                }
-                else{
+                } else {
                     pickImageFromGaleryToplulukEkle()
                 }
             }
@@ -89,28 +84,30 @@ class ToplulukEkleFragment : Fragment(),
                         lng
                     )
                 sendToDB().sendTopluluk(topluluk)
-                if(::imageUriTopluluk.isInitialized){
-                    sendImgToDB().uploadImgTopluluk(imageUriTopluluk,ad)
+                if (::imageUriTopluluk.isInitialized) {
+                    sendImgToDB().uploadImgTopluluk(imageUriTopluluk, ad)
                     findNavController().navigate(R.id.action_toplulukEkleFragment_to_clubFragment)
 
-                }
-                else{
-                    Toast.makeText(requireContext(),"Lütfen Resim Seçiniz",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Lütfen Resim Seçiniz", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
 
-                val databaseBinalar = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Binalar")
-                binaList = arrayListOf<Bina>()
-                databaseBinalar.addListenerForSingleValueEvent(object: ValueEventListener{
+                val databaseBinalar =
+                    FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                        .getReference("Binalar")
+                binaList = arrayListOf()
+                databaseBinalar.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        if(snapshot.exists()){
+                        if (snapshot.exists()) {
                             binaList.clear()
-                            for(dss in snapshot.children){
+                            for (dss in snapshot.children) {
                                 val bina = dss.getValue(Bina::class.java)
                                 binaList.add(bina!!)
                             }
-                            for(b in binaList){
-                                if(binaAd.equals(b.binaAd)){
+                            for (b in binaList) {
+                                if (binaAd == b.binaAd) {
                                     b.topulukList?.add(topluluk)
                                     sendToDB().sendBina(b)
                                 }
@@ -119,7 +116,7 @@ class ToplulukEkleFragment : Fragment(),
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
+
                     }
 
                 })
@@ -141,7 +138,7 @@ class ToplulukEkleFragment : Fragment(),
         startActivityForResult(intent, IMAGE_PICK_CODE)
     }
 
-    companion object{
+    companion object {
         private val IMAGE_PICK_CODE = 1000
         private val PERMISION_CODE = 1001
 
@@ -152,20 +149,19 @@ class ToplulukEkleFragment : Fragment(),
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        when(requestCode){
-            PERMISION_CODE ->{
-                if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        when (requestCode) {
+            PERMISION_CODE -> {
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImageFromGaleryToplulukEkle()
-                }
-                else{
-                    Toast.makeText(requireContext(),"Permission denied", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             imageUriTopluluk = data?.data!!
             imageViewAdminToplulukEkle.setImageURI(imageUriTopluluk)
 

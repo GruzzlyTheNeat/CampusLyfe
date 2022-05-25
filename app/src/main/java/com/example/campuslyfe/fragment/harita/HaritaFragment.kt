@@ -35,14 +35,15 @@ class HaritaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val latLngBounds = LatLngBounds.builder()
         (childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment)?.getMapAsync { map ->
-                haritaRepo.binalar.forEach { bina ->
+            haritaRepo.binalar.forEach { bina ->
                 map.addMarker(
-                    MarkerOptions().icon(createMarker()).anchor(0.5f, 0.5f).position(LatLng(bina.binalat!!,bina.binalng!!))
+                    MarkerOptions().icon(createMarker()).anchor(0.5f, 0.5f)
+                        .position(LatLng(bina.binalat!!, bina.binalng!!))
                         .title(bina.binaAd)
                 )?.apply {
                     tag = bina
                 }
-                latLngBounds.include(LatLng(bina.binalat!!,bina.binalng!!))
+                latLngBounds.include(LatLng(bina.binalat, bina.binalng))
             }
             map.moveCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds.build(), 100))
             map.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.map_style))

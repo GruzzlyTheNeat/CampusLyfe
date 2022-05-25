@@ -12,5 +12,4 @@ data class Etkinlik(
     val etkinlikPoster: Int? = null,
     val etkinlikLat : Double? = null,
     val etkinlikLng : Double? = null
-
 ) : Parcelable

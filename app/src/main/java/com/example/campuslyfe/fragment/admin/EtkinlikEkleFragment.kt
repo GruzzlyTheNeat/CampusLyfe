@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,14 +27,12 @@ import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.fragment_etkinlik_ekle.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
-class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLocationSelectedListener{
-
+class EtkinlikEkleFragment : Fragment(),
+    MarkerLocationPickUpFragment.EtkinlikLocationSelectedListener {
 
     private val etkinlikEkleViewModel by viewModel<EtkinlikEkleViewModel>()
     private lateinit var binaList: ArrayList<Bina>
     private lateinit var imageUriEtkinlik: Uri
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,21 +49,17 @@ class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLo
                     childFragmentManager,
                     MarkerLocationPickUpFragment::class.java.name
                 )
-           }
+            }
             imageViewAdminEtkinlikEkle.setOnClickListener {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if(PermissionChecker.checkSelfPermission(
-                            requireContext(),
-                            Manifest.permission.READ_EXTERNAL_STORAGE
-                        ) == PermissionChecker.PERMISSION_DENIED){
-                        val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                        requestPermissions(permissions, EtkinlikEkleFragment.PERMISION_CODE)
+                if (PermissionChecker.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    ) == PermissionChecker.PERMISSION_DENIED
+                ) {
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    requestPermissions(permissions, PERMISION_CODE)
 
-                    }else{
-                        pickImageFromGaleryEtkinlikEkle()
-                    }
-                }
-                else{
+                } else {
                     pickImageFromGaleryEtkinlikEkle()
                 }
             }
@@ -90,19 +83,18 @@ class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLo
                         lng
                     )
                 sendToDB().sendEtkinlik(etkinlik)
-                if(::imageUriEtkinlik.isInitialized){
-                    sendImgToDB().uploadImgEtkinlik(imageUriEtkinlik,ad)
+                if (::imageUriEtkinlik.isInitialized) {
+                    sendImgToDB().uploadImgEtkinlik(imageUriEtkinlik, ad)
                     findNavController().navigate(R.id.action_etkinlikEkleFragment_to_etkinliklerFragment)
-                }
-                else{
-                    Toast.makeText(requireContext(),"Lütfen Resim Seçiniz",Toast.LENGTH_SHORT).show()
-
+                } else {
+                    Toast.makeText(requireContext(), "Lütfen Resim Seçiniz", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
                 val databaseBinalar =
                     FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
                         .getReference("Binalar")
-                binaList = arrayListOf<Bina>()
+                binaList = arrayListOf()
 
                 databaseBinalar.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
@@ -113,7 +105,7 @@ class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLo
                                 binaList.add(bina!!)
                             }
                             for (b in binaList) {
-                                if (binaAd.equals(b.binaAd)) {
+                                if (binaAd == b.binaAd) {
                                     b.etkinliklerList?.add(etkinlik)
                                     sendToDB().sendBina(b)
 
@@ -124,7 +116,7 @@ class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLo
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
+
                     }
 
                 })
@@ -132,16 +124,14 @@ class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLo
                 findNavController().navigate(R.id.action_etkinlikEkleFragment_to_etkinliklerFragment)
             }
         }
-            return binding.root
-        }
+        return binding.root
+    }
 
 
-
-
-        override fun onEtkinlikLocationSelected(latLng: LatLng) {
-            etkinlikEkleViewModel.lat.postValue(latLng.latitude)
-            etkinlikEkleViewModel.lng.postValue(latLng.longitude)
-        }
+    override fun onEtkinlikLocationSelected(latLng: LatLng) {
+        etkinlikEkleViewModel.lat.postValue(latLng.latitude)
+        etkinlikEkleViewModel.lng.postValue(latLng.longitude)
+    }
 
     private fun pickImageFromGaleryEtkinlikEkle() {
         val intent = Intent(Intent.ACTION_PICK)
@@ -149,9 +139,9 @@ class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLo
         startActivityForResult(intent, IMAGE_PICK_CODE)
     }
 
-    companion object{
-        private val IMAGE_PICK_CODE = 1000
-        private val PERMISION_CODE = 1001
+    companion object {
+        private const val IMAGE_PICK_CODE = 1000
+        private const val PERMISION_CODE = 1001
 
     }
 
@@ -160,23 +150,21 @@ class EtkinlikEkleFragment : Fragment(), MarkerLocationPickUpFragment.EtkinlikLo
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        when(requestCode){
-            PERMISION_CODE ->{
-                if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        when (requestCode) {
+            PERMISION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImageFromGaleryEtkinlikEkle()
-                }
-                else{
-                    Toast.makeText(requireContext(),"Permission denied", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             imageUriEtkinlik = data?.data!!
             imageViewAdminEtkinlikEkle.setImageURI(imageUriEtkinlik)
-
         }
     }
-    }
+}

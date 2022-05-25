@@ -9,12 +9,16 @@ import com.example.campuslyfe.R
 import com.example.campuslyfe.model.Club
 import kotlinx.android.synthetic.main.club_rw_row.view.*
 
-class ClubRwAdapter(private val clubList : List<Club>) : RecyclerView.Adapter<ClubRwAdapter.ViewHolder>() {
+class ClubRwAdapter(
+    private val clubList: List<Club>
+) : RecyclerView.Adapter<ClubRwAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return  ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.club_rw_row,parent,false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.club_rw_row, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

@@ -1,13 +1,6 @@
 package com.example.campuslyfe.fragment.harita
 
-import com.example.campuslyfe.fragment.etkinlikler.EtkinliklerAdapter
 import com.example.campuslyfe.model.Bina
-import com.example.campuslyfe.model.Etkinlik
-import com.google.android.gms.maps.model.LatLng
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class HaritaRepository {
 
@@ -201,9 +194,6 @@ class HaritaRepository {
         )
 
     )
-
-
-
 
 
 }

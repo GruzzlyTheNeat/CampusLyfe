@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentEtkinliklerBinding
-import com.example.campuslyfe.model.Club
 import com.example.campuslyfe.model.Etkinlik
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -17,8 +15,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListener {
-        private lateinit var etkinlikList : ArrayList<Etkinlik>
-    private lateinit var contextEtkinlik : Context
+    private lateinit var etkinlikList: ArrayList<Etkinlik>
+    private lateinit var contextEtkinlik: Context
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,23 +26,29 @@ class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListen
             contextEtkinlik = requireContext()
             lifecycleOwner = viewLifecycleOwner
 
-            val databaseEtkinlik = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Etkinlikler")
-            etkinlikList = arrayListOf<Etkinlik>()
-            databaseEtkinlik.addValueEventListener(object: ValueEventListener {
+            val databaseEtkinlik =
+                FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                    .getReference("Etkinlikler")
+            etkinlikList = arrayListOf()
+            databaseEtkinlik.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if(snapshot.exists()){
-                        for(etkinlikSnapShot in snapshot.children){
+                    if (snapshot.exists()) {
+                        for (etkinlikSnapShot in snapshot.children) {
                             val etkinlik = etkinlikSnapShot.getValue(Etkinlik::class.java)
                             etkinlikList.add(etkinlik!!)
                         }
                         rvEtkinlikler.adapter =
-                            EtkinliklerAdapter(etkinlikList, contextEtkinlik, this@EtkinliklerFragment)
+                            EtkinliklerAdapter(
+                                etkinlikList,
+                                contextEtkinlik,
+                                this@EtkinliklerFragment
+                            )
 
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    println("hataaa ${error}")
+                    println("hataaa $error")
                 }
 
             })
@@ -59,5 +63,5 @@ class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListen
                 etkinlik
             )
         )
-   }
+    }
 }

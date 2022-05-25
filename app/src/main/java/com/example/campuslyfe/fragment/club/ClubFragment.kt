@@ -7,49 +7,38 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentClubBinding
 import com.example.campuslyfe.model.Club
-import com.example.campuslyfe.model.Etkinlik
-import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
-
 
 class ClubFragment : Fragment() {
 
-    private lateinit var binding : FragmentClubBinding
-    private lateinit var mClubViewModel : ClubViewModel
-    private lateinit var layoutManagerClub: LinearLayoutManager
-    private lateinit var clubList : ArrayList<Club>
+    private lateinit var mClubViewModel: ClubViewModel
+    private lateinit var clubList: ArrayList<Club>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val binding = FragmentClubBinding.inflate(inflater,container,false)
-        layoutManagerClub = LinearLayoutManager(requireContext())
+    ): View {
 
+        val binding = FragmentClubBinding.inflate(inflater, container, false)
 
-
-
-        val databaseTopluluk = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Topluluklar")
-        clubList = arrayListOf<Club>()
-        databaseTopluluk.addValueEventListener(object :ValueEventListener{
+        val databaseTopluluk =
+            FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                .getReference("Topluluklar")
+        clubList = arrayListOf()
+        databaseTopluluk.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    for(clubSnapShot in snapshot.children){
+                if (snapshot.exists()) {
+                    for (clubSnapShot in snapshot.children) {
                         val club = clubSnapShot.getValue(Club::class.java)
                         clubList.add(club!!)
                     }
-                    var adapterClub = ClubRwAdapter(clubList)
-                    var recyclerViewClub = binding.recyclerViewClub
-                    recyclerViewClub.adapter = adapterClub
-                    recyclerViewClub.layoutManager = layoutManagerClub
+
+                    binding.recyclerViewClub.adapter = ClubRwAdapter(clubList)
                 }
             }
 
@@ -58,14 +47,10 @@ class ClubFragment : Fragment() {
 
         })
 
-
         mClubViewModel = ViewModelProvider(this).get(ClubViewModel::class.java)
-
-
-
 
         return binding.root
     }
 
 
-    }
+}

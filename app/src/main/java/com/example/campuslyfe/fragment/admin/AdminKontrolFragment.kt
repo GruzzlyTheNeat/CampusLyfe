@@ -6,37 +6,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentAdminKontrolBinding
-import com.example.campuslyfe.databinding.FragmentMainBinding
-import com.example.campuslyfe.databinding.FragmentProfilBinding
 
 class AdminKontrolFragment : Fragment() {
-
-    private lateinit var binding : FragmentAdminKontrolBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val binding = FragmentAdminKontrolBinding.inflate(inflater,container,false)
+    ): View {
 
-        binding.cardViewToplulukEkle.setOnClickListener {
-            findNavController().navigate(R.id.action_adminKontrolFragment_to_toplulukEkleFragment)
-        }
+        return FragmentAdminKontrolBinding.inflate(inflater, container, false).apply {
 
-        binding.cardViewEtkinlikEkle.setOnClickListener {
-            findNavController().navigate(R.id.action_adminKontrolFragment_to_etkinlikEkleFragment)
-        }
+            cardViewToplulukEkle.setOnClickListener {
+                findNavController().navigate(
+                    AdminKontrolFragmentDirections.actionAdminKontrolFragmentToToplulukEkleFragment()
+                )
+            }
 
-        binding.cardViewYemekhaneDuzenle.setOnClickListener {
-            findNavController().navigate(R.id.action_adminKontrolFragment_to_yemekHaneDuzenleFragment)
-        }
+            cardViewEtkinlikEkle.setOnClickListener {
+                findNavController().navigate(
+                    AdminKontrolFragmentDirections.actionAdminKontrolFragmentToEtkinlikEkleFragment()
+                )
+            }
 
-
-
-        return binding.root
+            cardViewYemekhaneDuzenle.setOnClickListener {
+                findNavController().navigate(
+                    AdminKontrolFragmentDirections.actionAdminKontrolFragmentToYemekHaneDuzenleFragment()
+                )
+            }
+        }.root
 
     }
 

@@ -8,17 +8,14 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.DialogHaritaBinaBottomSheetBinding
-import com.example.campuslyfe.fragment.etkinlikler.EtkinliklerAdapter
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Club
 import com.example.campuslyfe.model.Etkinlik
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.database.*
 import com.google.gson.Gson
-import java.sql.Array
 
 class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
     EtkinlikPopUpRwAdapter.OnPopUpEtkinlikClickListener,
@@ -36,11 +33,11 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
     ): View {
         return DialogHaritaBinaBottomSheetBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
-            etkinlikList = arrayListOf<Etkinlik>()
-            etkinlikRealList = ArrayList<Etkinlik>()
-            toplulukRealList = arrayListOf<Club>()
-            binaList = arrayListOf<Bina>()
-            toplulukList = ArrayList<Club>()
+            etkinlikList = arrayListOf()
+            etkinlikRealList = ArrayList()
+            toplulukRealList = arrayListOf()
+            binaList = arrayListOf()
+            toplulukList = ArrayList()
 
             val binaArgument = Gson().fromJson(arguments?.getString(PARAM_BINA), Bina::class.java)
             bina = binaArgument
@@ -91,7 +88,7 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+
                 }
 
             })

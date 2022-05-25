@@ -15,37 +15,34 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import com.example.campuslyfe.fragment.food.FoodFragment as FD
-
 
 class YemekHaneDuzenleFragment: Fragment() {
     private lateinit var yemekhaneList: ArrayList<Yemekhane>
     private var haftalik1: Yemekhane? = null
     private var haftalik2: Yemekhane? = null
     private var haftalik3: Yemekhane? = null
-    private lateinit var haftalıkList: ArrayList<Yemek>
+    private lateinit var haftalikList: ArrayList<Yemek>
     private val yemekhaneDuzenleViewModel by viewModel<YemekhaneDuzenleViewModel>()
-    private lateinit var binding: FragmentYemekhaneDuzenleBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         var sayiGun = 7
         var sayiYemekhane = 3
         val binding = FragmentYemekhaneDuzenleBinding.inflate(inflater, container, false)
         binding.viewModel = yemekhaneDuzenleViewModel
         binding.lifecycleOwner = viewLifecycleOwner
         val yemekhane = createYemekhanePopMenu(binding.etYemekHaneSec)
-        val günler = createGünlerPopMenu(binding.etGunSecimi)
+        val gunler = createGunlerPopMenu(binding.etGunSecimi)
         binding.etYemekHaneSec.setOnClickListener{yemekhane.show()}
-        binding.etGunSecimi.setOnClickListener{günler.show()}
+        binding.etGunSecimi.setOnClickListener{gunler.show()}
         binding.yemekKaydet.setOnClickListener{
             val databaseYemek =
                 FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
                     .getReference("Yemekhane")
-            yemekhaneList = arrayListOf<Yemekhane>()
-            haftalıkList = arrayListOf<Yemek>()
+            yemekhaneList = arrayListOf()
+            haftalikList = arrayListOf()
 
             databaseYemek.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -84,8 +81,8 @@ class YemekHaneDuzenleFragment: Fragment() {
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
-                                haftalıkList.clear()
-                                haftalıkList = haftalik1!!.haftalık!!
+                                haftalikList.clear()
+                                haftalikList = haftalik1!!.haftalık!!
                                 val postValues = yemekTemp.toMap()
 
                                 val childUpdates = hashMapOf<String, Any>(
@@ -105,8 +102,8 @@ class YemekHaneDuzenleFragment: Fragment() {
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
-                                haftalıkList.clear()
-                                haftalıkList = haftalik2!!.haftalık!!
+                                haftalikList.clear()
+                                haftalikList = haftalik2!!.haftalık!!
                                 val postValues = yemekTemp.toMap()
 
                                 val childUpdates = hashMapOf<String, Any>(
@@ -127,8 +124,8 @@ class YemekHaneDuzenleFragment: Fragment() {
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
-                                haftalıkList.clear()
-                                haftalıkList = haftalik3!!.haftalık!!
+                                haftalikList.clear()
+                                haftalikList = haftalik3!!.haftalık!!
                                 val postValues = yemekTemp.toMap()
 
                                 val childUpdates = hashMapOf<String, Any>(
@@ -155,7 +152,7 @@ class YemekHaneDuzenleFragment: Fragment() {
     }
 
 
-    fun createYemekhanePopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
+    private fun createYemekhanePopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
         menu.run {
             add("Yemekhane 1")
             add("Yemekhane 2")
@@ -169,7 +166,7 @@ class YemekHaneDuzenleFragment: Fragment() {
         }
     }
 
-    fun createGünlerPopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
+    private fun createGunlerPopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
         menu.run {
             add("Pazartesi")
             add("Salı")
