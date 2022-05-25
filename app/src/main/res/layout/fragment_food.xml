@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/eeeee"
-    tools:context=".fragment.food.FoodFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.campuslyfe.fragment.food.FoodViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="24dp"
+        android:background="@color/eeeee"
         android:orientation="vertical"
+        android:paddingHorizontal="24dp"
         tools:context=".fragment.main.MainFragment">
 
         <TextView
@@ -19,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:text="Yemekhane" />
+            android:text="@string/yemekhane_kucuk" />
 
         <View
             android:id="@+id/divider_overview"
@@ -29,25 +34,31 @@
             android:background="@drawable/incehat" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/dropdownYemekhaneSeciniz"
             style="@style/Typography.Caption"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Yemekhane Seçiniz" />
+            android:drawablePadding="4dp"
+            android:padding="8dp"
+            android:text="@{viewModel.selectedYemekhane ?? @string/yemekhane_seciniz}"
+            app:drawableEndCompat="@drawable/ic_dropdown"
+            tools:text="@string/yemekhane_seciniz" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/dropdownGunSeciniz"
             style="@style/Typography.Caption"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Gün Seçiniz" />
+            android:drawablePadding="4dp"
+            android:padding="8dp"
+            android:text="@{viewModel.selectedGun ?? @string/gun_seciniz}"
+            app:drawableEndCompat="@drawable/ic_dropdown"
+            tools:text="@string/gun_seciniz" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/btnYemekGelsin"
             style="@style/Typography.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,39 +66,41 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
             android:padding="10dp"
-            android:text="Yemek Gelsin!"
+            android:onClick="@{() -> viewModel.yemekleriGetir()}"
+            android:enabled="@{viewModel.selectedGunIndex != null &amp;&amp; viewModel.yemekhaneIndex != null}"
+            android:text="@string/yemek_gelsin"
             android:textAlignment="center"
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvSabah"
             style="@style/Typography.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="Sabah: \n"
-            android:textAlignment="center" />
+            android:text="@{viewModel.yemekListesi.toStringSabah() ?? @string/sabah}"
+            android:textAlignment="center"
+            tools:text="@string/sabah" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tvOglen"
             style="@style/Typography.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Öğlen: \n"
+            android:text="@{viewModel.yemekListesi.toStringOgle() ?? @string/oglen}"
             android:textAlignment="center"
-            />
+            tools:text="@string/oglen" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/tvAksam"
             style="@style/Typography.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Akşam: \n"
+            android:text="@{viewModel.yemekListesi.toStringAksam() ?? @string/aksam}"
             android:textAlignment="center"
-            />
-
+            tools:text="@string/aksam" />
 
     </LinearLayout>
-</FrameLayout>
+</layout>

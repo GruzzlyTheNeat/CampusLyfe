@@ -49,8 +49,12 @@
     <string name="program_tanitim">Program Tanıtımı</string>
     <string name="sifre_degisimi">Şifre Değiştir</string>
     <string name="cikis_yap">Çıkış Yap</string>
-
-
+    <string name="yemekhane_seciniz">Yemekhane Seçiniz</string>
+    <string name="gun_seciniz">Gün Seçiniz</string>
+    <string name="yemek_gelsin">Yemek Gelsin!</string>
+    <string name="sabah">Sabah:</string>
+    <string name="oglen">Öğlen:</string>
+    <string name="aksam">Akşam:</string>
 
 
 </resources>

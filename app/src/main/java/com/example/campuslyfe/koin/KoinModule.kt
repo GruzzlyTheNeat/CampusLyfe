@@ -3,6 +3,7 @@ package com.example.campuslyfe.koin
 import com.example.campuslyfe.fragment.admin.EtkinlikEkleViewModel
 import com.example.campuslyfe.fragment.admin.ToplulukEkleViewModel
 import com.example.campuslyfe.fragment.admin.YemekhaneDuzenleViewModel
+import com.example.campuslyfe.fragment.food.FoodViewModel
 import com.example.campuslyfe.fragment.signIn.SignInSignUpViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -13,6 +14,7 @@ object KoinModule {
         viewModel { SignInSignUpViewModel() }
         viewModel { EtkinlikEkleViewModel() }
         viewModel { ToplulukEkleViewModel() }
-        viewModel { YemekhaneDuzenleViewModel()}
+        viewModel { YemekhaneDuzenleViewModel() }
+        viewModel { FoodViewModel() }
     }
 }
