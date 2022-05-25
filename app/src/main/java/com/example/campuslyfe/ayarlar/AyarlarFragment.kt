@@ -19,26 +19,24 @@ class AyarlarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        val binding = FragmentAyarlarBinding.inflate(inflater, container, false)
 
+        return FragmentAyarlarBinding.inflate(inflater, container, false).apply {
 
-        binding.cardViewProfilGuncelle.setOnClickListener {
-            findNavController().navigate(R.id.action_ayarlarFragment_to_profilUpdateFragment)
-        }
-        binding.cardViewCikisYap.setOnClickListener {
-            Firebase.auth.signOut()
-            startActivity(Intent(requireContext(), SignInActivity::class.java))
-            activity?.finish()
-        }
-        binding.cardViewProgramTanitimi.setOnClickListener {
+            cardViewProfilGuncelle.setOnClickListener {
+                findNavController().navigate(R.id.action_ayarlarFragment_to_profilUpdateFragment)
+            }
+            cardViewCikisYap.setOnClickListener {
+                Firebase.auth.signOut()
+                startActivity(Intent(requireContext(), SignInActivity::class.java))
+                activity?.finish()
+            }
+            cardViewProgramTanitimi.setOnClickListener {
 
-        }
-        binding.cardViewSifreDegistir.setOnClickListener {
-            findNavController().navigate(R.id.action_ayarlarFragment_to_sifreDegistirFragment)
-        }
-
-        return binding.root
+            }
+            cardViewSifreDegistir.setOnClickListener {
+                findNavController().navigate(R.id.action_ayarlarFragment_to_sifreDegistirFragment)
+            }
+        }.root
     }
 
 

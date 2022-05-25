@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,7 +26,6 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_profil_update.*
 
 class ProfilUpdateFragment : Fragment() {
-    private lateinit var binding: FragmentProfilUpdateBinding
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
@@ -36,22 +34,21 @@ class ProfilUpdateFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
+
         val binding = FragmentProfilUpdateBinding.inflate(inflater, container, false)
         mAuth = FirebaseAuth.getInstance()
         val uid = mAuth.currentUser?.uid
         binding.imgProfilUpdate.setOnClickListener {
-            if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.M){
-                if(checkSelfPermission(requireContext(),Manifest.permission.READ_EXTERNAL_STORAGE) == PermissionChecker.PERMISSION_DENIED){
-                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                    requestPermissions(permissions, PERMISION_CODE)
+            if (checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PermissionChecker.PERMISSION_DENIED
+            ) {
+                val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                requestPermissions(permissions, PERMISION_CODE)
 
-                }else{
-                    pickImageFromGalery()
-                }
-            }
-            else{
+            } else {
                 pickImageFromGalery()
             }
         }
@@ -62,20 +59,13 @@ class ProfilUpdateFragment : Fragment() {
             val bilgi = binding.etBilgi.text.toString().trim()
             val user = User(adSoyad, bolum, bilgi)
 
-
-
             if (uid != null) {
 
                 findNavController().navigate(R.id.action_profilUpdateFragment_to_profilFragment)
-                sendImgToDB().uploadImgUser(imageUri,uid.toString())
-                sendToDB().sendUser(user,uid.toString())
-
-
-
+                sendImgToDB().uploadImgUser(imageUri, uid.toString())
+                sendToDB().sendUser(user, uid.toString())
             }
         }
-
-
 
         return binding.root
     }
@@ -86,9 +76,9 @@ class ProfilUpdateFragment : Fragment() {
         startActivityForResult(intent, IMAGE_PICK_CODE)
     }
 
-    companion object{
-        private val IMAGE_PICK_CODE = 1000
-        private val PERMISION_CODE = 1001
+    companion object {
+        private const val IMAGE_PICK_CODE = 1000
+        private const val PERMISION_CODE = 1001
 
     }
 
@@ -97,27 +87,24 @@ class ProfilUpdateFragment : Fragment() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        when(requestCode){
-            PERMISION_CODE ->{
-                if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        when (requestCode) {
+            PERMISION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImageFromGalery()
-                }
-                else{
-                    Toast.makeText(requireContext(),"Permission denied",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             imageUri = data?.data!!
             imgProfilUpdate.setImageURI(imageUri)
 
         }
     }
-
-
 
 
 }
