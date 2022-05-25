@@ -1,8 +1,7 @@
 package com.example.campuslyfe.data
 
 import com.example.campuslyfe.model.User
-import com.google.android.gms.maps.model.LatLng
-import com.google.firebase.database.FirebaseDatabase
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.example.campuslyfe.model.Etkinlik as Etkinlik
 import com.example.campuslyfe.model.Club as Club
 import com.example.campuslyfe.model.Bina as Bina
@@ -11,7 +10,7 @@ import com.example.campuslyfe.model.Yemekhane as Yemekhane
 class sendToDB {
 
     fun sendEtkinlik(etkinlikSend: Etkinlik){
-        val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Etkinlikler")
+        val database = getDatabaseInstance().getReference("Etkinlikler")
         database.child(etkinlikSend.etkinlikAd.toString()).setValue(etkinlikSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{
@@ -22,7 +21,7 @@ class sendToDB {
 
     fun sendClub(clubSend: Club){
 
-        val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Clublar")
+        val database = getDatabaseInstance().getReference("Clublar")
         database.child(clubSend.name.toString()).setValue(clubSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{
@@ -33,7 +32,7 @@ class sendToDB {
 
     fun sendTopluluk(clubSend: Club){
 
-        val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Topluluklar")
+        val database = getDatabaseInstance().getReference("Topluluklar")
         database.child(clubSend.name.toString()).setValue(clubSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{
@@ -43,7 +42,7 @@ class sendToDB {
     }
 
     fun sendBina(binaSend: Bina){
-        val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Binalar")
+        val database = getDatabaseInstance().getReference("Binalar")
         database.child(binaSend.binaAd.toString()).setValue(binaSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{
@@ -52,7 +51,7 @@ class sendToDB {
     }
 
     fun sendUser(userSend: User,uid : String){
-        val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
+        val database = getDatabaseInstance().getReference("Users")
         database.child(uid).setValue(userSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{
@@ -61,7 +60,7 @@ class sendToDB {
     }
 
     fun sendFood(foodSend: Yemekhane){
-        val database = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Yemekhane")
+        val database = getDatabaseInstance().getReference("Yemekhane")
         database.child(foodSend.name.toString()).setValue(foodSend).addOnSuccessListener {
             print("Done")
         }.addOnFailureListener{

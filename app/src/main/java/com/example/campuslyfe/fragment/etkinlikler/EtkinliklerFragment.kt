@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.databinding.FragmentEtkinliklerBinding
 import com.example.campuslyfe.model.Etkinlik
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListener {
@@ -26,8 +26,7 @@ class EtkinliklerFragment : Fragment(), EtkinliklerAdapter.OnEtkinlikClickListen
             contextEtkinlik = requireContext()
             lifecycleOwner = viewLifecycleOwner
 
-            val databaseEtkinlik =
-                FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+            val databaseEtkinlik = getDatabaseInstance()
                     .getReference("Etkinlikler")
             etkinlikList = arrayListOf()
             databaseEtkinlik.addValueEventListener(object : ValueEventListener {

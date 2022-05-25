@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import com.example.campuslyfe.R
 import com.example.campuslyfe.databinding.FragmentProfilBinding
 import com.example.campuslyfe.utils.downloadFromURL
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.example.campuslyfe.utils.placeHolderProgressBar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 
 class ProfilFragment : Fragment() {
@@ -26,7 +26,7 @@ class ProfilFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         val uid = mAuth.currentUser?.uid
         val databaseUser =
-            FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+            getDatabaseInstance()
                 .getReference("Users")
 
         if (uid != null) {

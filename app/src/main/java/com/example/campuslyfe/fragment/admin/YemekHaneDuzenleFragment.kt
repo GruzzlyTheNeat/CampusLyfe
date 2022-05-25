@@ -10,9 +10,9 @@ import android.widget.Toast
 import com.example.campuslyfe.databinding.FragmentYemekhaneDuzenleBinding
 import com.example.campuslyfe.model.Yemek
 import com.example.campuslyfe.model.Yemekhane
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -39,7 +39,7 @@ class YemekHaneDuzenleFragment: Fragment() {
         binding.etGunSecimi.setOnClickListener{gunler.show()}
         binding.yemekKaydet.setOnClickListener{
             val databaseYemek =
-                FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                getDatabaseInstance()
                     .getReference("Yemekhane")
             yemekhaneList = arrayListOf()
             haftalikList = arrayListOf()

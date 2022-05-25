@@ -19,9 +19,9 @@ import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentEtkinlikEkleBinding
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Etkinlik
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.fragment_etkinlik_ekle.*
@@ -92,7 +92,7 @@ class EtkinlikEkleFragment : Fragment(),
                 }
 
                 val databaseBinalar =
-                    FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                    getDatabaseInstance()
                         .getReference("Binalar")
                 binaList = arrayListOf()
 

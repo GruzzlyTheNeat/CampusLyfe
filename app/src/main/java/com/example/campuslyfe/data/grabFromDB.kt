@@ -1,12 +1,11 @@
 package com.example.campuslyfe.data
 
 import com.example.campuslyfe.model.*
-import com.google.firebase.database.FirebaseDatabase
-import com.google.android.gms.maps.model.LatLng
+import com.example.campuslyfe.utils.getDatabaseInstance
 
 
 class grabEtkinlik(){
-    val databaseEtkinlik = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Etkinlikler")
+    val databaseEtkinlik = getDatabaseInstance().getReference("Etkinlikler")
     fun asList(){
 
     }
@@ -79,7 +78,7 @@ class grabBina(){
 }
 */
 class grabClub(){
-    val databaseClub = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Clublar")
+    val databaseClub = getDatabaseInstance().getReference("Clublar")
     fun asList(){
 
     }
@@ -105,7 +104,7 @@ class grabClub(){
 }
 
 class grabFoodFromDB(){
-    val databaseFood = FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Yemekhane")
+    val databaseFood = getDatabaseInstance().getReference("Yemekhane")
 
     fun asOne(haneIsmi: String): Yemekhane{
         lateinit var yemekhane: Yemekhane

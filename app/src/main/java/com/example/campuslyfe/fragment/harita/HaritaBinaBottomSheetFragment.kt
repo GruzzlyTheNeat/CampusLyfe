@@ -11,6 +11,7 @@ import com.example.campuslyfe.databinding.DialogHaritaBinaBottomSheetBinding
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Club
 import com.example.campuslyfe.model.Etkinlik
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -42,7 +43,7 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
             val binaArgument = Gson().fromJson(arguments?.getString(PARAM_BINA), Bina::class.java)
             bina = binaArgument
             val databaseBina =
-                FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                getDatabaseInstance()
                     .getReference("Binalar")
             databaseBina.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {

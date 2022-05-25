@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.campuslyfe.databinding.FragmentClubBinding
 import com.example.campuslyfe.model.Club
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class ClubFragment : Fragment() {
@@ -27,7 +26,7 @@ class ClubFragment : Fragment() {
         val binding = FragmentClubBinding.inflate(inflater, container, false)
 
         val databaseTopluluk =
-            FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+            getDatabaseInstance()
                 .getReference("Topluluklar")
         clubList = arrayListOf()
         databaseTopluluk.addValueEventListener(object : ValueEventListener {

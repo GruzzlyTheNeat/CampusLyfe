@@ -19,10 +19,10 @@ import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentToplulukEkleBinding
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Club
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_topluluk_ekle.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -95,7 +95,7 @@ class ToplulukEkleFragment : Fragment(),
 
 
                 val databaseBinalar =
-                    FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                    getDatabaseInstance()
                         .getReference("Binalar")
                 binaList = arrayListOf()
                 databaseBinalar.addListenerForSingleValueEvent(object : ValueEventListener {

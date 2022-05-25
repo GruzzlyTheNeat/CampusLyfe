@@ -9,9 +9,9 @@ import android.widget.PopupMenu
 import com.example.campuslyfe.model.Yemek
 import com.example.campuslyfe.databinding.FragmentFoodBinding
 import com.example.campuslyfe.model.Yemekhane
+import com.example.campuslyfe.utils.getDatabaseInstance
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class FoodFragment : Fragment() {
@@ -36,7 +36,7 @@ class FoodFragment : Fragment() {
         binding.textView3.setOnClickListener { gunler.show() }
         binding.textView4.setOnClickListener {
             val databaseYemek =
-                FirebaseDatabase.getInstance("https://campuslyfe-b725b-default-rtdb.europe-west1.firebasedatabase.app/")
+                getDatabaseInstance()
                     .getReference("Yemekhane")
             yemekhaneList = arrayListOf()
             haftalikList = arrayListOf()
@@ -151,7 +151,7 @@ class FoodFragment : Fragment() {
         }
     }
 
-    fun createGunlerPopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
+    private fun createGunlerPopMenu(anchor: View) = PopupMenu(requireContext(), anchor).apply {
         menu.run {
             add("Pazartesi")
             add("Salı")
