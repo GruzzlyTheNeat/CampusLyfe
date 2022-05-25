@@ -3,6 +3,7 @@ package com.example.campuslyfe.koin
 import com.example.campuslyfe.fragment.admin.EtkinlikEkleViewModel
 import com.example.campuslyfe.fragment.admin.ToplulukEkleViewModel
 import com.example.campuslyfe.fragment.admin.YemekhaneDuzenleViewModel
+import com.example.campuslyfe.fragment.club.ClubViewModel
 import com.example.campuslyfe.fragment.etkinlikler.EtkinliklerViewModel
 import com.example.campuslyfe.fragment.food.FoodViewModel
 import com.example.campuslyfe.fragment.signIn.SignInSignUpViewModel
@@ -18,5 +19,6 @@ object KoinModule {
         viewModel { YemekhaneDuzenleViewModel() }
         viewModel { FoodViewModel() }
         viewModel { EtkinliklerViewModel() }
+        viewModel { ClubViewModel() }
     }
 }

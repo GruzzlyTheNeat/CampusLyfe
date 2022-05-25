@@ -10,7 +10,7 @@ import com.example.campuslyfe.model.Club
 import kotlinx.android.synthetic.main.club_rw_row.view.*
 
 class ClubRwAdapter(
-    private val clubList: List<Club>
+    private val clubList: List<Club?>
 ) : RecyclerView.Adapter<ClubRwAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
@@ -24,10 +24,13 @@ class ClubRwAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = clubList[position]
         //holder.itemView.imageViewClubRow.setImageResource(currentItem.vektor!!)
-        holder.itemView.textViewClubRow.text = currentItem.name
+        holder.itemView.textViewClubRow.text = currentItem?.name
         holder.itemView.rootView.setOnClickListener {
-            val action = ClubFragmentDirections.actionClubFragmentToClubDetayFragment2(currentItem)
-            holder.itemView.findNavController().navigate(action)
+            currentItem?.let { club ->
+                val action =
+                    ClubFragmentDirections.actionClubFragmentToClubDetayFragment2(club)
+                holder.itemView.findNavController().navigate(action)
+            }
         }
     }
 
