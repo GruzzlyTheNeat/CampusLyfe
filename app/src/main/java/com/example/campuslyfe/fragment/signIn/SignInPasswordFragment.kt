@@ -2,7 +2,6 @@ package com.example.campuslyfe.fragment.signIn
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.campuslyfe.activity.MainActivity
 import com.example.campuslyfe.databinding.FragmentSignInPasswordBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.campuslyfe.utils.StateResource
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SignInPasswordFragment : Fragment() {
-    private lateinit var mAuth: FirebaseAuth
 
     private val signInSignUpViewModel by sharedViewModel<SignInSignUpViewModel>()
 
@@ -26,34 +22,31 @@ class SignInPasswordFragment : Fragment() {
     ): View {
         val binding = FragmentSignInPasswordBinding.inflate(inflater, container, false)
 
-        mAuth = Firebase.auth
-
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = signInSignUpViewModel
-        binding.eTextSighInPassword.setOnEditorActionListener { _, _, _ ->
-            binding.buttonDevamEtPassword.performClick()
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = signInSignUpViewModel
+            eTextSighInPassword.setOnEditorActionListener { _, _, _ ->
+                buttonDevamEtPassword.performClick()
+            }
         }
-        binding.buttonDevamEtPassword.setOnClickListener {
-            val eMail: String = signInSignUpViewModel.email.value?.trim()!!
-            val password: String? = signInSignUpViewModel.password.value?.trim()
-            password?.let { pass ->
-                mAuth.signInWithEmailAndPassword(eMail, pass)
-                    .addOnCompleteListener(this.requireActivity()) { task ->
-                        if (task.isSuccessful) {
-                            startActivity(
-                                Intent(requireContext(), MainActivity::class.java)
-                            )
-                            activity?.finish()
-                        } else {
-                            Toast.makeText(
-                                requireContext(),
-                                "Bu bilgilere sahip kullanıcı bulunmamaktadır",
-                                Toast.LENGTH_LONG
-                            ).show()
-                            println(task.exception)
-                        }
 
-                    }
+        signInSignUpViewModel.signInState.observe(viewLifecycleOwner) {
+            when (it) {
+                is StateResource.Loading -> Unit
+                is StateResource.Success -> {
+                    startActivity(
+                        Intent(requireContext(), MainActivity::class.java)
+                    )
+                    activity?.finish()
+                }
+                is StateResource.Error -> {
+                    Toast.makeText(
+                        requireContext(),
+                        "Bu bilgilere sahip kullanıcı bulunmamaktadır",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    println(it.e)
+                }
             }
         }
         return binding.root

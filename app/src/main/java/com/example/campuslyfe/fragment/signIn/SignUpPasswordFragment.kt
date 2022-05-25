@@ -9,14 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.campuslyfe.activity.MainActivity
 import com.example.campuslyfe.databinding.FragmentSignUpBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.campuslyfe.utils.StateResource
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-
 class SignUpPasswordFragment : Fragment() {
-    private lateinit var mAuth: FirebaseAuth
 
     private val signInSignUpViewModel by sharedViewModel<SignInSignUpViewModel>()
 
@@ -26,33 +22,26 @@ class SignUpPasswordFragment : Fragment() {
     ): View {
         val binding = FragmentSignUpBinding.inflate(inflater, container, false)
 
-        mAuth = Firebase.auth
-
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = signInSignUpViewModel
             eTextSignUpPassword.setOnEditorActionListener { _, _, _ ->
                 buttonKayitOl.performClick()
             }
-            buttonKayitOl.setOnClickListener {
-                val password: String? = signInSignUpViewModel.password.value?.trim()
-                val email: String = signInSignUpViewModel.email.value?.trim()!!
 
-                password?.let {
-                    mAuth.createUserWithEmailAndPassword(
-                        email, password
-                    ).addOnCompleteListener(requireActivity()) {
-                        if (it.isSuccessful) {
-                            startActivity(
-                                Intent(requireContext(), MainActivity::class.java)
-                            )
-                            activity?.finish()
-                        } else {
-                            Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
-                        }
+            signInSignUpViewModel.signUpState.observe(viewLifecycleOwner) {
+                when (it) {
+                    is StateResource.Loading -> Unit
+                    is StateResource.Success -> {
+                        startActivity(
+                            Intent(requireContext(), MainActivity::class.java)
+                        )
+                        activity?.finish()
+                    }
+                    is StateResource.Error -> {
+                        Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
                     }
                 }
-
             }
         }
 

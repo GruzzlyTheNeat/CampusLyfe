@@ -12,8 +12,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:background="@color/eeeee">
+        android:background="@color/eeeee"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,6 +51,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="180dp"
                 android:backgroundTint="@color/lightblue"
+                android:onClick="@{() -> viewModel.signUp()}"
                 android:text="@string/devam_et"
                 android:textAllCaps="false"
                 android:textColor="@color/black" />
