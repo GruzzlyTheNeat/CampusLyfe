@@ -37,7 +37,10 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_marginTop="8dp"
             android:background="@drawable/edit_text_e_mail"
             android:text="@{viewModel.name}"
+            android:paddingTop="10dp"
+            style="@style/Typography"
             android:paddingStart="@dimen/cursor_padding_start"
+
 
             android:textCursorDrawable="@drawable/cursor" />
 
@@ -57,6 +60,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_marginTop="8dp"
             android:background="@drawable/edit_text_e_mail"
             android:paddingStart="@dimen/cursor_padding_start"
+            android:paddingTop="10dp"
+            style="@style/Typography"
             android:text="@{viewModel.date}"
 
             android:textCursorDrawable="@drawable/cursor" />

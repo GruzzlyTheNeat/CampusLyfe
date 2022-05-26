@@ -89,14 +89,11 @@ class EtkinlikSilFragment : Fragment(), EtkinlikSilRwAdapter.OnEtkinlikSilClickL
                 })
 
             }.addOnFailureListener {
-                println(it)
                 showToast("Etkinlik Silinemedi")
             }
             val storageRef = FirebaseStorage.getInstance().getReference("etkinlikler/${etkinlikSil.etkinlikAd}")
             storageRef.delete().addOnSuccessListener {
-                println("Resim silindi")
             }.addOnFailureListener {
-                println("Resim silinemedi")
             }
 
         }

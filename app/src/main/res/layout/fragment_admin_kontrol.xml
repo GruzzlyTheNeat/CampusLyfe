@@ -32,8 +32,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewToplulukEkle"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="40dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
                 app:cardCornerRadius = "10dp"
                 android:clickable="true"
 
@@ -47,10 +47,10 @@
                     ></LinearLayout>
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="20dp"
-android:layout_marginStart="20dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+android:layout_marginStart="30dp"
                     android:src="@drawable/ic_baseline_admin_panel_settings_24"
                     ></ImageView>
 
@@ -59,7 +59,6 @@ android:layout_marginStart="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
                     android:layout_marginStart="30dp"
 
                     android:text="@string/topluluk_ekle"
@@ -73,8 +72,8 @@ android:layout_marginStart="20dp"
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewEtkinlikEkle"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
                 app:cardCornerRadius = "10dp"
                 android:clickable="true"
 
@@ -88,10 +87,10 @@ android:layout_marginStart="20dp"
                     ></LinearLayout>
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="30dp"
                     android:src="@drawable/ic_baseline_admin_panel_settings_24"
                     ></ImageView>
 
@@ -100,7 +99,6 @@ android:layout_marginStart="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
                     android:layout_marginStart="30dp"
 
                     android:text="@string/etkinlik_ekle"
@@ -112,8 +110,8 @@ android:layout_marginStart="20dp"
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewYemekhaneDuzenle"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
                 app:cardCornerRadius = "10dp"
                 android:clickable="true"
 
@@ -127,10 +125,10 @@ android:layout_marginStart="20dp"
                     ></LinearLayout>
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="30dp"
                     android:src="@drawable/ic_baseline_admin_panel_settings_24"
                     ></ImageView>
 
@@ -139,7 +137,6 @@ android:layout_marginStart="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
                     android:layout_marginStart="30dp"
 
                     android:text="@string/yemekhane_duzenle"
@@ -152,8 +149,8 @@ android:layout_marginStart="20dp"
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewEtkinlikSil"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
                 app:cardCornerRadius = "10dp"
                 android:clickable="true"
                 android:backgroundTint="@color/white"
@@ -166,10 +163,10 @@ android:layout_marginStart="20dp"
                     ></LinearLayout>
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="30dp"
                     android:src="@drawable/ic_baseline_admin_panel_settings_24"
                     ></ImageView>
 
@@ -178,7 +175,6 @@ android:layout_marginStart="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
                     android:layout_marginStart="30dp"
                     android:text="@string/etkinlik_sil"
                     />
