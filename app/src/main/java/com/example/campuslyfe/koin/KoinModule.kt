@@ -1,5 +1,6 @@
 package com.example.campuslyfe.koin
 
+import com.example.campuslyfe.ayarlar.SifreDegistirViewModel
 import com.example.campuslyfe.fragment.admin.EtkinlikEkleViewModel
 import com.example.campuslyfe.fragment.admin.EtkinlikSilViewModel
 import com.example.campuslyfe.fragment.admin.ToplulukEkleViewModel
@@ -24,5 +25,6 @@ object KoinModule {
         viewModel { ClubViewModel() }
         viewModel { ProfilViewModel() }
         viewModel { EtkinlikSilViewModel() }
+        viewModel { SifreDegistirViewModel() }
     }
 }

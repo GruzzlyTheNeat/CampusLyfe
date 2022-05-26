@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.campuslyfe.activity.SignInActivity
 import com.example.campuslyfe.databinding.FragmentSifreDegistirBinding
+import com.example.campuslyfe.utils.StateResource
 import com.example.campuslyfe.utils.showToast
-import com.google.firebase.auth.EmailAuthProvider
-import com.google.firebase.auth.FirebaseAuth
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SifreDegistirFragment : Fragment() {
 
-    private lateinit var auth: FirebaseAuth
+    private val sifreDegistirViewModel by viewModel<SifreDegistirViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,43 +22,35 @@ class SifreDegistirFragment : Fragment() {
     ): View {
 
         val binding = FragmentSifreDegistirBinding.inflate(inflater, container, false)
-        auth = FirebaseAuth.getInstance()
 
-        binding.btKayderYeniPassword.setOnClickListener {
-            if (binding.etSifreDegistirCurrentPassword.text.isNotEmpty() && binding.etSifreDegistirNewPassword.text.isNotEmpty()) {
-                val user = auth.currentUser ?: return@setOnClickListener
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = sifreDegistirViewModel
+            btKayderYeniPassword.setOnClickListener {
+                if (binding.etSifreDegistirCurrentPassword.text.isNotEmpty() && binding.etSifreDegistirNewPassword.text.isNotEmpty()) {
+                    sifreDegistirViewModel.updatePassword()
+                } else
+                    showToast("Lütfen bütün alanları doldurunuz")
+            }
+        }
 
-                val credential = EmailAuthProvider.getCredential(
-                    user.email.toString(),
-                    binding.etSifreDegistirCurrentPassword.text.toString()
-                )
-                user.reauthenticate(credential).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        user.updatePassword(binding.etSifreDegistirNewPassword.text.toString())
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    showToast("Şifre Başarıyla Değiştirildi")
-                                    auth.signOut()
-                                    startActivity(
-                                        Intent(requireContext(), SignInActivity::class.java)
-                                    )
-                                    activity?.finish()
-                                }
-                            }
-
-                    } else
-                        showToast("Lütfen bütün alanları doldurunuz")
+        sifreDegistirViewModel.passwordUpdateState.observe(viewLifecycleOwner) {
+            when (it) {
+                is StateResource.Loading -> Unit
+                is StateResource.Success -> {
+                    showToast("Şifre Başarıyla Değiştirildi")
+                    startActivity(
+                        Intent(requireContext(), SignInActivity::class.java)
+                    )
+                    activity?.finish()
                 }
-
-            } else
-                showToast("Lütfen bütün alanları doldurunuz")
-
+                is StateResource.Error -> {
+                    showToast("Lütfen bütün alanları doldurunuz")
+                    it.e?.printStackTrace()
+                }
+            }
         }
         return binding.root
 
     }
-
-
-
-
 }
