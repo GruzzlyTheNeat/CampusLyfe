@@ -34,6 +34,11 @@ class AdminKontrolFragment : Fragment() {
                     AdminKontrolFragmentDirections.actionAdminKontrolFragmentToYemekHaneDuzenleFragment()
                 )
             }
+            cardViewEtkinlikSil.setOnClickListener {
+                findNavController().navigate(
+                    AdminKontrolFragmentDirections.actionAdminKontrolFragmentToEtkinlikSilFragment()
+                )
+            }
         }.root
 
     }

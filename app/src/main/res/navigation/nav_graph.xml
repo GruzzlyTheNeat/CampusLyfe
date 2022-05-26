@@ -121,6 +121,9 @@
         <action
             android:id="@+id/action_adminKontrolFragment_to_yemekHaneDuzenleFragment"
             app:destination="@id/yemekHaneDuzenleFragment" />
+        <action
+            android:id="@+id/action_adminKontrolFragment_to_etkinlikSilFragment"
+            app:destination="@id/etkinlikSilFragment" />
     </fragment>
     <fragment
         android:id="@+id/toplulukEkleFragment"
@@ -147,4 +150,8 @@
         android:id="@+id/sifreDegistirFragment"
         android:name="com.example.campuslyfe.ayarlar.SifreDegistirFragment"
         android:label="SifreDegistirFragment" />
+    <fragment
+        android:id="@+id/etkinlikSilFragment"
+        android:name="com.example.campuslyfe.fragment.admin.EtkinlikSilFragment"
+        android:label="EtkinlikSilFragment" />
 </navigation>

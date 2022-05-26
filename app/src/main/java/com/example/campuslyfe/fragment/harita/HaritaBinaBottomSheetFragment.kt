@@ -62,7 +62,6 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
                         etkinlikRealList = ArrayList(etkinlikList).apply {
                             removeAt(0)
                         }
-                        //println(etkinlikRealList)
 
                         recyclerViewEtkinlikPopUp.adapter = EtkinlikPopUpRwAdapter(
                             etkinlikRealList,

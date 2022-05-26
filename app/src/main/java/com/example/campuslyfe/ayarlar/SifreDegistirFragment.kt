@@ -58,9 +58,7 @@ class SifreDegistirFragment : Fragment() {
 
     }
 
-    private fun changePassword() {
 
-    }
 
 
 }

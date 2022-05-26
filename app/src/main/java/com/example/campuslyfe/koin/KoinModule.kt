@@ -1,6 +1,7 @@
 package com.example.campuslyfe.koin
 
 import com.example.campuslyfe.fragment.admin.EtkinlikEkleViewModel
+import com.example.campuslyfe.fragment.admin.EtkinlikSilViewModel
 import com.example.campuslyfe.fragment.admin.ToplulukEkleViewModel
 import com.example.campuslyfe.fragment.admin.YemekhaneDuzenleViewModel
 import com.example.campuslyfe.fragment.club.ClubViewModel
@@ -22,5 +23,6 @@ object KoinModule {
         viewModel { EtkinliklerViewModel() }
         viewModel { ClubViewModel() }
         viewModel { ProfilViewModel() }
+        viewModel { EtkinlikSilViewModel() }
     }
 }
