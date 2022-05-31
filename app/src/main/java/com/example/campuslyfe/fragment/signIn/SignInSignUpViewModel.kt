@@ -46,10 +46,10 @@ class SignInSignUpViewModel : ViewModel() {
         val pass = password.value?.trim()
 
         if (email != null && pass != null) {
-            signInState.postValue(StateResource.Loading)
+            signUpState.postValue(StateResource.Loading)
             Firebase.auth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener {
-                    signInState.postValue(
+                    signUpState.postValue(
                         if (it.isSuccessful) StateResource.Success
                         else StateResource.Error(it.exception)
                     )
