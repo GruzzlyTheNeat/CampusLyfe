@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.campuslyfe.databinding.FragmentEmailBinding
+import com.example.campuslyfe.utils.showToast
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class EmailFragment : Fragment() {
@@ -33,6 +35,10 @@ class EmailFragment : Fragment() {
             }
 
             buttonKayitOl.setOnClickListener {
+                if (signInSignUpViewModel.email.value?.contains("ege.edu.tr") == false) {
+                    showToast("Okul mail adresi ile kayıt olunmalıdır")
+                    return@setOnClickListener
+                }
                 signInSignUpViewModel.showEmailError.postValue(signInSignUpViewModel.validateEmail.value == false)
                 if (signInSignUpViewModel.validateEmail.value != true) {
                     return@setOnClickListener
