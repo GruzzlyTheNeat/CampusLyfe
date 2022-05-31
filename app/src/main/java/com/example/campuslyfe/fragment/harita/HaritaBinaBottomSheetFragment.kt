@@ -68,7 +68,6 @@ class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
                             requireContext(),
                             this@HaritaBinaBottomSheetFragment
                         )
-                        // toplulukList.removeAt(0)
                         toplulukRealList = ArrayList(toplulukList).apply {
                             removeAt(0)
                         }

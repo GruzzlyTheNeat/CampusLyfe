@@ -40,7 +40,13 @@
                 android:layout_marginTop="8dp"
                 tools:src="@mipmap/ic_launcher" />
 
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Typography.Bold"
+                android:layout_marginTop="12dp"
+                android:text="Topluluk Açıklaması"
+                ></TextView>
             <TextView
                 android:id="@+id/ClubAciklama"
                 style="@style/Typography.Bold"
@@ -54,6 +60,14 @@
                 android:text="yaz" />
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Typography.Bold"
+                android:layout_marginTop="12dp"
+                android:text="Adres Bilgileri"
+                ></TextView>
+
+            <TextView
                 android:id="@+id/ClubAdress"
                 style="@style/Typography.Bold"
                 android:layout_width="match_parent"
@@ -64,6 +78,13 @@
                 android:background="@drawable/button"
                 android:gravity="center"
                 tools:text="iletişim" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Typography.Bold"
+                android:layout_marginTop="12dp"
+                android:text="İletişim Bilgileri"
+                ></TextView>
 
 
             <TextView
@@ -77,6 +98,14 @@
                 android:padding="12dp"
                 android:gravity="center"
                 tools:text="iletişim" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Typography.Bold"
+                android:layout_marginTop="12dp"
+                android:text="Yol Tarifi"
+                ></TextView>
 
 
             <fragment

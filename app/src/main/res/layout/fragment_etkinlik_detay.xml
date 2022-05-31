@@ -53,6 +53,19 @@
                 tools:src="@mipmap/ic_launcher" />
 
             <TextView
+                android:id="@+id/tvEtkinlikAciklama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Typography.Bold"
+                android:layout_marginTop="12dp"
+                android:text="İletişim Bilgileri"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikPoster"
+
+                ></TextView>
+
+
+
+            <TextView
                 android:id="@+id/etkinlikAciklama"
                 style="@style/Typography.Bold"
                 android:layout_width="match_parent"
@@ -62,8 +75,19 @@
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="@{etkinlik.etkinlilkAciklama}"
-                app:layout_constraintTop_toBottomOf="@id/etkinlikPoster"
+                app:layout_constraintTop_toBottomOf="@id/tvEtkinlikAciklama"
                 tools:text="Etkinlik açıklama" />
+
+            <TextView
+                android:id="@+id/tvEtkinlikAdres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Typography.Bold"
+                android:layout_marginTop="12dp"
+                android:text="Etkinlik Adres"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikAciklama"
+
+                ></TextView>
 
             <TextView
                 android:id="@+id/etkinlikAdres"
@@ -75,7 +99,18 @@
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="@{etkinlik.etkinlikAdres}"
-                app:layout_constraintTop_toBottomOf="@id/etkinlikAciklama" />
+                app:layout_constraintTop_toBottomOf="@id/tvEtkinlikAdres" />
+
+            <TextView
+                android:id="@+id/tvEtkinlikIletişim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Typography.Bold"
+                android:layout_marginTop="12dp"
+                android:text="İletişim Bilgileri"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikAdres"
+
+                ></TextView>
 
             <TextView
                 android:id="@+id/etkinlikIletisim"
@@ -88,7 +123,18 @@
                 android:clickable="true"
                 android:padding="12dp"
                 android:text="@{etkinlik.etkinlikIletisimBilgisi}"
-                app:layout_constraintTop_toBottomOf="@id/etkinlikAdres" />
+                app:layout_constraintTop_toBottomOf="@id/tvEtkinlikIletişim" />
+
+            <TextView
+                android:id="@+id/tvYolTarifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Typography.Bold"
+                android:layout_marginTop="12dp"
+                android:text="İletişim Bilgileri"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikIletisim"
+
+                ></TextView>
 
 
 
@@ -101,7 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:id="@+id/etkinlikMapDetail"
-                app:layout_constraintTop_toBottomOf="@id/etkinlikIletisim"
+                app:layout_constraintTop_toBottomOf="@id/tvYolTarifi"
                 android:layout_marginTop="12dp"
                 android:padding="12dp"
                 tools:context = ".activity.MainActivity"

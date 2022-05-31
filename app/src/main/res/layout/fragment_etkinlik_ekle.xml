@@ -23,7 +23,23 @@
             android:orientation="vertical"
             android:paddingBottom="60dp"
             tools:context=".fragment.admin.EtkinlikEkleFragment">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="Etkinlik Ekle"
+                android:textColor="@color/black"
+                android:textSize="46sp"
+                android:textStyle="bold" />
 
+            <View
+                android:id="@+id/divider_overview"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/incehat" />
             <ImageView
                 android:clickable="true"
                 android:id="@+id/imageViewAdminEtkinlikEkle"
@@ -32,7 +48,13 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:src="@drawable/ic_baseline_control_point_24" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Resim Yüklemek için tıklayınız"
+                android:layout_gravity="center"
+                android:gravity="center"
+                ></TextView>
             <TextView
                 android:id="@+id/tvEtkinlikAd"
                 style="@style/Typography"
@@ -87,6 +109,8 @@
                     android:background="@drawable/edit_text_e_mail"
                     android:paddingStart="10dp"
                     android:entries="@array/binalar"
+                    app:drawableEndCompat="@drawable/ic_dropdown"
+
                     tools:setOnItemSelectedListener="@{viewModel.clickListener}">
 
                 </Spinner>

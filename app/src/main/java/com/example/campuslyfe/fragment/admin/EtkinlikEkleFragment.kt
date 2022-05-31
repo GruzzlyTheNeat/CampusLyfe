@@ -72,6 +72,7 @@ class EtkinlikEkleFragment : Fragment(),
                 val iletisimBilgileri = etkinlikEkleViewModel.iletisimBilgileri.value!!.trim()
                 val lat = etkinlikEkleViewModel.lat.value!!
                 val lng = etkinlikEkleViewModel.lng.value!!
+
                 val etkinlik =
                     Etkinlik(
                         ad,

@@ -29,6 +29,13 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:src="@drawable/ic_baseline_control_point_24" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Resim Yüklemek için tıklayınız"
+                android:layout_gravity="center"
+                android:gravity="center"
+                ></TextView>
 
             <TextView
                 android:id="@+id/tvToplulukAd"
