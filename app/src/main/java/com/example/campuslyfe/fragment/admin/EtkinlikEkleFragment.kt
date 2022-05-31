@@ -86,6 +86,7 @@ class EtkinlikEkleFragment : Fragment(),
                 sendToDB().sendEtkinlik(etkinlik)
                 if (::imageUriEtkinlik.isInitialized) {
                     sendImgToDB().uploadImgEtkinlik(imageUriEtkinlik, ad)
+                    findNavController().navigate(R.id.action_etkinlikEkleFragment_to_etkinliklerFragment)
                 } else {
                     showToast("Lütfen Resim Seçiniz")
                 }
@@ -120,7 +121,6 @@ class EtkinlikEkleFragment : Fragment(),
 
                 })
 
-                findNavController().navigate(EtkinlikEkleFragmentDirections.actionEtkinlikEkleFragmentToEtkinliklerFragment())
             }
         }
         return binding.root

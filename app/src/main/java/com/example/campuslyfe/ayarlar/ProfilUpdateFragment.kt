@@ -62,7 +62,13 @@ class ProfilUpdateFragment : Fragment() {
             if (uid != null) {
 
                 findNavController().navigate(R.id.action_profilUpdateFragment_to_profilFragment)
-                sendImgToDB().uploadImgUser(imageUri, uid.toString())
+                if(::imageUri.isInitialized){
+                    sendImgToDB().uploadImgUser(imageUri, uid.toString())
+                }
+                else{
+                    showToast("Lütfen resim seçiniz")
+                }
+
                 sendToDB().sendUser(user, uid.toString())
             }
         }

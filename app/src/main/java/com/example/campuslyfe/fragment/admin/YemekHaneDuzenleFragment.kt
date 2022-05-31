@@ -86,6 +86,8 @@ class YemekHaneDuzenleFragment: Fragment() {
                                 )
 
                                 databaseYemek.updateChildren(childUpdates)
+                                showToast("Güncelleme Yapıldı")
+
 
 
                             }
@@ -103,6 +105,8 @@ class YemekHaneDuzenleFragment: Fragment() {
                                 )
 
                                 databaseYemek.updateChildren(childUpdates)
+                                showToast("Güncelleme Yapıldı")
+
 
 
 
@@ -121,6 +125,7 @@ class YemekHaneDuzenleFragment: Fragment() {
                                 )
 
                                 databaseYemek.updateChildren(childUpdates)
+                                showToast("Güncelleme Yapıldı")
 
                             }
                         }
