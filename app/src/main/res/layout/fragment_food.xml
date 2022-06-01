@@ -9,98 +9,107 @@
             name="viewModel"
             type="com.example.campuslyfe.fragment.food.FoodViewModel" />
     </data>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:background="@color/eeeee"
-        android:orientation="vertical"
-        android:paddingHorizontal="24dp"
-        tools:context=".fragment.main.MainFragment">
-
-        <TextView
-            style="@style/Typography.Bold.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:text="@string/yemekhane_kucuk" />
-
-        <View
-            android:id="@+id/divider_overview"
+        android:paddingBottom="100dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="6dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/incehat" />
+            android:layout_height="match_parent"
+            android:background="@color/eeeee"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
 
-        <TextView
-            android:id="@+id/dropdownYemekhaneSeciniz"
-            style="@style/Typography.Caption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:drawablePadding="4dp"
-            android:padding="8dp"
-            android:text="@{viewModel.selectedYemekhane ?? @string/yemekhane_seciniz}"
-            app:drawableEndCompat="@drawable/ic_dropdown"
-            tools:text="@string/yemekhane_seciniz" />
+            tools:context=".fragment.main.MainFragment">
 
-        <TextView
-            android:id="@+id/dropdownGunSeciniz"
-            style="@style/Typography.Caption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:drawablePadding="4dp"
-            android:padding="8dp"
-            android:text="@{viewModel.selectedGun ?? @string/gun_seciniz}"
-            app:drawableEndCompat="@drawable/ic_dropdown"
-            tools:text="@string/gun_seciniz" />
+            <TextView
+                style="@style/Typography.Bold.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="@string/yemekhane_kucuk" />
 
-        <TextView
-            android:id="@+id/btnYemekGelsin"
-            style="@style/Typography.Caption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button"
-            android:padding="10dp"
-            android:onClick="@{() -> viewModel.yemekleriGetir()}"
-            android:enabled="@{viewModel.selectedGunIndex != null &amp;&amp; viewModel.yemekhaneIndex != null}"
-            android:text="@string/yemek_gelsin"
-            android:textAlignment="center"
-            android:textColor="@color/black" />
+            <View
+                android:id="@+id/divider_overview"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/incehat" />
 
-        <TextView
-            android:id="@+id/tvSabah"
-            style="@style/Typography.Caption"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@{viewModel.yemekListesi.toStringSabah() ?? @string/sabah}"
-            android:textAlignment="center"
-            tools:text="@string/sabah" />
+            <TextView
+                android:id="@+id/dropdownYemekhaneSeciniz"
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="4dp"
+                android:padding="8dp"
+                android:text="@{viewModel.selectedYemekhane ?? @string/yemekhane_seciniz}"
+                app:drawableEndCompat="@drawable/ic_dropdown"
+                tools:text="@string/yemekhane_seciniz" />
 
-        <TextView
-            android:id="@+id/tvOglen"
-            style="@style/Typography.Caption"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@{viewModel.yemekListesi.toStringOgle() ?? @string/oglen}"
-            android:textAlignment="center"
-            tools:text="@string/oglen" />
+            <TextView
+                android:id="@+id/dropdownGunSeciniz"
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="4dp"
+                android:padding="8dp"
+                android:text="@{viewModel.selectedGun ?? @string/gun_seciniz}"
+                app:drawableEndCompat="@drawable/ic_dropdown"
+                tools:text="@string/gun_seciniz" />
 
-        <TextView
-            android:id="@+id/tvAksam"
-            style="@style/Typography.Caption"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@{viewModel.yemekListesi.toStringAksam() ?? @string/aksam}"
-            android:textAlignment="center"
-            tools:text="@string/aksam" />
+            <TextView
+                android:id="@+id/btnYemekGelsin"
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button"
+                android:padding="10dp"
+                android:onClick="@{() -> viewModel.yemekleriGetir()}"
+                android:enabled="@{viewModel.selectedGunIndex != null &amp;&amp; viewModel.yemekhaneIndex != null}"
+                android:text="@string/yemek_gelsin"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvSabah"
+                style="@style/Typography.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@{viewModel.yemekListesi.toStringSabah() ?? @string/sabah}"
+                android:textAlignment="center"
+
+                tools:text="@string/sabah" />
+
+            <TextView
+                android:id="@+id/tvOglen"
+                style="@style/Typography.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@{viewModel.yemekListesi.toStringOgle() ?? @string/oglen}"
+                android:textAlignment="center"
+
+                tools:text="@string/oglen" />
+
+            <TextView
+                android:id="@+id/tvAksam"
+                style="@style/Typography.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@{viewModel.yemekListesi.toStringAksam() ?? @string/aksam}"
+                android:textAlignment="center"
+
+                tools:text="@string/aksam" />
+
+        </LinearLayout>
+    </ScrollView>
 </layout>
