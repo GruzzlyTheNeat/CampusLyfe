@@ -42,6 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                style="@style/Typography"
                 android:text="Topluluğun Adı" />
 
             <EditText
@@ -107,7 +108,7 @@
 <!--                android:textCursorDrawable="@drawable/cursor" />-->
 
             <TextView
-                android:id="@+id/tvEtkinlikYeri"
+                android:id="@+id/tvToplulukYeri"
                 style="@style/Typography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

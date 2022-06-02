@@ -22,7 +22,7 @@
     <string name="topluluklar">TOPLULUKLAR</string>
     <string name="etkinlikler">ETKİNLİKLER</string>
     <string name="anasayfa">Anasayfa</string>
-    <string name="e_mail_adresinizi_giriniz">E-Mail Adresinizi Giriniz</string>
+    <string name="e_mail_adresinizi_giriniz">Okul E-Mail Adresinizi Giriniz</string>
     <string name="bir_sifre_belirleyiniz">Bir Şifre Belirleyiniz</string>
     <string name="kayit_ol">Kayıt Ol</string>
     <string name="harita_kucuk">Harita</string>
@@ -59,6 +59,8 @@
     <string name="bilgi">Bilgi</string>
     <string name="bolum">Bölüm</string>
     <string name="ad_soyad">Ad Soyad</string>
+
+    <style name="mesaj_gonder">Mesaj Gönder</style>
 
 
 </resources>

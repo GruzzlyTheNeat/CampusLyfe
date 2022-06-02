@@ -23,7 +23,6 @@ class ClubRwAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = clubList[position]
-        //holder.itemView.imageViewClubRow.setImageResource(currentItem.vektor!!)
         holder.itemView.textViewClubRow.text = currentItem?.name
         holder.itemView.rootView.setOnClickListener {
             currentItem?.let { club ->

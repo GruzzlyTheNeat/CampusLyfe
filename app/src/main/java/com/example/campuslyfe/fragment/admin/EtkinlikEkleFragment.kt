@@ -18,6 +18,7 @@ import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentEtkinlikEkleBinding
 import com.example.campuslyfe.model.Bina
 import com.example.campuslyfe.model.Etkinlik
+import com.example.campuslyfe.model.User
 import com.example.campuslyfe.utils.getDatabaseInstance
 import com.example.campuslyfe.utils.showToast
 import com.google.firebase.database.DataSnapshot
@@ -33,6 +34,7 @@ class EtkinlikEkleFragment : Fragment(),
     private val etkinlikEkleViewModel by viewModel<EtkinlikEkleViewModel>()
     private lateinit var binaList: ArrayList<Bina>
     private lateinit var imageUriEtkinlik: Uri
+    private lateinit var userList : ArrayList<User>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +66,9 @@ class EtkinlikEkleFragment : Fragment(),
                 }
             }
 
-
+            userList = arrayListOf()
+            val defaultUser = User("userID","useAd","userBolum","userBilgi", arrayListOf<Etkinlik>())
+            userList.add(defaultUser)
             buttonEtkinlikKaydet.setOnClickListener {
                 val ad = etkinlikEkleViewModel.etkinlikAdi.value!!.trim()
                 val aciklama = etkinlikEkleViewModel.etkinlikAciklama.value!!.trim()
@@ -72,16 +76,17 @@ class EtkinlikEkleFragment : Fragment(),
                 val iletisimBilgileri = etkinlikEkleViewModel.iletisimBilgileri.value!!.trim()
                 val lat = etkinlikEkleViewModel.lat.value!!
                 val lng = etkinlikEkleViewModel.lng.value!!
-
                 val etkinlik =
                     Etkinlik(
                         ad,
                         aciklama,
                         binaAd,
                         iletisimBilgileri,
-                        1,
                         lat,
-                        lng
+                        lng,
+                        userList
+
+
                     )
                 sendToDB().sendEtkinlik(etkinlik)
                 if (::imageUriEtkinlik.isInitialized) {

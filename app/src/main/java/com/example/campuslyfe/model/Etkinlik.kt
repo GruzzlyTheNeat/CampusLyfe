@@ -9,7 +9,7 @@ data class Etkinlik(
     val etkinlilkAciklama: String? = null,
     val etkinlikAdres: String? = null,
     val etkinlikIletisimBilgisi: String? = null,
-    val etkinlikPoster: Int? = null,
     val etkinlikLat : Double? = null,
-    val etkinlikLng : Double? = null
-) : Parcelable
+    val etkinlikLng : Double? = null,
+    val etkinlikKatilimciListesi : ArrayList<User> ?=null
+    ) : Parcelable

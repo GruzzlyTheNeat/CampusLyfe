@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/eeeee"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="24dp"
+            android:orientation="vertical"
+            android:paddingBottom="120dp"
+            tools:context=".fragment.etkinlikler.KatilimciProfilFragment"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="@string/profil"
+            android:textColor="@color/black"
+            android:textSize="46sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/divider_overview"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/incehat" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/lightblue"
+            app:cardCornerRadius="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/eeeee"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/eeeee"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgKatilimci"
+                        android:layout_width="120dp"
+                        android:layout_height="125dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_baseline_person_24"
+                        app:civ_border_color="@color/eeeee" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/eeeee"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Typography.Bold"
+                            android:layout_width="98dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/ad_soyad"
+                            android:textColor="@color/darkblue" />
+
+                        <TextView
+                            android:id="@+id/tvAdKatilimci"
+                            style="@style/Typography"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+                            tools:text="Abdullah" />
+
+                        <TextView
+                            style="@style/Typography.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/bolum"
+                            android:textColor="@color/darkblue" />
+
+                        <TextView
+                            android:id="@+id/tvBolumKatilimci"
+                            style="@style/Typography"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+
+                            tools:text="Bilgisayar" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/eeeee"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                style="@style/Typography.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bilgi"
+                android:textColor="@color/darkblue" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:id="@+id/tvBilgiKatilimci"
+                    style="@style/Typography"
+                    android:layout_width="wrap_content"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                     />
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/buttonMesajGönder"
+                style="@style/Typography.Caption"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+
+
+                android:backgroundTint="@color/lightblue"
+                android:text="Mesaj Gönder"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

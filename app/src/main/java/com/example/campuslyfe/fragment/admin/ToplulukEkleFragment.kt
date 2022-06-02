@@ -75,7 +75,6 @@ class ToplulukEkleFragment : Fragment(),
                 val lng = toplulukEkleViewModel.lng.value!!
                 val topluluk =
                     Club(
-                        1,
                         ad,
                         aciklama,
                         binaAd,

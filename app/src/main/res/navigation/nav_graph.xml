@@ -71,6 +71,9 @@
         <action
             android:id="@+id/action_etkinlikDetayFragment_to_haritaFragment"
             app:destination="@id/haritaFragment" />
+        <action
+            android:id="@+id/action_etkinlikDetayFragment_to_etkinlikKatilimciListFragment"
+            app:destination="@id/etkinlikKatilimciListFragment" />
 
     </fragment>
     <fragment
@@ -154,4 +157,25 @@
         android:id="@+id/etkinlikSilFragment"
         android:name="com.example.campuslyfe.fragment.admin.EtkinlikSilFragment"
         android:label="EtkinlikSilFragment" />
+    <fragment
+        android:id="@+id/etkinlikKatilimciListFragment"
+        android:name="com.example.campuslyfe.fragment.etkinlikler.EtkinlikKatilimciListFragment"
+        android:label="fragment_etkinlik_katilimci_list"
+        tools:layout="@layout/fragment_etkinlik_katilimci_list" >
+        <argument
+            android:name="etkinlik"
+            app:argType="com.example.campuslyfe.model.Etkinlik" />
+        <action
+            android:id="@+id/action_etkinlikKatilimciListFragment_to_katilimciProfilFragment"
+            app:destination="@id/katilimciProfilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/katilimciProfilFragment"
+        android:name="com.example.campuslyfe.fragment.etkinlikler.KatilimciProfilFragment"
+        android:label="fragment_katilimci_profil"
+        tools:layout="@layout/fragment_katilimci_profil" >
+        <argument
+            android:name="user"
+            app:argType="com.example.campuslyfe.model.User" />
+    </fragment>
 </navigation>

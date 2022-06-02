@@ -17,6 +17,8 @@ import com.example.campuslyfe.R
 import com.example.campuslyfe.data.sendImgToDB
 import com.example.campuslyfe.data.sendToDB
 import com.example.campuslyfe.databinding.FragmentProfilUpdateBinding
+import com.example.campuslyfe.model.Club
+import com.example.campuslyfe.model.Etkinlik
 import com.example.campuslyfe.model.User
 import com.example.campuslyfe.utils.showToast
 import com.google.firebase.auth.FirebaseAuth
@@ -31,6 +33,8 @@ class ProfilUpdateFragment : Fragment() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var storageReference: StorageReference
     private lateinit var imageUri: Uri
+    private lateinit var etkinlikList : ArrayList<Etkinlik>
+    private lateinit var toplulukList : ArrayList<Club>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,18 +56,26 @@ class ProfilUpdateFragment : Fragment() {
                 pickImageFromGalery()
             }
         }
-
-        binding.ButtonKaydet.setOnClickListener {
+        val defaultEtkinlik  = Etkinlik("etkinlik Ad","etkinlik acıklama","etkinlik adres","iletişim bilgileri",2.6,4.6,
+            arrayListOf<User>())
+        val defaultTopluluk = Club("club ad","club discription","binaAd","contactInformation",5.2,6.4,
+            arrayListOf<User>())
+        etkinlikList = arrayListOf()
+        toplulukList = arrayListOf()
+        etkinlikList.add(defaultEtkinlik)
+        toplulukList.add(defaultTopluluk)
+            binding.ButtonKaydet.setOnClickListener {
             val adSoyad = binding.etAdSoyad.text.toString().trim()
             val bolum = binding.etBolum.text.toString().trim()
             val bilgi = binding.etBilgi.text.toString().trim()
-            val user = User(adSoyad, bolum, bilgi)
+            val user = User(uid.toString(),adSoyad, bolum, bilgi,etkinlikList,toplulukList)
 
             if (uid != null) {
 
-                findNavController().navigate(R.id.action_profilUpdateFragment_to_profilFragment)
                 if(::imageUri.isInitialized){
                     sendImgToDB().uploadImgUser(imageUri, uid.toString())
+                    findNavController().navigate(R.id.action_profilUpdateFragment_to_profilFragment)
+
                 }
                 else{
                     showToast("Lütfen resim seçiniz")

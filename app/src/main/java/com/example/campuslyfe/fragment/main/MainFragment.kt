@@ -24,7 +24,7 @@ class MainFragment : Fragment() {
             if (
                 uid.equals("wMLfENqBlkaLnotsKx0vCDHPpPO2") ||
                 uid.equals("s8HhtmBCsuWq5yVyyWFkBydgg9F3") ||
-                uid.equals("tqvhsEY7DZTFCJ7dXGVaz4NkJyV2")
+                uid.equals("dsN8PcOoIVMRkWtXMSUC6vGtvhb2")
             ) {
                 linearLayoutKontrol.visibility = View.VISIBLE
             }

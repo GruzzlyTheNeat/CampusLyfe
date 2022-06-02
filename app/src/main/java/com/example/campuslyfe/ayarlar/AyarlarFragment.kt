@@ -31,9 +31,7 @@ class AyarlarFragment : Fragment() {
                 startActivity(Intent(requireContext(), SignInActivity::class.java))
                 activity?.finish()
             }
-            cardViewProgramTanitimi.setOnClickListener {
 
-            }
             cardViewSifreDegistir.setOnClickListener {
                 findNavController().navigate(
                     AyarlarFragmentDirections.actionAyarlarFragmentToSifreDegistirFragment()

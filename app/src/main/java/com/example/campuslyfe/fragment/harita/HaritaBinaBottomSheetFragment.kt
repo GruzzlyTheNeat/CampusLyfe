@@ -18,7 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.database.*
 import com.google.gson.Gson
 
-class HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
+class  HaritaBinaBottomSheetFragment : BottomSheetDialogFragment(),
     EtkinlikPopUpRwAdapter.OnPopUpEtkinlikClickListener,
     ClubPopUpRwAdapter.OnClubPopUpListener {
 

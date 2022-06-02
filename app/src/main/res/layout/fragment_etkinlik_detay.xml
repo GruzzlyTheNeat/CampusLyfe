@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Typography.Bold"
                 android:layout_marginTop="12dp"
-                android:text="İletişim Bilgileri"
+                android:text="Yol Tarifi"
                 app:layout_constraintTop_toBottomOf="@id/etkinlikIletisim"
 
                 ></TextView>
@@ -154,7 +154,80 @@
                 ></fragment>
 
 
+            <TextView
+                android:id="@+id/tvKatilma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Katılacak Mısınız ? Evet/Hayır"
+                app:layout_constraintTop_toBottomOf="@id/etkinlikMapDetail"
+                style="@style/Typography.Bold"
+
+                >
+
+
+            </TextView>
+
+            <RadioGroup
+                android:id="@+id/rgEtkinlikKatilma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tvKatilma"
+
+
+
+                >
+
+                <RadioButton
+                    android:id="@+id/rbEtkinlikKatilma"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:text="Evet"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="50dp"
+                    android:paddingLeft="12dp"
+                    android:background="@drawable/button"
+                    style="@style/Typography.Bold"
+                    android:buttonTint="@color/black"
+                    ></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rbEtkinlikKatilmama"
+                    style="@style/Typography.Bold"
+                    android:layout_width="120dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="40dp"
+                    android:paddingLeft="12dp"
+                    contentPaddingLeft="10dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@drawable/button"
+                    android:buttonTint="@color/black"
+                    android:text="Hayır"></RadioButton>
+
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/etkinlikKatilimcilar"
+                style="@style/Typography.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:text="Katılımcıları Görüntüle"
+                app:layout_constraintRight_toRightOf="parent"
+                android:clickable="true"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/rgEtkinlikKatilma" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </androidx.core.widget.NestedScrollView>
 

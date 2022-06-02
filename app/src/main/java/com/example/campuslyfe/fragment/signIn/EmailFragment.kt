@@ -23,6 +23,7 @@ class EmailFragment : Fragment() {
         return FragmentEmailBinding.inflate(inflater, container, false).apply {
             viewModel = signInSignUpViewModel
             lifecycleOwner = viewLifecycleOwner
+            
 
             buttonDevamEtGiris.setOnClickListener {
                 if (signInSignUpViewModel.validateEmail.value != true) {
