@@ -177,5 +177,19 @@
         <argument
             android:name="user"
             app:argType="com.example.campuslyfe.model.User" />
+        <action
+            android:id="@+id/action_katilimciProfilFragment_to_katilinilanEtkinliklerFragment"
+            app:destination="@id/katilinilanEtkinliklerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/katilinilanEtkinliklerFragment"
+        android:name="com.example.campuslyfe.fragment.etkinlikler.KatilinilanEtkinliklerFragment"
+        android:label="KatilinilanEtkinliklerFragment" >
+        <action
+            android:id="@+id/action_katilinilanEtkinliklerFragment_to_etkinlikDetayFragment"
+            app:destination="@id/etkinlikDetayFragment" />
+        <argument
+            android:name="userEtkinlik"
+            app:argType="com.example.campuslyfe.model.User" />
     </fragment>
 </navigation>
