@@ -50,8 +50,8 @@ class EtkinlikKatilimciListFragment : Fragment() {
                         userRealList = ArrayList(userList).apply {
                             removeAt(0)
                         }
-                        val userAdapter = KatilimciRwAdapter(userRealList)
                         recyclerViewUser.apply {
+                            val userAdapter = KatilimciRwAdapter(userRealList)
                             adapter = userAdapter
                             layoutManager = LinearLayoutManager(requireContext())
                         }
